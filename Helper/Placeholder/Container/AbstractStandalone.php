@@ -19,29 +19,20 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
- * @namespace
- */
 namespace Zend\View\Helper\Placeholder\Container;
 
-use Zend\View\Helper\Placeholder\Registry,
-    Zend\View\Exception;
+use Zend\View\Helper\Placeholder\Registry;
+use Zend\View\Exception;
 
 /**
  * Base class for targetted placeholder helpers
  *
- * @uses       ArrayAccess
- * @uses       Countable
- * @uses       IteratorAggregate
- * @uses       \Zend\View\Exception
- * @uses       \Zend\View\Helper\AbstractHelper
- * @uses       \Zend\View\Helper\Placeholder\Registry
  * @package    Zend_View
  * @subpackage Helper
  * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Standalone
+abstract class AbstractStandalone
     extends \Zend\View\Helper\AbstractHelper
     implements \IteratorAggregate, \Countable, \ArrayAccess
 {
@@ -93,7 +84,7 @@ abstract class Standalone
      * Set registry object
      *
      * @param  \Zend\View\Helper\Placeholder\Registry $registry
-     * @return \Zend\View\Helper\Placeholder\Container\Standalone
+     * @return \Zend\View\Helper\Placeholder\Container\AbstractStandalone
      */
     public function setRegistry(Registry $registry)
     {
@@ -105,7 +96,7 @@ abstract class Standalone
      * Set whether or not auto escaping should be used
      *
      * @param  bool $autoEscape whether or not to auto escape output
-     * @return \Zend\View\Helper\Placeholder\Container\Standalone
+     * @return \Zend\View\Helper\Placeholder\Container\AbstractStandalone
      */
     public function setAutoEscape($autoEscape = true)
     {
@@ -132,7 +123,7 @@ abstract class Standalone
     protected function _escape($string)
     {
         $enc = 'UTF-8';
-        if ($this->view instanceof \Zend\View\Renderer
+        if ($this->view instanceof \Zend\View\Renderer\RendererInterface
             && method_exists($this->view, 'getEncoding')
         ) {
             $enc = $this->view->getEncoding();
@@ -145,7 +136,7 @@ abstract class Standalone
      * Set container on which to operate
      *
      * @param  \Zend\View\Helper\Placeholder\Container\AbstractContainer $container
-     * @return \Zend\View\Helper\Placeholder\Container\Standalone
+     * @return \Zend\View\Helper\Placeholder\Container\AbstractStandalone
      */
     public function setContainer(AbstractContainer $container)
     {
