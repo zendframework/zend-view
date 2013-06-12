@@ -14,7 +14,7 @@ use Zend\View;
 use Zend\View\Exception;
 
 /**
- * Zend\View\Helper\HeadMeta
+ * Zend_Layout_View_Helper_HeadMeta
  *
  * @see http://www.w3.org/TR/xhtml1/dtds.html
  */
