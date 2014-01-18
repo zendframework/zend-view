@@ -15,7 +15,7 @@ use Zend\View\Model\ModelInterface as Model;
 use Zend\View\Resolver\ResolverInterface as Resolver;
 
 /**
- * Class for Zend\View\Strategy\FeedStrategy compatible template engine implementations
+ * Interface class for Zend_View compatible template engine implementations
  */
 class FeedRenderer implements RendererInterface
 {

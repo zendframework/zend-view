@@ -12,7 +12,7 @@ namespace Zend\View;
 use ArrayObject;
 
 /**
- * Class for Zend\View\Renderer\PhpRenderer to help enforce private constructs.
+ * Abstract class for Zend_View to help enforce private constructs.
  *
  * @todo       Allow specifying string names for manager, filter chain, variables
  * @todo       Move escaping into variables object

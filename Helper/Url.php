@@ -35,7 +35,7 @@ class Url extends AbstractHelper
     protected $routeMatch;
 
     /**
-     * Generates a url given the name of a route.
+     * Generates an url given the name of a route.
      *
      * @see    Zend\Mvc\Router\RouteInterface::assemble()
      * @param  string               $name               Name of the route
