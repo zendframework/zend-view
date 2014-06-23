@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -107,11 +107,12 @@ class Breadcrumbs extends AbstractHelper
         if ($this->getLinkLast()) {
             $html = $this->htmlify($active);
         } else {
-            /** @var \Zend\View\Helper\EscapeHtml $escaper */
+            $html = $active->getLabel();
+            if (null !== ($translator = $this->getTranslator())) {
+                $html = $translator->translate($html, $this->getTranslatorTextDomain());
+            }
             $escaper = $this->view->plugin('escapeHtml');
-            $html    = $escaper(
-                $this->translate($active->getLabel(), $active->getTextDomain())
-            );
+            $html    = $escaper($html);
         }
 
         // walk back to root
@@ -171,10 +172,7 @@ class Breadcrumbs extends AbstractHelper
         }
 
         // put breadcrumb pages in model
-        $model = array(
-            'pages' => array(),
-            'separator' => $this->getSeparator()
-        );
+        $model  = array('pages' => array());
         $active = $this->findActive($container);
         if ($active) {
             $active = $active['page'];
@@ -196,9 +194,6 @@ class Breadcrumbs extends AbstractHelper
             $model['pages'] = array_reverse($model['pages']);
         }
 
-        /** @var \Zend\View\Helper\Partial $partialHelper */
-        $partialHelper = $this->view->plugin('partial');
-
         if (is_array($partial)) {
             if (count($partial) != 2) {
                 throw new Exception\InvalidArgumentException(
@@ -208,9 +203,11 @@ class Breadcrumbs extends AbstractHelper
                 );
             }
 
-            return $partialHelper($partial[0], $model);
+            $partialHelper = $this->view->plugin('partial');
+            return $partialHelper($partial[0], /*$partial[1], */$model);
         }
 
+        $partialHelper = $this->view->plugin('partial');
         return $partialHelper($partial, $model);
     }
 

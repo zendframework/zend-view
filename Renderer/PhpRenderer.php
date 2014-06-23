@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -22,7 +22,7 @@ use Zend\View\Resolver\TemplatePathStack;
 use Zend\View\Variables;
 
 /**
- * Class for Zend\View\Strategy\PhpRendererStrategy to help enforce private constructs.
+ * Abstract class for Zend_View to help enforce private constructs.
  *
  * Note: all private variables in this class are prefixed with "__". This is to
  * mark them as part of the internal implementation, and thus prevent conflict
@@ -164,7 +164,8 @@ class PhpRenderer implements Renderer, TreeRendererInterface
     }
 
     /**
-     * Allow custom object initialization when extending PhpRenderer
+     * Allow custom object initialization when extending Zend_View_Abstract or
+     * Zend_View
      *
      * Triggered by {@link __construct() the constructor} as its final action.
      *
@@ -503,18 +504,11 @@ class PhpRenderer implements Renderer, TreeRendererInterface
             }
             try {
                 ob_start();
-                $includeReturn = include $this->__file;
+                include $this->__file;
                 $this->__content = ob_get_clean();
             } catch (\Exception $ex) {
                 ob_end_clean();
                 throw $ex;
-            }
-            if ($includeReturn === false && empty($this->__content)) {
-                throw new Exception\UnexpectedValueException(sprintf(
-                    '%s: Unable to render template "%s"; file include failed',
-                    __METHOD__,
-                    $this->__file
-                ));
             }
         }
 

@@ -3,7 +3,7 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
+ * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
@@ -19,14 +19,14 @@ use Zend\View\Exception;
  * @see http://www.w3.org/TR/xhtml1/dtds.html
  *
  * Creates the following virtual methods:
- * @method HeadLink appendStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = array())
- * @method HeadLink offsetSetStylesheet($index, $href, $media = 'screen', $conditionalStylesheet = '', $extras = array())
- * @method HeadLink prependStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = array())
- * @method HeadLink setStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = array())
- * @method HeadLink appendAlternate($href, $type, $title, $extras = array())
- * @method HeadLink offsetSetAlternate($index, $href, $type, $title, $extras = array())
- * @method HeadLink prependAlternate($href, $type, $title, $extras = array())
- * @method HeadLink setAlternate($href, $type, $title, $extras = array())
+ * @method HeadLink appendStylesheet($href, $media, $conditionalStylesheet, $extras)
+ * @method HeadLink offsetSetStylesheet($index, $href, $media, $conditionalStylesheet, $extras)
+ * @method HeadLink prependStylesheet($href, $media, $conditionalStylesheet, $extras)
+ * @method HeadLink setStylesheet($href, $media, $conditionalStylesheet, $extras)
+ * @method HeadLink appendAlternate($href, $type, $title, $extras)
+ * @method HeadLink offsetSetAlternate($index, $href, $type, $title, $extras)
+ * @method HeadLink prependAlternate($href, $type, $title, $extras)
+ * @method HeadLink setAlternate($href, $type, $title, $extras)
  */
 class HeadLink extends Placeholder\Container\AbstractStandalone
 {
@@ -304,11 +304,7 @@ class HeadLink extends Placeholder\Container\AbstractStandalone
             && !empty($attributes['conditionalStylesheet'])
             && is_string($attributes['conditionalStylesheet']))
         {
-            // inner wrap with comment end and start if !IE
-            if (str_replace(' ', '', $attributes['conditionalStylesheet']) === '!IE') {
-                $link = '<!-->' . $link . '<!--';
-            }
-            $link = '<!--[if ' . $attributes['conditionalStylesheet'] . ']>' . $link . '<![endif]-->';
+            $link = '<!--[if ' . $attributes['conditionalStylesheet'] . ']> ' . $link . '<![endif]-->';
         }
 
         return $link;
