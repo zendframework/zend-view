@@ -10,10 +10,9 @@
 namespace Zend\View\Exception;
 
 /**
- * Bad method call exception
+ * Unexpected value exception
  */
-class BadMethodCallException
-    extends \BadMethodCallException
-    implements ExceptionInterface
+class UnexpectedValueException extends \UnexpectedValueException implements
+    ExceptionInterface
 {
 }
