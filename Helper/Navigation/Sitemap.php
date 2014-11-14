@@ -290,6 +290,7 @@ class Sitemap extends AbstractHelper
         }
 
         if (! in_array($url, $this->urls)) {
+
             $this->urls[] = $url;
             return $this->xmlEscape($url);
         }
