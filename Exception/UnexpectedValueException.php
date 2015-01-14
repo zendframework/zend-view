@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\View\Helper\Placeholder;
+namespace Zend\View\Exception;
 
 /**
- * Container for placeholder values
+ * Unexpected value exception
  */
-class Container extends Container\AbstractContainer
+class UnexpectedValueException extends \UnexpectedValueException implements ExceptionInterface
 {
 }
