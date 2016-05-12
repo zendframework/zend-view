@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>The PhpRenderer - zend-view</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../helpers/intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#the-phprenderer">The PhpRenderer</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
+        
+            <li><a href="#options-and-configuration">Options and Configuration</a></li>
+        
+            <li><a href="#additional-methods">Additional Methods</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../quick-start/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../view-scripts/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Rendering Views &raquo;</li>
+      
+    
+  
+  <li class="active">The PhpRenderer</li>
+</ol>
+
+<h1 id="the-phprenderer">The PhpRenderer</h1>
+<p><code>Zend\View\Renderer\PhpRenderer</code> "renders" view scripts written in PHP,
+capturing and returning the output. It composes Variable containers and/or View
+Models, a helper plugin manager for <a href="../helpers/intro/">helpers</a>, and optional
+filtering of the captured output.</p>
+<p>The <code>PhpRenderer</code> is template-system agnostic; you may use PHP as your template
+language, or create instances of other template systems and manipulate them
+within your view script. Anything you can do with PHP is available to you.</p>
+<h2 id="usage">Usage</h2>
+<p>Basic usage consists of instantiating or otherwise obtaining an instance of the
+<code>PhpRenderer</code>, providing it with a resolver which will resolve templates to PHP
+view scripts, and then calling its <code>render()</code> method.</p>
+<p>Instantiating a renderer:</p>
+<pre class="codehilite"><code class="language-php">use Zend\View\Renderer\PhpRenderer;
+
+$renderer = new PhpRenderer();</code></pre>
+
+
+<p>zend-view ships with several types of "resolvers", which are used to resolve a
+template name to a resource a renderer can consume. The ones we will usually use
+with the <code>PhpRenderer</code> are:</p>
+<ul>
+<li><code>Zend\View\Resolver\TemplateMapResolver</code>, which simply maps template names
+  directly to view scripts.</li>
+<li><code>Zend\View\Resolver\TemplatePathStack</code>, which creates a LIFO stack of script
+  directories in which to search for a view script. By default, it appends the
+  suffix <code>.phtml</code> to the requested template name, and then loops through the
+  script directories; if it finds a file matching the requested template, it
+  returns the full file path.</li>
+<li><code>Zend\View\Resolver\RelativeFallbackResolver</code>, which allows using short
+  template name into partial rendering. It is used as wrapper for each of two
+  aforesaid resolvers. For example, this allows usage of partial template paths
+  such as <code>my/module/script/path/my-view/some/partial.phtml</code>, while rendering
+  template <code>my/module/script/path/my-view</code> by short name <code>some/partial</code>.</li>
+<li><code>Zend\View\Resolver\AggregateResolver</code>, which allows attaching a FIFO queue of
+  resolvers to consult.</li>
+</ul>
+<p>We suggest using the <code>AggregateResolver</code>, as it allows you to create a
+multi-tiered strategy for resolving template names.</p>
+<p>Programmatically, you would then do something like this:</p>
+<pre class="codehilite"><code class="language-php">use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Resolver;
+
+$renderer = new PhpRenderer();
+
+$resolver = new Resolver\AggregateResolver();
+
+$renderer-&gt;setResolver($resolver);
+
+$map = new Resolver\TemplateMapResolver([
+    'layout'      =&gt; __DIR__ . '/view/layout.phtml',
+    'index/index' =&gt; __DIR__ . '/view/index/index.phtml',
+]);
+$stack = new Resolver\TemplatePathStack([
+    'script_paths' =&gt; [
+        __DIR__ . '/view',
+        $someOtherPath
+    ],
+]);
+
+// Attach resolvers to the aggregate:
+$resolver
+    -&gt;attach($map)    // this will be consulted first, and is the fastest lookup
+    -&gt;attach($stack)  // filesystem-based lookup
+    -&gt;attach(new Resolver\RelativeFallbackResolver($map) // allow short template names
+    -&gt;attach(new Resolver\RelativeFallbackResolver($stack);</code></pre>
+
+
+<p>You can also specify a specific priority value when registering resolvers, with
+high, positive integers getting higher priority, and low, negative integers
+getting low priority, when resolving.</p>
+<p>If you are started your application via the <a href="https://github.com/zendframework/ZendSkeletonApplication">skeleton
+application</a>, you can
+provide the above via configuration:</p>
+<pre class="codehilite"><code class="language-php">// In the Applicatoin module configuration
+// (module/Application/config/module.config.php):
+return [
+    'view_manager' =&gt; [
+        'template_map' =&gt; [
+            'layout'      =&gt; __DIR__ . '/../view/layout.phtml',
+            'index/index' =&gt; __DIR__ . '/../view/index/index.phtml',
+        ],
+        'template_path_stack' =&gt; [
+            'application' =&gt; __DIR__ . '/../view',
+        ],
+    ],
+];</code></pre>
+
+
+<p>If you did not begin with the skeleton application, you will need to write your
+own factories for creating each resolver and wiring them to the
+<code>AggregateResolver</code> and injecting into the <code>PhpRenderer</code>.</p>
+<p>Now that we have our <code>PhpRenderer</code> instance, and it can find templates, let's
+inject some variables. This can be done in 4 different ways.</p>
+<ul>
+<li>Pass an associative array (or <code>ArrayAccess</code> instance, or <code>Zend\View\Variables</code>
+  instance) of items as the second argument to <code>render()</code>:
+  <code>$renderer-&gt;render($templateName, array('foo' =&amp;gt; 'bar))</code></li>
+<li>Assign a <code>Zend\View\Variables</code> instance, associative array, or <code>ArrayAccess</code>
+  instance to the <code>setVars()</code> method.</li>
+<li>Assign variables as instance properties of the renderer: <code>$renderer-&gt;foo =
+  'bar'</code>. This essentially proxies to an instance of <code>Variables</code> composed
+  internally in the renderer by default.</li>
+<li>Create a <code>ViewModel</code> instance, assign variables to that, and pass the
+  <code>ViewModel</code> to the <code>render()</code> method:</li>
+</ul>
+<p>As an example of the latter:</p>
+<pre class="codehilite"><code class="language-php">use Zend\View\Model\ViewModel;
+use Zend\View\Renderer\PhpRenderer;
+
+$renderer = new PhpRenderer();
+
+$model    = new ViewModel();
+$model-&gt;setVariable('foo', 'bar');
+// or
+$model = new ViewModel(['foo' =&gt; 'bar']);
+
+$model-&gt;setTemplate($templateName);
+$renderer-&gt;render($model);</code></pre>
+
+
+<p>Now, let's render something. As an example, let us say you have a list of
+book data.</p>
+<pre class="codehilite"><code class="language-php">// use a model to get the data for book authors and titles.
+$data = [
+    [
+        'author' =&gt; 'Hernando de Soto',
+        'title' =&gt; 'The Mystery of Capitalism',
+    ],
+    [
+        'author' =&gt; 'Henry Hazlitt',
+        'title' =&gt; 'Economics in One Lesson',
+    ],
+    [
+        'author' =&gt; 'Milton Friedman',
+        'title' =&gt; 'Free to Choose',
+    ],
+];
+
+// now assign the book data to a renderer instance
+$renderer-&gt;books = $data;
+
+// and render the template &quot;booklist&quot;
+echo $renderer-&gt;render('booklist');</code></pre>
+
+
+<p>More often than not, you'll likely be using the MVC layer. As such, you should
+be thinking in terms of view models. Let's consider the following code from
+within an action method of a controller.</p>
+<pre class="codehilite"><code class="language-php">namespace Bookstore\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+
+class BookController extends AbstractActionController
+{
+    public function listAction()
+    {
+        // do some work...
+
+        // Assume $data is the list of books from the previous example
+        $model = new ViewModel(['books' =&gt; $data]);
+
+        // Optionally specify a template; if we don't, by default it will be
+        // auto-determined based on the module name, controller name and this action.
+        // In this example, the template would resolve to &quot;bookstore/book/list&quot;,
+        // and thus the file &quot;bookstore/book/list.phtml&quot;; the following overrides
+        // that to set the template to &quot;booklist&quot;, and thus the file &quot;booklist.phtml&quot;
+        // (note the lack of directory preceding the filename).
+        $model-&gt;setTemplate('booklist');
+
+        return $model
+    }
+}</code></pre>
+
+
+<p>This will then be rendered as if the following were executed:</p>
+<pre class="codehilite"><code class="language-php">$renderer-&gt;render($model);</code></pre>
+
+
+<p>Now we need the associated view script. At this point, we'll assume that the
+template <code>booklist</code> resolves to the file <code>booklist.phtml</code>. This is a PHP script
+like any other, with one exception: it executes inside the scope of the
+<code>PhpRenderer</code> instance, which means that references to <code>$this</code> point to the
+<code>PhpRenderer</code> instance properties and methods. Thus, a very basic view script
+could look like this:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php if ($this-&gt;books): ?&gt;
+
+    &lt;!-- A table of some books. --&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Author&lt;/th&gt;
+            &lt;th&gt;Title&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;?php foreach ($this-&gt;books as $key =&gt; $val): ?&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;?= $this-&gt;escapeHtml($val['author']) ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $this-&gt;escapeHtml($val['title']) ?&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;?php endforeach; ?&gt;
+
+    &lt;/table&gt;
+
+&lt;?php else: ?&gt;
+
+    &lt;p&gt;There are no books to display.&lt;/p&gt;
+
+&lt;?php endif;?&gt;</code></pre>
+
+
+<blockquote>
+<h3 id="escape-output">Escape Output</h3>
+<p>The security mantra is "Filter input, escape output." If you are unsure of the
+source of a given variable &mdash; which is likely most of the time &mdash;
+you should escape it based on which HTML context it is being injected into.
+The primary contexts to be aware of are HTML Body, HTML Attribute, Javascript,
+CSS and URI. Each context has a dedicated helper available to apply the
+escaping strategy most appropriate to each context. You should be aware that
+escaping does vary significantly between contexts; there is no one single
+escaping strategy that can be globally applied.  In the example above, there
+are calls to an <code>escapeHtml()</code> method. The method is actually
+<a href="../helpers/intro/">a helper</a>, a plugin available via method overloading.
+Additional escape helpers provide the <code>escapeHtmlAttr()</code>, <code>escapeJs()</code>,
+<code>escapeCss()</code>, and <code>escapeUrl()</code> methods for each of the HTML contexts you are
+most likely to encounter. By using the provided helpers and being aware of
+your variables' contexts, you will prevent your templates from running afoul
+of <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">Cross-Site Scripting (XSS)</a>
+vulnerabilities.</p>
+</blockquote>
+<p>We've now toured the basic usage of the <code>PhpRenderer</code>. By now you should know
+how to instantiate the renderer, provide it with a resolver, assign variables
+and/or create view models, create view scripts, and render view scripts.</p>
+<h2 id="options-and-configuration">Options and Configuration</h2>
+<p><code>Zend\View\Renderer\PhpRenderer</code> utilizes several collaborators in order to do
+its work. Use the following methods to configure the renderer.</p>
+<p>Unless otherwise noted, class names are relative to the <code>Zend\View</code> namespace.</p>
+<h3 id="sethelperpluginmanager">setHelperPluginManager</h3>
+<pre class="codehilite"><code class="language-php">setHelperPluginManager(string|HelperPluginManager $helpers): void</code></pre>
+
+
+<p>Set the helper plugin manager instance used to load, register, and retrieve
+<a href="../helpers/intro/">helpers</a>.</p>
+<h3 id="setresolver">setResolver</h3>
+<pre class="codehilite"><code class="language-php">setResolver(Resolver\\ResolverInterface $resolver) : void</code></pre>
+
+
+<p>Set the resolver instance.</p>
+<h3 id="setfilterchain">setFilterChain</h3>
+<pre class="codehilite"><code class="language-php">setFilterChain(\Zend\Filter\FilterChain $filters) : void</code></pre>
+
+
+<p>Set a filter chain to use as an output filter on rendered content.</p>
+<h3 id="setvars">setVars</h3>
+<pre class="codehilite"><code class="language-php">setVars(array|\ArrayAccess|Variables $variables) : void</code></pre>
+
+
+<p>Set the variables to use when rendering a view script/template.</p>
+<h3 id="setcanrendertrees">setCanRenderTrees</h3>
+<pre class="codehilite"><code class="language-php">setCanRenderTrees(boolean $canRenderTrees) : void</code></pre>
+
+
+<p>Set the flag indicating whether or not we should render trees of view models. If
+set to true, the <code>Zend\View\View</code> instance will not attempt to render children
+separately, but instead pass the root view model directly to the <code>PhpRenderer</code>.
+It is then up to the developer to render the children from within the view
+script. This is typically done using the <code>RenderChildModel</code> helper:
+<code>$this-&gt;renderChildModel('child_name')</code>.</p>
+<h2 id="additional-methods">Additional Methods</h2>
+<p>Typically, you'll only ever access variables and <a href="../helpers/intro/">helpers</a>
+within your view scripts or when interacting with the <code>PhpRenderer</code>. However,
+there are a few additional methods you may be interested in.</p>
+<p>Unless otherwise noted, class names are relative to the <code>Zend\View</code> namespace.</p>
+<h3 id="render">render</h3>
+<pre class="codehilite"><code class="language-php">render(
+    string|Model\ModelInterface $nameOrModel,
+    array|\Traversable $values = null
+) : string</code></pre>
+
+
+<p>Render a template/view model.</p>
+<p>If <code>$nameOrModel</code> is a string, it is assumed to be a template name. That
+template will be resolved using the current resolver, and then rendered.</p>
+<p>If <code>$values</code> is non-null, those values, and those values only, will be used
+during rendering, and will replace whatever variable container previously was in
+the renderer; however, the previous variable container will be reset when done.</p>
+<p>If <code>$values</code> is empty, the current variables container (see <a href="#setvars">setVars()</a>)
+will be injected when rendering.</p>
+<p>If <code>$nameOrModel</code> is a <code>ModelInterface</code> instance, the template name will be
+retrieved from it and used.  Additionally, if the model contains any variables,
+these will be used when rendering; otherwise, the variables container already
+present, if any, will be used.</p>
+<p>The method returns the script output.</p>
+<h3 id="resolver">resolver</h3>
+<pre class="codehilite"><code class="language-php">resolver() : Resolver\ResolverInterface</code></pre>
+
+
+<p>Retrieves the current <code>Resolver</code> instance.</p>
+<h3 id="vars">vars</h3>
+<pre class="codehilite"><code class="language-php">vars(string $key = null) : mixed</code></pre>
+
+
+<p>Retrieve a single variable from the container if a key is provided; otherwise it
+will return the variables container.</p>
+<h3 id="plugin">plugin</h3>
+<pre class="codehilite"><code class="language-php">plugin(string $name, array $options = null) : Helper\HelperInterface</code></pre>
+
+
+<p>Retrieve a plugin/helper instance. Proxies to the plugin manager's <code>get()</code>
+method; as such, any <code>$options</code> you pass will be passed to the plugin's
+constructor if this is the first time the plugin has been retrieved. See the
+section on <a href="../helpers/intro/">helpers</a> for more information.</p>
+<h3 id="addtemplate">addTemplate</h3>
+<pre class="codehilite"><code class="language-php">addTemplate(string $template) : void</code></pre>
+
+
+<p>Add a template to the stack. When used, the next call to <code>render()</code> will loop
+through all templates added using this method, rendering them one by one; the
+output of the last will be returned.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../quick-start/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../view-scripts/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

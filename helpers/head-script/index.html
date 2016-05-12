@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>HeadScript - zend-view</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/zf.css" rel="stylesheet">
+    <link href="../../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="../..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#headscript">HeadScript</a></li>
+        
+            <li><a href="#setting-conditional-comments">Setting Conditional Comments</a></li>
+        
+            <li><a href="#preventing-html-style-comments-or-cdata-wrapping-of-scripts">Preventing HTML style comments or CDATA wrapping of scripts</a></li>
+        
+            <li><a href="#use-inlinescript-for-html-body-scripts">Use InlineScript for HTML Body Scripts</a></li>
+        
+            <li><a href="#arbitrary-attributes-are-disabled-by-default">Arbitrary Attributes are Disabled by Default</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+            <li><a href="#capturing-scripts">Capturing Scripts</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../head-meta/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../head-style/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="../..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Helpers &raquo;</li>
+      
+    
+  
+  <li class="active">HeadScript</li>
+</ol>
+
+<h1 id="headscript">HeadScript</h1>
+<p>The HTML <code>&lt;script&gt;</code> element is used to either provide inline client-side
+scripting elements or link to a remote resource containing client-side scripting
+code. The <code>HeadScript</code> helper allows you to manage both.</p>
+<p>The <code>HeadScript</code> helper supports the following methods for setting and adding scripts:</p>
+<ul>
+<li><code>appendFile($src, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>offsetSetFile($index, $src, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>prependFile($src, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>setFile($src, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>appendScript($script, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>offsetSetScript($index, $script, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>prependScript($script, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>setScript($script, $type = 'text/javascript', $attrs = array())</code></li>
+</ul>
+<p>In the case of the <code>*File()</code> methods, <code>$src</code> is the remote location of the
+script to load; this is usually in the form of a URL or a path. For the
+<code>*Script()</code> methods, <code>$script</code> is the client-side scripting directives you wish
+to use in the element.</p>
+<blockquote>
+<h3 id="setting-conditional-comments">Setting Conditional Comments</h3>
+<p><code>HeadScript</code> allows you to wrap the script tag in conditional comments, which
+allows you to hide it from specific browsers. To add the conditional tags,
+pass the conditional value as part of the <code>$attrs</code> parameter in the method
+calls.</p>
+<pre class="codehilite"><code class="language-php">// adding scripts
+$this-&gt;headScript()-&gt;appendFile(
+    '/js/prototype.js',
+    'text/javascript',
+    ['conditional' =&gt; 'lt IE 7']
+);</code></pre>
+
+
+<h3 id="preventing-html-style-comments-or-cdata-wrapping-of-scripts">Preventing HTML style comments or CDATA wrapping of scripts</h3>
+<p>By default, <code>HeadScript</code> will wrap scripts with HTML comments or it wraps
+scripts with XHTML CDATA.  This behavior can be problematic when you intend to
+use the script tag in an alternative way by setting the type to something
+other then <code>text/javascript</code>. To prevent such escaping, pass an <code>noescape</code>
+with a value of true as part of the <code>$attrs</code> parameter in the method calls.</p>
+<pre class="codehilite"><code class="language-php">// jquery template
+$template = '&lt;div class=&quot;book&quot;{{:title}}&lt;/div';
+
+$this-&gt;headScript()-&gt;appendScript(
+    $template,
+    'text/x-jquery-tmpl',
+    ['id' =&gt; 'tmpl-book', 'noescape' =&gt; true]
+);</code></pre>
+
+
+</blockquote>
+<p><code>HeadScript</code> also allows capturing scripts; this can be useful if you want to
+create the client-side script programmatically, and then place it elsewhere. The
+usage for this will be showed in an example below.</p>
+<p>Finally, you can also use the <code>headScript()</code> method to quickly add script
+elements; the signature for this is <code>headScript($mode = 'FILE', $spec = null,
+$placement = 'APPEND', array $attrs = [], $type = 'text/javascript')</code>. The
+<code>$mode</code> is either 'FILE' or 'SCRIPT', depending on if you're linking a script or
+defining one. <code>$spec</code> is either the script file to link or the script source
+itself. <code>$placement</code> should be either 'APPEND', 'PREPEND', or 'SET'. <code>$attrs</code> is
+an array of script attributes. <code>$type</code> is the script type attribute.</p>
+<p><code>HeadScript</code> overrides each of <code>append()</code>, <code>offsetSet()</code>, <code>prepend()</code>, and
+<code>set()</code> to enforce usage of the special methods as listed above. Internally, it
+stores each item as a <code>stdClass</code> token, which it later serializes using the
+<code>itemToString()</code> method. This allows you to perform checks on the items in the
+stack, and optionally modify these items by modifying the object returned.</p>
+<p>The <code>HeadScript</code> helper is a concrete implementation of the
+<a href="../placeholder/">Placeholder helper</a>.</p>
+<blockquote>
+<h3 id="use-inlinescript-for-html-body-scripts">Use InlineScript for HTML Body Scripts</h3>
+<p><code>HeadScript</code>'s sibling helper, <a href="../inline-script/">InlineScript</a>, should be
+used when you wish to include scripts inline in the HTML <strong>body</strong>. Placing
+scripts at the end of your document is a good practice for speeding up
+delivery of your page, particularly when using 3rd party analytics scripts.</p>
+<h3 id="arbitrary-attributes-are-disabled-by-default">Arbitrary Attributes are Disabled by Default</h3>
+<p>By default, <code>HeadScript</code> only will render <code>&lt;script&gt;</code> attributes that are blessed by the W3C.
+These include <code>type</code>, <code>charset</code>, <code>defer</code>, <code>language</code>, and <code>src</code>. However, some JavaScript
+frameworks, notably <a href="http://www.dojotoolkit.org/">Dojo</a>, utilize custom attributes in order to
+modify behavior. To allow such attributes, you can enable them via the
+<code>setAllowArbitraryAttributes()</code> method:</p>
+<pre class="codehilite"><code class="language-php">$this-&gt;headScript()-&gt;setAllowArbitraryAttributes(true);</code></pre>
+
+
+</blockquote>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>You may specify a new script tag at any time. As noted above, these may be links
+to outside resource files or scripts themselves.</p>
+<pre class="codehilite"><code class="language-php">// adding scripts
+$this-&gt;headScript()
+    -&gt;appendFile('/js/prototype.js')
+    -&gt;appendScript($onloadScript);</code></pre>
+
+
+<p>Order is often important with client-side scripting; you may need to ensure that
+libraries are loaded in a specific order due to dependencies each have; use the
+various <code>append</code>, <code>prepend</code>, and <code>offsetSet</code> directives to aid in this task:</p>
+<pre class="codehilite"><code class="language-php">// Putting scripts in order
+
+// place at a particular offset to ensure loaded last
+$this-&gt;headScript()-&gt;offsetSetFile(100, '/js/myfuncs.js');
+
+// use scriptaculous effects (append uses next index, 101)
+$this-&gt;headScript()-&gt;appendFile('/js/scriptaculous.js');
+
+// but always have base prototype script load first:
+$this-&gt;headScript()-&gt;prependFile('/js/prototype.js');</code></pre>
+
+
+<p>When you're finally ready to output all scripts in your layout script, simply
+echo the helper:</p>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headScript() ?&gt;</code></pre>
+
+
+<h2 id="capturing-scripts">Capturing Scripts</h2>
+<p>Sometimes you need to generate client-side scripts programmatically. While you
+could use string concatenation, heredocs, and the like, often it's easier just
+to do so by creating the script and sprinkling in PHP tags. <code>HeadScript</code> lets
+you do just that, capturing it to the stack:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;headScript()-&gt;captureStart() ?&gt;
+var action = '&lt;?= $this-&gt;baseUrl ?&gt;';
+$('foo_form').action = action;
+&lt;?php $this-&gt;headScript()-&gt;captureEnd() ?&gt;</code></pre>
+
+
+<p>The following assumptions are made:</p>
+<ul>
+<li>The script will be appended to the stack. If you wish for it to replace the
+  stack or be added to the top, you will need to pass 'SET' or 'PREPEND',
+  respectively, as the first argument to <code>captureStart()</code>.</li>
+<li>The script MIME type is assumed to be <code>text/javascript</code>; if you wish to
+  specify a different type, you will need to pass it as the second argument to
+  <code>captureStart()</code>.</li>
+<li>If you wish to specify any additional attributes for the <code>&lt;script&gt;</code> tag, pass
+  them in an array as the third argument to <code>captureStart()</code>.</li>
+</ul>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../head-meta/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../head-style/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/prism-zf.js"></script>
+
+    <script>var base_url = '../..';</script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

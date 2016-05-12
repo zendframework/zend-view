@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>HeadStyle - zend-view</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/zf.css" rel="stylesheet">
+    <link href="../../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="../..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#headstyle">HeadStyle</a></li>
+        
+            <li><a href="#use-headlink-to-link-css-files">Use HeadLink to link CSS files</a></li>
+        
+            <li><a href="#setting-conditional-comments">Setting Conditional Comments</a></li>
+        
+            <li><a href="#utf-8-encoding-used-by-default">UTF-8 encoding used by default</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+            <li><a href="#capturing-style-declarations">Capturing Style Declarations</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../head-script/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../head-title/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="../..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Helpers &raquo;</li>
+      
+    
+  
+  <li class="active">HeadStyle</li>
+</ol>
+
+<h1 id="headstyle">HeadStyle</h1>
+<p>The HTML <code>&lt;style&gt;</code> element is used to include CSS stylesheets inline in the HTML
+<code>&lt;head&gt;</code> element.</p>
+<blockquote>
+<h3 id="use-headlink-to-link-css-files">Use HeadLink to link CSS files</h3>
+<p><a href="../head-link/">HeadLink</a> should be used to create <code>&lt;link&gt;</code> elements for
+including external stylesheets. <code>HeadStyle</code> is used when you wish to define
+your stylesheets inline.</p>
+</blockquote>
+<p>The <code>HeadStyle</code> helper supports the following methods for setting and adding stylesheet
+declarations:</p>
+<ul>
+<li><code>appendStyle($content, $attributes = array())</code></li>
+<li><code>offsetSetStyle($index, $content, $attributes = array())</code></li>
+<li><code>prependStyle($content, $attributes = array())</code></li>
+<li><code>setStyle($content, $attributes = array())</code></li>
+</ul>
+<p>In all cases, <code>$content</code> is the actual CSS declarations. <code>$attributes</code> are any
+additional attributes you wish to provide to the <code>style</code> tag: lang, title,
+media, or dir are all permissible.</p>
+<blockquote>
+<h3 id="setting-conditional-comments">Setting Conditional Comments</h3>
+<p><code>HeadStyle</code> allows you to wrap the style tag in conditional comments, which
+allows you to hide it from specific browsers. To add the conditional tags,
+pass the conditional value as part of the <code>$attributes</code> parameter in the
+method calls.</p>
+<pre class="codehilite"><code class="language-php">// adding comments
+$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></pre>
+
+
+</blockquote>
+<p><code>HeadStyle</code> also allows capturing style declarations; this can be useful if you
+want to create the declarations programmatically, and then place them elsewhere.
+The usage for this will be showed in an example below.</p>
+<p>Finally, you can also use the <code>headStyle()</code> method to quickly add declarations
+elements; the signature for this is <code>headStyle($content = null, $placement =
+'APPEND', $attributes = array())</code>.  <code>$placement</code> should be either <code>APPEND</code>,
+<code>PREPEND</code>, or <code>SET</code>.</p>
+<p><code>HeadStyle</code> overrides each of <code>append()</code>, <code>offsetSet()</code>, <code>prepend()</code>, and
+<code>set()</code> to enforce usage of the special methods as listed above. Internally, it
+stores each item as a <code>stdClass</code> token, which it later serializes using the
+<code>itemToString()</code> method. This allows you to perform checks on the items in the
+stack, and optionally modify these items by modifying the object returned.</p>
+<p>The <code>HeadStyle</code> helper is a concrete implementation of the
+<a href="../placeholder/">Placeholder helper</a>.</p>
+<blockquote>
+<h3 id="utf-8-encoding-used-by-default">UTF-8 encoding used by default</h3>
+<p>By default, zend-view uses <em>UTF-8</em> as its default encoding.  If you want to
+use another encoding with <code>headStyle</code>, you must:</p>
+<ol>
+<li>Create a custom renderer and implement a <code>getEncoding()</code> method;</li>
+<li>Create a custom rendering strategy that will return an instance of your custom renderer;</li>
+<li>Attach the custom strategy in the <code>ViewEvent</code>.</li>
+</ol>
+<p>First we have to write the custom renderer:</p>
+<pre class="codehilite"><code class="language-php">// module/MyModule/View/Renderer/MyRenderer.php
+namespace MyModule\View\Renderer;
+
+// Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
+use Zend\View\Renderer\PhpRenderer;
+
+class MyRenderer extends PhpRenderer
+{
+   /**
+    * @var string
+    */
+   protected $encoding;
+
+   /**
+    * Constructor
+    *
+    * @param  string $encoding The encoding to be used
+    */
+   public function __construct($encoding)
+   {
+      parent::__construct();
+      $this-&gt;encoding = $encoding;
+   }
+
+   /**
+    * Sets the encoding
+    *
+    * @param string $encoding The encoding to be used
+    */
+   public function setEncoding($encoding)
+   {
+      $this-&gt;encoding = $encoding;
+   }
+
+   /**
+    * Gets the encoding
+    *
+    * @return string The encoding being used
+    */
+   public function getEncoding()
+   {
+      return $this-&gt;encoding;
+   }
+}</code></pre>
+
+
+<p>Now we make some configuration in the module class:</p>
+<pre class="codehilite"><code class="language-php">// module/MyModule.php
+namespace MyModule;
+
+use MyModule\View\Renderer\MyRenderer;
+use Zend\Mvc\MvcEvent;
+use Zend\View\Strategy\PhpRendererStrategy;
+
+class Module
+{
+   public function getConfig(){/* ... */}
+
+   public function getAutoloaderConfig(){/* ... */}
+
+   public function getServiceConfig()
+   {
+      return [
+         'factories' =&gt; [
+            // Register our custom renderer in the container
+            'MyCustomRenderer' =&gt; function ($container) {
+               return new MyRenderer('ISO-8859-1');
+            },
+            'MyCustomStrategy' =&gt; function ($container) {
+               // As stated before, we just want to implement the
+               // getEncoding() method, so we can use the base PhpRendererStrategy
+               // and provide our custom renderer to it.
+               $myRenderer = $container-&gt;get('MyCustomRenderer');
+               return new PhpRendererStrategy($myRenderer);
+            },
+         ],
+      ];
+   }
+
+   public function onBootstrap(MvcEvent $e)
+   {
+      // Register a render event
+      $app = $e-&gt;getParam('application');
+      $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
+   }
+
+    public function registerMyStrategy(MvcEvent $e)
+    {
+        $app        = $e-&gt;getTarget();
+        $locator    = $app-&gt;getServiceManager();
+        $view       = $locator-&gt;get('Zend\View\View');
+        $myStrategy = $locator-&gt;get('MyCustomStrategy');
+
+        // Attach strategy, which is a listener aggregate, at high priority
+        $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
+    }
+}</code></pre>
+
+
+<p>See the quick start <a href="../../quick-start/#creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</a>
+chapter for more information on how to create and register custom strategies
+to your view.</p>
+</blockquote>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>You may specify a new style tag at any time:</p>
+<pre class="codehilite"><code class="language-php">// adding styles
+$this-&gt;headStyle()-&gt;appendStyle($styles);</code></pre>
+
+
+<p>Order is very important with CSS; you may need to ensure that declarations are
+loaded in a specific order due to the order of the cascade; use the various
+<code>append</code>, <code>prepend</code>, and <code>offsetSet</code> directives to aid in this task:</p>
+<pre class="codehilite"><code class="language-php">// Putting styles in order
+
+// place at a particular offset:
+$this-&gt;headStyle()-&gt;offsetSetStyle(100, $customStyles);
+
+// place at end:
+$this-&gt;headStyle()-&gt;appendStyle($finalStyles);
+
+// place at beginning
+$this-&gt;headStyle()-&gt;prependStyle($firstStyles);</code></pre>
+
+
+<p>When you're finally ready to output all style declarations in your layout
+script, echo the helper:</p>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headStyle() ?&gt;</code></pre>
+
+
+<h2 id="capturing-style-declarations">Capturing Style Declarations</h2>
+<p>Sometimes you need to generate CSS style declarations programmatically. While
+you could use string concatenation, heredocs, and the like, often it's easier
+just to do so by creating the styles and sprinkling in PHP tags. <code>HeadStyle</code>
+lets you do just that, capturing it to the stack:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;headStyle()-&gt;captureStart() ?&gt;
+body {
+    background-color: &lt;?= $this-&gt;bgColor ?&gt;;
+}
+&lt;?php $this-&gt;headStyle()-&gt;captureEnd() ?&gt;</code></pre>
+
+
+<p>The following assumptions are made:</p>
+<ul>
+<li>The style declarations will be appended to the stack. If you wish for them to
+  replace the stack or be added to the top, you will need to pass <code>SET</code> or
+  <code>PREPEND</code>, respectively, as the first argument to <code>captureStart()</code>.</li>
+<li>If you wish to specify any additional attributes for the <code>&lt;style&gt;</code> tag, pass
+  them in an array as the second argument to <code>captureStart()</code>.</li>
+</ul>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../head-script/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../head-title/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/prism-zf.js"></script>
+
+    <script>var base_url = '../..';</script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

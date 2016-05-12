@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>Partial - zend-view</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/zf.css" rel="stylesheet">
+    <link href="../../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="../..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../json/">Json</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#partial">Partial</a></li>
+        
+            <li><a href="#partialloop-counter">PartialLoop Counter</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+            <li><a href="#using-partialloop-to-render-iterable-models">Using PartialLoop to Render Iterable Models</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../json/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../placeholder/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="../..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Helpers &raquo;</li>
+      
+    
+  
+  <li class="active">Partial</li>
+</ol>
+
+<h1 id="partial">Partial</h1>
+<p>The <code>Partial</code> view helper is used to render a specified template within its own
+variable scope. The primary use is for reusable template fragments with which
+you do not need to worry about variable name clashes.</p>
+<p>A sibling to the <code>Partial</code>, the <code>PartialLoop</code> view helper allows you to pass
+iterable data, and render a partial for each item.</p>
+<blockquote>
+<h3 id="partialloop-counter">PartialLoop Counter</h3>
+<p>The <code>PartialLoop</code> view helper gives access to the current position of the
+array within the view script via <code>$this-&gt;partialLoop()-&gt;getPartialCounter()</code>.
+This provides a way to have alternating colors on table rows, for example.</p>
+</blockquote>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>Basic usage of partials is to render a template fragment in its own view scope.
+Consider the following partial script:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php // partial.phtml ?&gt;
+&lt;ul&gt;
+    &lt;li&gt;From: &lt;?= $this-&gt;escapeHtml($this-&gt;from) ?&gt;&lt;/li&gt;
+    &lt;li&gt;Subject: &lt;?= $this-&gt;escapeHtml($this-&gt;subject) ?&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+
+<p>You would then call it from your view script using the following:</p>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;partial('partial.phtml', [
+    'from' =&gt; 'Team Framework',
+    'subject' =&gt; 'view partials',
+]); ?&gt;</code></pre>
+
+
+<p>Which would then render:</p>
+<pre class="codehilite"><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;From: Team Framework&lt;/li&gt;
+    &lt;li&gt;Subject: view partials&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+
+<blockquote>
+<h3 id="what-is-a-model">What is a model?</h3>
+<p>A model used with the <code>Partial</code> view helper can be one of the following:</p>
+<ul>
+<li><strong><code>array</code></strong>: If an array is passed, it should be associative, as its key/value
+  pairs are assigned to &gt; the view with keys as view variables.</li>
+<li><strong>Object implementing <code>toArray(</code>) method</strong>. If an object is passed an has a
+  <code>toArray()</code> method, the results of <code>toArray()</code> will be assigned to the view
+  object as view variables.</li>
+<li><strong>Standard object</strong>. Any other object will assign the results of
+  <code>get_object_vars()</code> (essentially all public properties of the object) to the
+  view object.</li>
+</ul>
+<p>If your model is an object, you may want to have it passed <strong>as an object</strong> to
+the partial script, instead of serializing it to an array of variables. You
+can do this by setting the <code>objectKey</code> property of the appropriate helper:</p>
+<pre class="codehilite"><code class="language-php">// Tell partial to pass objects as 'model' variable
+$view-&gt;partial()-&gt;setObjectKey('model');
+
+// Tell partial to pass objects from partialLoop as 'model' variable
+// in final partial view script:
+$view-&gt;partialLoop()-&gt;setObjectKey('model');</code></pre>
+
+
+<p>This technique is particularly useful when passing
+<code>Zend\Db\ResultSet\ResultSet</code>s to <code>partialLoop()</code>, as you then have full
+access to your row objects within the view scripts, allowing you to call
+methods on them (such as retrieving values from parent or dependent rows).</p>
+</blockquote>
+<h2 id="using-partialloop-to-render-iterable-models">Using PartialLoop to Render Iterable Models</h2>
+<p>Typically, you'll want to use partials in a loop, to render the same content
+fragment many times; this way you can put large blocks of repeated content or
+complex display logic into a single location. However this has a performance
+impact, as the partial helper needs to be invoked once for each iteration.</p>
+<p>The <code>PartialLoop</code> view helper helps solve this issue. It allows you to pass an
+iterable item (array or object implementing <code>Iterator</code>) as the model. It then
+iterates over this, passing, the items to the partial script as the model. Items
+in the iterator may be any model the <code>Partial</code> view helper allows.</p>
+<p>Let's assume the following partial view script:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php // partialLoop.phtml ?&gt;
+    &lt;dt&gt;&lt;?= $this-&gt;key ?&gt;&lt;/dt&gt;
+    &lt;dd&gt;&lt;?= $this-&gt;value ?&gt;&lt;/dd&gt;</code></pre>
+
+
+<p>And the following "model":</p>
+<pre class="codehilite"><code class="language-php">$model = [
+    ['key' =&gt; 'Mammal', 'value' =&gt; 'Camel'],
+    ['key' =&gt; 'Bird', 'value' =&gt; 'Penguin'],
+    ['key' =&gt; 'Reptile', 'value' =&gt; 'Asp'],
+    ['key' =&gt; 'Fish', 'value' =&gt; 'Flounder'],
+];</code></pre>
+
+
+<p>In your view script, you could then invoke the <code>PartialLoop</code> helper:</p>
+<pre class="codehilite"><code class="language-php">&lt;dl&gt;
+&lt;?= $this-&gt;partialLoop('partialLoop.phtml', $model) ?&gt;
+&lt;/dl&gt;</code></pre>
+
+
+<p>Resulting in the following:</p>
+<pre class="codehilite"><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;Mammal&lt;/dt&gt;
+    &lt;dd&gt;Camel&lt;/dd&gt;
+
+    &lt;dt&gt;Bird&lt;/dt&gt;
+    &lt;dd&gt;Penguin&lt;/dd&gt;
+
+    &lt;dt&gt;Reptile&lt;/dt&gt;
+    &lt;dd&gt;Asp&lt;/dd&gt;
+
+    &lt;dt&gt;Fish&lt;/dt&gt;
+    &lt;dd&gt;Flounder&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../json/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../placeholder/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/prism-zf.js"></script>
+
+    <script>var base_url = '../..';</script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

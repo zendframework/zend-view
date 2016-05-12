@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title>Quick Start - zend-view</title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/zf.css" rel="stylesheet">
+    <link href="../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../helpers/intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../helpers/advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#quick-start">Quick Start</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#controllers-and-view-models">Controllers and View Models</a></li>
+        
+            <li><a href="#nesting-view-models">Nesting View Models</a></li>
+        
+            <li><a href="#dealing-with-layouts">Dealing with Layouts</a></li>
+        
+            <li><a href="#creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../php-renderer/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="..">Docs</a> &raquo;</li>
+  
+    
+  
+  <li class="active">Quick Start</li>
+</ol>
+
+<h1 id="quick-start">Quick Start</h1>
+<p>zend-view provides the "View" layer of Zend Framework 2's MVC system. It is a
+multi-tiered system allowing a variety of mechanisms for extension,
+substitution, and more.</p>
+<p>The components of the view layer are as follows:</p>
+<ul>
+<li><strong>Variables Containers</strong> hold variables and callbacks that you wish to
+  represent in the view.  Often-times, a Variables Container will also provide
+  mechanisms for context-specific escaping of variables and more.</li>
+<li><strong>View Models</strong> hold Variables Containers, specify the template to use (if
+  any), and optionally provide rendering options (more on that below). View
+  Models may be nested in order to represent complex structures.</li>
+<li><strong>Renderers</strong> take View Models and provide a representation of them to return.
+  zend-view ships with three renderers by default: a <code>PhpRenderer</code> which
+  utilizes PHP templates in order to generate markup, a <code>JsonRenderer</code>, and a
+  <code>FeedRenderer</code> for generating RSS and Atom feeds.</li>
+<li><strong>Resolvers</strong> utilize Resolver Strategies to resolve a template name to a
+  resource a Renderer may consume. As an example, a Resolver may take the name
+  "blog/entry" and resolve it to a PHP view script.</li>
+<li>The <strong>View</strong> consists of strategies that map the current Request to a
+  Renderer, and strategies for injecting the result of rendering to the
+  Response.</li>
+<li><strong>Rendering Strategies</strong> listen to the <code>Zend\View\ViewEvent::EVENT_RENDERER</code>
+  event of the View and decide which Renderer should be selected based on the
+  Request or other criteria.</li>
+<li><strong>Response Strategies</strong> are used to inject the Response object with the
+  results of rendering. That may also include taking actions such as setting
+  Content-Type headers.</li>
+</ul>
+<p>Additionally, zend-mvc integrates with zend-view via a number of event listeners
+in the <code>Zend\Mvc\View</code> namespace.</p>
+<p>This section of the manual is designed to show you typical usage patterns of the
+view layer when using it with <a href="https://zendframework.github.io/zend-mvc/">zend-mvc</a>.
+The assumption is that you are using the <a href="https://zendframework.github.io/zend-servicemanager/">service manager</a>
+and the default MVC view strategies.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The default configuration will typically work out-of-the-box. However, you will
+still need to select Resolver Strategies and configure them, as well as
+potentially indicate alternate template names for things like the site layout,
+404 (not found) pages, and error pages. The code snippets below can be added to
+your configuration to accomplish this. We recommend adding it to a
+site-specific module, such as the "Application" module from the framework's
+<a href="https://github.com/zendframework/ZendSkeletonApplication">ZendSkeletonApplication</a>,
+or to one of your autoloaded configurations within the <code>config/autoload/</code>
+directory.</p>
+<pre class="codehilite"><code class="language-php">return [
+    'view_manager' =&gt; [
+        // The TemplateMapResolver allows you to directly map template names
+        // to specific templates. The following map would provide locations
+        // for a home page template (&quot;application/index/index&quot;), as well as for
+        // the layout (&quot;layout/layout&quot;), error pages (&quot;error/index&quot;), and
+        // 404 page (&quot;error/404&quot;), resolving them to view scripts.
+        'template_map' =&gt; [
+            'application/index/index' =&gt; __DIR__ .  '/../view/application/index/index.phtml',
+            'site/layout'             =&gt; __DIR__ . '/../view/layout/layout.phtml',
+            'error/index'             =&gt; __DIR__ . '/../view/error/index.phtml',
+            'error/404'               =&gt; __DIR__ . '/../view/error/404.phtml',
+        ],
+
+        // The TemplatePathStack takes an array of directories. Directories
+        // are then searched in LIFO order (it's a stack) for the requested
+        // view script. This is a nice solution for rapid application
+        // development, but potentially introduces performance expense in
+        // production due to the number of static calls necessary.
+        //
+        // The following adds an entry pointing to the view directory
+        // of the current module. Make sure your keys differ between modules
+        // to ensure that they are not overwritten -- or simply omit the key!
+        'template_path_stack' =&gt; [
+            'application' =&gt; __DIR__ . '/../view',
+        ],
+
+        // This will be used as the default suffix for template scripts
+        // resolving, it defaults to 'phtml'.
+        'default_template_suffix' =&gt; 'php',
+
+        // Set the template name for the site's layout.
+        //
+        // By default, the MVC's default Rendering Strategy uses the
+        // template name &quot;layout/layout&quot; for the site's layout.
+        // Here, we tell it to use the &quot;site/layout&quot; template,
+        // which we mapped via the TemplateMapResolver above.
+        'layout' =&gt; 'site/layout',
+
+        // By default, the MVC registers an &quot;exception strategy&quot;, which is
+        // triggered when a requested action raises an exception; it creates
+        // a custom view model that wraps the exception, and selects a
+        // template. We'll set it to &quot;error/index&quot;.
+        //
+        // Additionally, we'll tell it that we want to display an exception
+        // stack trace; you'll likely want to disable this by default.
+        'display_exceptions' =&gt; true,
+        'exception_template' =&gt; 'error/index',
+
+       // Another strategy the MVC registers by default is a &quot;route not
+       // found&quot; strategy. Basically, this gets triggered if (a) no route
+       // matches the current request, (b) the controller specified in the
+       // route match cannot be found in the service locator, (c) the controller
+       // specified in the route match does not implement the DispatchableInterface
+       // interface, or (d) if a response from a controller sets the
+       // response status to 404.
+       //
+       // The default template used in such situations is &quot;error&quot;, just
+       // like the exception strategy. Here, we tell it to use the &quot;error/404&quot;
+       // template (which we mapped via the TemplateMapResolver, above).
+       //
+       // You can opt in to inject the reason for a 404 situation; see the
+       // various `Application\:\:ERROR_*`_ constants for a list of values.
+       // Additionally, a number of 404 situations derive from exceptions
+       // raised during routing or dispatching. You can opt-in to display
+       // these.
+       'display_not_found_reason' =&gt; true,
+       'not_found_template'       =&gt; 'error/404',
+    ],
+];</code></pre>
+
+
+<h2 id="controllers-and-view-models">Controllers and View Models</h2>
+<p><code>Zend\View\View</code> consumes <code>ViewModel</code>s, passing them to the selected renderer.
+Where do you create these, though?</p>
+<p>The most explicit way is to create them in your controllers and return them.</p>
+<pre class="codehilite"><code class="language-php">namespace Foo\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class BazBatController extends AbstractActionController
+{
+    public function doSomethingCrazyAction()
+    {
+        $view = new ViewModel([
+            'message' =&gt; 'Hello world',
+        ]);
+        $view-&gt;setTemplate('foo/baz-bat/do-something-crazy');
+        return $view;
+    }
+}</code></pre>
+
+
+<p>This sets a "message" variable in the View Model, and sets the template name
+"foo/baz-bat/do-something-crazy". The View Model is then returned.</p>
+<p>In most cases, you'll likely have a template name based on the module namespace,
+controller, and action. Considering that, and if you're simply passing some
+variables, could this be made simpler?  Definitely.</p>
+<p>The MVC registers a couple of listeners for controllers to automate this. The
+first will look to see if you returned an associative array from your
+controller; if so, it will create a View Model and make this associative array
+the Variables Container; this View Model then replaces the
+<a href="http://zendframework.github.io/zend-mvc/mvc-event/">MvcEvent</a>'s result. It will
+also look to see if you returned nothing or <code>null</code>; if so, it will create a View
+Model without any variables attached; this View Model also replaces the
+<code>MvcEvent</code>'s result.</p>
+<p>The second listener checks to see if the <code>MvcEvent</code> result is a View Model, and,
+if so, if it has a template associated with it. If not, it will inspect the
+controller matched during routing to determine the module namespace and the
+controller class name, and, if available, it's "action" parameter in order to
+create a template name. This will be <code>module/controller/action</code>, all normalized
+to lowercase, dash-separated words.</p>
+<p>As an example, the controller <code>Foo\Controller\BazBatController</code> with action
+"doSomethingCrazyAction", would be mapped to the template
+<code>foo/baz-bat/do-something-crazy</code>. As you can see, the words "Controller" and
+"Action" are omitted.</p>
+<p>In practice, that means our previous example could be re-written as follows:</p>
+<pre class="codehilite"><code class="language-php">namespace Foo\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+
+class BazBatController extends AbstractActionController
+{
+    public function doSomethingCrazyAction()
+    {
+        return [
+            'message' =&gt; 'Hello world',
+        ];
+    }
+}</code></pre>
+
+
+<p>The above method will likely work for the majority of use cases. When you need
+to specify a different template, explicitly create and return a View Model and
+specify the template manually, as in the first example.</p>
+<h2 id="nesting-view-models">Nesting View Models</h2>
+<p>The other use case you may have for setting explicit View Models is if you wish
+to <strong>nest</strong> them. In other words, you might want to render templates to be
+included within the main View you return.</p>
+<p>As an example, you may want the View from an action to be one primary section
+that includes both an "article" and a couple of sidebars; one of the sidebars
+may include content from multiple Views as well:</p>
+<pre class="codehilite"><code class="language-php">namespace Content\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class ArticleController extends AbstractActionController
+{
+    public function viewAction()
+    {
+        // get the article from the persistence layer, etc...
+
+        $view = new ViewModel();
+
+        // this is not needed since it matches &quot;module/controller/action&quot;
+        $view-&gt;setTemplate('content/article/view');
+
+        $articleView = new ViewModel(['article' =&gt; $article]);
+        $articleView-&gt;setTemplate('content/article');
+
+        $primarySidebarView = new ViewModel();
+        $primarySidebarView-&gt;setTemplate('content/main-sidebar');
+
+        $secondarySidebarView = new ViewModel();
+        $secondarySidebarView-&gt;setTemplate('content/secondary-sidebar');
+
+        $sidebarBlockView = new ViewModel();
+        $sidebarBlockView-&gt;setTemplate('content/block');
+
+        $secondarySidebarView-&gt;addChild($sidebarBlockView, 'block');
+
+        $view-&gt;addChild($articleView, 'article')
+             -&gt;addChild($primarySidebarView, 'sidebar_primary')
+             -&gt;addChild($secondarySidebarView, 'sidebar_secondary');
+
+        return $view;
+    }
+}</code></pre>
+
+
+<p>The above will create and return a View Model specifying the template
+<code>content/article/view</code>. When the View is rendered, it will render three child
+Views, the <code>$articleView</code>, <code>$primarySidebarView</code>, and <code>$secondarySidebarView</code>;
+these will be captured to the <code>$view</code>'s <code>article</code>, <code>sidebar_primary</code>, and
+<code>sidebar_secondary</code> variables, respectively, so that when it renders, you may
+include that content. Additionally, the <code>$secondarySidebarView</code> will include an
+additional View Model, <code>$sidebarBlockView</code>, which will be captured to its
+<code>block</code> view variable.</p>
+<p>To better visualize this, let's look at what the final content might look like,
+with comments detailing where each nested view model is injected.</p>
+<p>Here are the templates, rendered based on a 12-column grid:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php // &quot;content/article/view&quot; template ?&gt;
+&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
+&lt;div class=&quot;row content&quot;&gt;
+    &lt;?= $this-&gt;article ?&gt;
+
+    &lt;?= $this-&gt;sidebar_primary ?&gt;
+
+    &lt;?= $this-&gt;sidebar_secondary ?&gt;
+&lt;/div&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-php">&lt;?php // &quot;content/article&quot; template ?&gt;
+    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
+         template --&gt;
+    &lt;article class=&quot;span8&quot;&gt;
+        &lt;?= $this-&gt;escapeHtml('article') ?&gt;
+    &lt;/article&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-php">&lt;?php // &quot;content/main-sidebar&quot; template ?&gt;
+    &lt;!-- This is from the $primarySidebarView View Model, and the
+         &quot;content/main-sidebar&quot; template --&gt;
+    &lt;div class=&quot;span2 sidebar&quot;&gt;
+        sidebar content...
+    &lt;/div&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-php">&lt;?php // &quot;content/secondary-sidebar template ?&gt;
+    &lt;!-- This is from the $secondarySidebarView View Model, and the
+         &quot;content/secondary-sidebar&quot; template --&gt;
+    &lt;div class=&quot;span2 sidebar pull-right&quot;&gt;
+        &lt;?= $this-&gt;block ?&gt;
+    &lt;/div&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-php">&lt;?php // &quot;content/block template ?&gt;
+        &lt;!-- This is from the $sidebarBlockView View Model, and the
+            &quot;content/block&quot; template --&gt;
+        &lt;div class=&quot;block&quot;&gt;
+            block content...
+        &lt;/div&gt;</code></pre>
+
+
+<p>And here is the aggregate, generated content:</p>
+<pre class="codehilite"><code class="language-html">&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
+&lt;div class=&quot;row content&quot;&gt;
+    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
+         template --&gt;
+    &lt;article class=&quot;span8&quot;&gt;
+        Lorem ipsum ....
+    &lt;/article&gt;
+
+    &lt;!-- This is from the $primarySidebarView View Model, and the
+         &quot;content/main-sidebar&quot; template --&gt;
+    &lt;div class=&quot;span2 sidebar&quot;&gt;
+        sidebar content...
+    &lt;/div&gt;
+
+    &lt;!-- This is from the $secondarySidebarView View Model, and the
+         &quot;content/secondary-sidebar&quot; template --&gt;
+    &lt;div class=&quot;span2 sidebar pull-right&quot;&gt;
+        &lt;!-- This is from the $sidebarBlockView View Model, and the
+            &quot;content/block&quot; template --&gt;
+        &lt;div class=&quot;block&quot;&gt;
+            block content...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+<p>You can achieve very complex markup using nested Views, while simultaneously
+keeping the details of rendering isolated from the Request/Response lifecycle of
+the controller.</p>
+<h2 id="dealing-with-layouts">Dealing with Layouts</h2>
+<p>Most sites enforce a cohesive look-and-feel which we typically call the site's
+"layout". It includes the default stylesheets and JavaScript necessary, if any,
+as well as the basic markup structure into which all site content will be
+injected.</p>
+<p>Within zend-mvc, layouts are handled via nesting of View Models (<a href="#nesting-view-models">see the
+previous example</a> for examples of View Model nesting). The
+<code>Zend\Mvc\View\Http\ViewManager</code> composes a View Model which acts as the "root"
+for nested View Models. As such, it should contain the skeleton (or layout)
+template for the site. All other content is then rendered and captured to view
+variables of this root View Model.</p>
+<p>The <code>ViewManager</code> sets the layout template as <code>layout/layout</code> by default. To
+change this, you can add some configuration to the <code>view_manager</code> area of your
+<a href="#configuration">configuration</a>.</p>
+<p>A listener on the controllers, <code>Zend\Mvc\View\Http\InjectViewModelListener</code>,
+will take a View Model returned from a controller and inject it as a child of
+the root (layout) View Model. By default, View Models will capture to the
+"content" variable of the root View Model. This means you can do the following
+in your layout view script:</p>
+<pre class="codehilite"><code class="language-php">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;&lt;?= $this-&gt;headTitle() ?&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;?= $this-&gt;content; ?&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+<p>If you want to specify a different View variable for which to capture,
+explicitly create a view model in your controller, and set its "capture to"
+value:</p>
+<pre class="codehilite"><code class="language-php">namespace Foo\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class BazBatController extends AbstractActionController
+{
+    public function doSomethingCrazyAction()
+    {
+        $view = new ViewModel([
+            'message' =&gt; 'Hello world',
+        ]);
+
+        // Capture to the layout view's &quot;article&quot; variable
+        $view-&gt;setCaptureTo('article');
+
+        return $view;
+    }
+}</code></pre>
+
+
+<p>There will be times you don't want to render a layout. For example, you might be
+answering an API call which expects JSON or an XML payload, or you might be
+answering an XHR request that expects a partial HTML payload. To do this,
+explicitly create and return a view model from your controller, and mark it as
+"terminal", which will hint to the MVC listener that normally injects the
+returned View Model into the layout View Model, to instead replace the layout
+view model.</p>
+<pre class="codehilite"><code class="language-php">namespace Foo\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class BazBatController extends AbstractActionController
+{
+    public function doSomethingCrazyAction()
+    {
+        $view = new ViewModel([
+            'message' =&gt; 'Hello world',
+        ]);
+
+        // Disable layouts; `MvcEvent` will use this View Model instead
+        $view-&gt;setTerminal(true);
+
+        return $view;
+    }
+}</code></pre>
+
+
+<p><a href="#nesting-view-models">When discussing nesting View Models</a>, we detailed a
+nested View Model which contained an article and sidebars. Sometimes, you may
+want to provide additional View Models to the layout, instead of nesting in the
+returned layout. This may be done by using the <code>layout()</code> controller plugin,
+which returns the root View Model. You can then call the same <code>addChild()</code>
+method on it as we did in that previous example.</p>
+<pre class="codehilite"><code class="language-php">namespace Content\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class ArticleController extends AbstractActionController
+{
+    public function viewAction()
+    {
+        // get the article from the persistence layer, etc...
+
+        // Get the &quot;layout&quot; view model and inject a sidebar
+        $layout = $this-&gt;layout();
+        $sidebarView = new ViewModel();
+        $sidebarView-&gt;setTemplate('content/sidebar');
+        $layout-&gt;addChild($sidebarView, 'sidebar');
+
+        // Create and return a view model for the retrieved article
+        $view = new ViewModel(['article' =&gt; $article]);
+        $view-&gt;setTemplate('content/article');
+        return $view;
+    }
+}</code></pre>
+
+
+<p>You could also use this technique to select a different layout, by calling the
+<code>setTemplate()</code> method of the layout View Model:</p>
+<pre class="codehilite"><code class="language-php">//In a controller
+namespace Content\Controller;
+
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+
+class ArticleController extends AbstractActionController
+{
+    public function viewAction()
+    {
+        // get the article from the persistence layer, etc...
+
+        // Get the &quot;layout&quot; view model and set an alternate template
+        $layout = $this-&gt;layout();
+        $layout-&gt;setTemplate('article/layout');
+
+        // Create and return a view model for the retrieved article
+        $view = new ViewModel(['article' =&gt; $article]);
+        $view-&gt;setTemplate('content/article');
+        return $view;
+    }
+}</code></pre>
+
+
+<p>Sometimes, you may want to access the layout from within your actual view
+scripts when using the <code>PhpRenderer</code>. Reasons might include wanting to change
+the layout template, or wanting to either access or inject layout view variables.
+Similar to the <code>layout()</code> controller plugin, you can use the <code>layout()</code> View Helper.
+If you provide a string argument to it, you will change the template; if you
+provide no arguments, the root layout View Model is returned.</p>
+<pre class="codehilite"><code class="language-php">//In a view script
+
+// Change the layout:
+$this-&gt;layout('alternate/layout'); // OR
+$this-&gt;layout()-&gt;setTemplate('alternate/layout');
+
+// Access a layout variable.
+// Since access to the base view model is relatively easy, it becomes a
+// reasonable place to store things such as API keys, which other view scripts
+// may need.
+$layout       = $this-&gt;layout();
+$disqusApiKey = false;
+if (isset($layout-&gt;disqusApiKey)) {
+    $disqusApiKey = $layout-&gt;disqusApiKey;
+}
+
+// Set a layout variable
+$this-&gt;layout()-&gt;footer = $this-&gt;render('article/footer');</code></pre>
+
+
+<p>Commonly, you may want to alter the layout based on the current <strong>module</strong>. This
+requires (a) detecting if the controller matched in routing belongs to this
+module, and then (b) changing the template of the View Model.</p>
+<p>The place to do these actions is in a listener. It should listen either to the
+<code>route</code> event at low (negative) priority, or on the <code>dispatch</code> event, at any
+priority. Typically, you will register this during the bootstrap event.</p>
+<pre class="codehilite"><code class="language-php">namespace Content;
+
+class Module
+{
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function onBootstrap($e)
+    {
+        // Register a dispatch event
+        $app = $e-&gt;getParam('application');
+        $app-&gt;getEventManager()-&gt;attach('dispatch', [$this, 'setLayout']);
+    }
+
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function setLayout($e)
+    {
+        $matches    = $e-&gt;getRouteMatch();
+        $controller = $matches-&gt;getParam('controller');
+        if (false === strpos($controller, __NAMESPACE__)) {
+            // not a controller from this module
+            return;
+        }
+
+        // Set the layout template
+        $viewModel = $e-&gt;getViewModel();
+        $viewModel-&gt;setTemplate('content/layout');
+    }
+}</code></pre>
+
+
+<h2 id="creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</h2>
+<p><code>Zend\View\View</code> does very little. Its workflow is essentially to martial a
+<code>ViewEvent</code>, and then trigger two events, <code>renderer</code> and <code>response</code>. You can
+attach "strategies" to these events, using the methods <code>addRenderingStrategy()</code>
+and <code>addResponseStrategy()</code>, respectively. A Rendering Strategy introspects the
+Request object (or any other criteria) in order to select a Renderer (or fail to
+select one). A Response Strategy determines how to populate the Response based
+on the result of rendering.</p>
+<p>zend-view ships with three Rendering and Response Strategies that you can use
+within your application.</p>
+<ul>
+<li><code>Zend\View\Strategy\PhpRendererStrategy</code>. This strategy is a "catch-all" in
+  that it will always return the <code>Zend\View\Renderer\PhpRenderer</code> and populate
+  the Response body with the results of rendering.</li>
+<li><code>Zend\View\Strategy\JsonStrategy</code>. This strategy inspects the <code>Accept</code> HTTP
+  request header, if present, and determines if the client has indicated it
+  accepts an <code>application/json</code> response. If so, it will return the
+  <code>Zend\View\Renderer\JsonRenderer</code>, and populate the Response body with the
+  JSON value returned, as well as set a <code>Content-Type</code> header with a value of
+  <code>application/json</code>.</li>
+<li><code>Zend\View\Strategy\FeedStrategy</code>. This strategy inspects the <code>Accept</code> HTTP
+  header, if present, and determines if the client has indicated it accepts
+  either an <code>application/rss+xml</code> or <code>application/atom+xml</code> response. If so, it
+  will return the <code>Zend\View\Renderer\FeedRenderer</code>, setting the feed type to
+  either "rss" or "atom", based on what was matched. Its Response strategy will
+  populate the Response body with the generated feed, as well as set a
+  <code>Content-Type</code> header with the appropriate value based on feed type.</li>
+</ul>
+<p>By default, only the <code>PhpRendererStrategy</code> is registered, meaning you will need
+to register the other Strategies yourself if you want to use them. Additionally,
+it means that you will likely want to register these at higher priority to
+ensure they match before the <code>PhpRendererStrategy</code>. As an example, let's
+register the <code>JsonStrategy</code>:</p>
+<pre class="codehilite"><code class="language-php">namespace Application;
+
+class Module
+{
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function onBootstrap($e)
+    {
+        // Register a &quot;render&quot; event, at high priority (so it executes prior
+        // to the view attempting to render)
+        $app = $e-&gt;getApplication();
+        $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerJsonStrategy'], 100);
+    }
+
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function registerJsonStrategy($e)
+    {
+        $app          = $e-&gt;getTarget();
+        $locator      = $app-&gt;getServiceManager();
+        $view         = $locator-&gt;get('Zend\View\View');
+        $jsonStrategy = $locator-&gt;get('ViewJsonStrategy');
+
+        // Attach strategy, which is a listener aggregate, at high priority
+        $view-&gt;getEventManager()-&gt;attach($jsonStrategy, 100);
+    }
+}</code></pre>
+
+
+<p>The above will register the <code>JsonStrategy</code> with the "render" event, such that it
+executes prior to the <code>PhpRendererStrategy</code>, and thus ensure that a JSON payload
+is created when requested.</p>
+<p>What if you want this to happen only in specific modules, or specific
+controllers? One way is similar to the last example in the
+<a href="#dealing-with-layouts">previous section on layouts</a>, where we detailed changing
+the layout for a specific module:</p>
+<pre class="codehilite"><code class="language-php">namespace Content;
+
+class Module
+{
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function onBootstrap($e)
+    {
+        // Register a render event
+        $app = $e-&gt;getParam('application');
+        $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerJsonStrategy'], 100);
+    }
+
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function registerJsonStrategy($e)
+    {
+        $matches    = $e-&gt;getRouteMatch();
+        $controller = $matches-&gt;getParam('controller');
+        if (false === strpos($controller, __NAMESPACE__)) {
+            // not a controller from this module
+            return;
+        }
+
+        // Potentially, you could be even more selective at this point, and test
+        // for specific controller classes, and even specific actions or request
+        // methods.
+
+        // Set the JSON strategy when controllers from this module are selected
+        $app          = $e-&gt;getTarget();
+        $locator      = $app-&gt;getServiceManager();
+        $view         = $locator-&gt;get('Zend\View\View');
+        $jsonStrategy = $locator-&gt;get('ViewJsonStrategy');
+
+        // Attach strategy, which is a listener aggregate, at high priority
+        $view-&gt;getEventManager()-&gt;attach($jsonStrategy, 100);
+    }
+}</code></pre>
+
+
+<p>While the above examples detail using the <code>JsonStrategy</code>, the same could be done
+for the <code>FeedStrategy</code>.</p>
+<p>What if you want to use a custom renderer? Or if your app might allow a
+combination of JSON, Atom feeds, and HTML? At this point, you'll need to create
+your own custom strategies. Below is an example that appropriately loops through
+the HTTP <code>Accept</code> header, and selects the appropriate Renderer based on what is
+matched first.</p>
+<pre class="codehilite"><code class="language-php">namespace Content\View;
+
+use Zend\EventManager\EventManagerInterface;
+use Zend\EventManager\ListenerAggregateInterface;
+use Zend\EventManager\ListenerAggregateTrait;
+use Zend\Feed\Writer\Feed;
+use Zend\View\Renderer\FeedRenderer;
+use Zend\View\Renderer\JsonRenderer;
+use Zend\View\Renderer\PhpRenderer;
+
+class AcceptStrategy implements ListenerAggregateInterface
+{
+    use ListenerAggregateTrait;
+
+    protected $feedRenderer;
+    protected $jsonRenderer;
+    protected $phpRenderer;
+
+    public function __construct(
+        PhpRenderer $phpRenderer,
+        JsonRenderer $jsonRenderer,
+        FeedRenderer $feedRenderer
+    ) {
+        $this-&gt;phpRenderer  = $phpRenderer;
+        $this-&gt;jsonRenderer = $jsonRenderer;
+        $this-&gt;feedRenderer = $feedRenderer;
+    }
+
+    public function attach(EventManagerInterface $events, $priority = 1)
+    {
+        $this-&gt;listeners[] = $events-&gt;attach('renderer', [$this, 'selectRenderer'], $priority);
+        $this-&gt;listeners[] = $events-&gt;attach('response', [$this, 'injectResponse'], $priority);
+    }
+
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return \Zend\View\Renderer\RendererInterface
+     */
+    public function selectRenderer($e)
+    {
+        $request = $e-&gt;getRequest();
+        $headers = $request-&gt;getHeaders();
+
+        // No Accept header? return PhpRenderer
+        if (!$headers-&gt;has('accept')) {
+            return $this-&gt;phpRenderer;
+        }
+
+        $accept = $headers-&gt;get('accept');
+        foreach ($accept-&gt;getPrioritized() as $mediaType) {
+            if (0 === strpos($mediaType, 'application/json')) {
+                return $this-&gt;jsonRenderer;
+            }
+
+            if (0 === strpos($mediaType, 'application/rss+xml')) {
+                $this-&gt;feedRenderer-&gt;setFeedType('rss');
+                return $this-&gt;feedRenderer;
+            }
+
+            if (0 === strpos($mediaType, 'application/atom+xml')) {
+                $this-&gt;feedRenderer-&gt;setFeedType('atom');
+                return $this-&gt;feedRenderer;
+            }
+        }
+
+        // Nothing matched; return PhpRenderer. Technically, we should probably
+        // return an HTTP 415 Unsupported response.
+        return $this-&gt;phpRenderer;
+    }
+
+    /**
+     * @param  \Zend\Mvc\MvcEvent $e The MvcEvent instance
+     * @return void
+     */
+    public function injectResponse($e)
+    {
+        $renderer = $e-&gt;getRenderer();
+        $response = $e-&gt;getResponse();
+        $result   = $e-&gt;getResult();
+
+        if ($renderer === $this-&gt;jsonRenderer) {
+            // JSON Renderer; set content-type header
+            $headers = $response-&gt;getHeaders();
+            $headers-&gt;addHeaderLine('content-type', 'application/json');
+            $response-&gt;setContent($result);
+            return
+        }
+
+        if ($renderer === $this-&gt;feedRenderer) {
+            // Feed Renderer; set content-type header, and export the feed if
+            // necessary
+            $feedType  = $this-&gt;feedRenderer-&gt;getFeedType();
+            $headers   = $response-&gt;getHeaders();
+            $mediatype = 'application/'
+                       . (('rss' == $feedType) ? 'rss' : 'atom')
+                       . '+xml';
+            $headers-&gt;addHeaderLine('content-type', $mediatype);
+
+            // If the $result is a feed, export it
+            if ($result instanceof Feed) {
+                $result = $result-&gt;export($feedType);
+            }
+
+            $response-&gt;setContent($result);
+            return;
+        }
+    }
+}</code></pre>
+
+
+<p>This strategy would be registered just as we demonstrated registering the
+<code>JsonStrategy</code> earlier.  You would also need to define service manager
+configuration to ensure the various renderers are injected when you retrieve the
+strategy from the application's locator instance.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href=".."><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../php-renderer/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/prism-zf.js"></script>
+
+    <script>var base_url = '..';</script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

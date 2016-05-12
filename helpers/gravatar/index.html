@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>Gravatar - zend-view</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/zf.css" rel="stylesheet">
+    <link href="../../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="../..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../doctype/">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#gravatar-helper">Gravatar Helper</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+            <li><a href="#custom-settings">Custom Settings</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../flash-messenger/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../head-link/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="../..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Helpers &raquo;</li>
+      
+    
+  
+  <li class="active">Gravatar</li>
+</ol>
+
+<h1 id="gravatar-helper">Gravatar Helper</h1>
+<p>The <code>Gravatar</code> helper is useful for rendering image HTML markup returned from
+the <a href="http://gravatar.com">gravatar.com</a> service.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>You can use the <code>Gravatar</code> helper anywhere in view scripts per the following example:</p>
+<pre class="codehilite"><code class="language-php">echo $this-&gt;gravatar('email@example.com')-&gt;getImgTag();</code></pre>
+
+
+<p>The first (and only, in this example) argument passed to the <code>Gravatar</code> helper
+is an e-mail for which you want grab an avatar from gravatar.com. For
+convenience, this e-mail will be automatically hashed via the md5 algorithm.</p>
+<p>This will render the HTML below:</p>
+<pre class="codehilite"><code class="language-html">&lt;img src=&quot;http://www.gravatar.com/avatar/5658ffccee7f0ebfda2b226238b1eb6e?s=80&amp;d=mm&amp;r=g&quot;&gt;</code></pre>
+
+
+<p>The helper already provides URL defaults for you.</p>
+<h2 id="custom-settings">Custom Settings</h2>
+<p>You can customize the request for a gravatar.com image by using setter methods
+on the view helper:</p>
+<pre class="codehilite"><code class="language-php">$gravatar = $this-&gt;gravatar();
+
+// Set the email instead of passing it via helper invocation
+$gravatar-&gt;setEmail('email@example.com');
+
+// Set the image size you want gravatar.com to return, in pixels
+$gravatar-&gt;setImgSize(40);
+
+// Set the default avatar image to use if gravatar.com does not find a match
+$gravatar-&gt;setDefaultImg( \Zend\View\Helper\Gravatar::DEFAULT_MM );
+
+// Set the avatar &quot;rating&quot; threshold (often used to omit NSFW avatars)
+$gravatar-&gt;setRating( \Zend\View\Helper\Gravatar::RATING_G );
+
+// Indicate that a secure URI should be used for the image source
+$gravatar-&gt;setSecure(true);
+
+// Render the &lt;img&gt; tag with the email you've set previously
+echo $gravatar-&gt;getImgTag();</code></pre>
+
+
+<p>Alternately, you can pass an array as the second argument on invocation, with
+the following keys:</p>
+<pre class="codehilite"><code class="language-php">$settings = [
+    'img_size'    =&gt; 40,
+    'default_img' =&gt; \Zend\View\Helper\Gravatar::DEFAULT_MM,
+    'rating'      =&gt; \Zend\View\Helper\Gravatar::RATING_G,
+    'secure'      =&gt; null,
+];
+$email = 'email@example.com';
+echo $this-&gt;gravatar($email, $settings);</code></pre>
+
+
+<blockquote>
+<h3 id="scheme-autodiscovery">Scheme autodiscovery</h3>
+<p>Passing <code>null</code> for the <code>secure</code> setting will cause the view helper to choose a
+schema that matches the current request to your application. This is the
+default behavior.</p>
+</blockquote>
+<p>As you can see in the above examples, there are predefined settings for the
+default image and rating.</p>
+<p>The Gravatar helper defines the following constants for ratings:</p>
+<ul>
+<li><code>RATING_G</code></li>
+<li><code>RATING_PG</code></li>
+<li><code>RATING_R</code></li>
+<li><code>RATING_X</code></li>
+</ul>
+<p>The helper defines the following constants for the default image: </p>
+<ul>
+<li><code>DEFAULT_404</code></li>
+<li><code>DEFAULT_MM</code></li>
+<li><code>DEFAULT_IDENTICON</code></li>
+<li><code>DEFAULT_MONSTERID</code></li>
+<li><code>DEFAULT_WAVATAR</code></li>
+</ul>
+<p>You may also provide custom attributes for the generated <code>img</code> tag. To do this,
+pass an attributes array to the <code>setAttributes()</code> method:</p>
+<pre class="codehilite"><code class="language-php">$gravatar = $this-&gt;gravatar('email@example.com');
+
+// Suppose that I want to add the class attribute with a value of
+// &quot;gravatarcls&quot; to the rendered &lt;img&gt; tag:
+$attr = [
+    'class' =&gt; 'gravatarcls',
+];
+echo $gravatar-&gt;setAttributes($attr)-&gt;getImgTag(); </code></pre>
+
+
+<p>Alternately, you can pass this array as the third argument during helper
+invocation:</p>
+<pre class="codehilite"><code class="language-php">$email = 'email@example.com';
+$settings = [
+    'default_img' =&gt; \Zend\View\Helper\Gravatar::DEFAULT_MM,
+];
+$attr = [
+    'class' =&gt; 'gravatar-image',
+    'id'    =&gt; 'gravatar',
+];
+
+echo $this-&gt;gravatar($email, $settings, $attr);</code></pre>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../flash-messenger/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../head-link/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/prism-zf.js"></script>
+
+    <script>var base_url = '../..';</script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>

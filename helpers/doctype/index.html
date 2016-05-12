@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    <title>Doctype - zend-view</title>
+
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/zf.css" rel="stylesheet">
+    <link href="../../css/prism-zf.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <span class="navbar-brand">
+              <a class="logo-link" href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Zend Framework"><img src="../../img/zf-logo-mark.png" height="28" alt="Zend Framework" /></a>
+              <a href="../..">zend-view</a>
+            </span>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../quick-start/">Quick Start</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rendering Views <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../php-renderer/">The PhpRenderer</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-scripts/">View Scripts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../view-event/">The ViewEvent</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Helpers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../base-path/">BasePath</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cycle/">Cycle</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Doctype</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../flash-messenger/">FlashMessenger</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../gravatar/">Gravatar</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-link/">HeadLink</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-meta/">HeadMeta</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-script/">HeadScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-style/">HeadStyle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../head-title/">HeadTitle</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-list/">HtmlList</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../html-object/">HtmlObject</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../identity/">Identity</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../inline-script/">InlineScript</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../json/">Json</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../partial/">Partial</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../placeholder/">Placeholder</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../url/">Url</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../advanced-usage/">Advanced usage of helpers</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="component-toggle" data-toggle="tooltip" data-placement="bottom" title="Show component list">
+                        <i class="fa fa-book"></i> Components
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="https://github.com/zendframework/zend-view">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- content:begin -->
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#doctype">Doctype</a></li>
+        
+            <li><a href="#basic-usage">Basic Usage</a></li>
+        
+            <li><a href="#retrieving-the-doctype">Retrieving the Doctype</a></li>
+        
+            <li><a href="#choosing-a-doctype-to-use-with-the-open-graph-protocol">Choosing a Doctype to Use with the Open Graph Protocol</a></li>
+        
+            <li><a href="#zend-mvc-view-manager">Zend MVC View Manager</a></li>
+        
+    
+    </ul>
+
+    
+    <ul class="pager hidden-print">
+      <li class="previous">
+        <a rel="prev" href="../cycle/"><i class="fa fa-arrow-left"></i> Previous</a>
+      </li>
+      <li class="next">
+        <a rel="next" href="../flash-messenger/">Next <i class="fa fa-arrow-right"></i></a>
+      </li>
+    </ul>
+    
+</div></div>
+        <div class="col-md-9" role="main">
+
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
+  <li><a href="../..">Docs</a> &raquo;</li>
+  
+    
+      
+        <li>Helpers &raquo;</li>
+      
+    
+  
+  <li class="active">Doctype</li>
+</ol>
+
+<h1 id="doctype">Doctype</h1>
+<p>Valid HTML and XHTML documents should include a <code>DOCTYPE</code> declaration. Besides being difficult
+to remember, these can also affect how certain elements in your document should be rendered (for
+instance, <code>CDATA</code> escaping in <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> elements.</p>
+<p>The <code>Doctype</code> helper allows you to specify one of the following types:</p>
+<ul>
+<li><code>XHTML11</code></li>
+<li><code>XHTML1_STRICT</code></li>
+<li><code>XHTML1_TRANSITIONAL</code></li>
+<li><code>XHTML1_FRAMESET</code></li>
+<li><code>XHTML1_RDFA</code></li>
+<li><code>XHTML1_RDFA11</code></li>
+<li><code>XHTML_BASIC1</code></li>
+<li><code>XHTML5</code></li>
+<li><code>HTML4_STRICT</code></li>
+<li><code>HTML4_LOOSE</code></li>
+<li><code>HTML4_FRAMESET</code></li>
+<li><code>HTML5</code></li>
+<li><code>CUSTOM_XHTML</code></li>
+<li><code>CUSTOM</code></li>
+</ul>
+<p>You can also specify a custom doctype as long as it is well-formed.</p>
+<p>The <code>Doctype</code> helper is a concrete implementation of the
+<a href="../placeholder/">Placeholder helper</a>.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>You may specify the doctype at any time. However, helpers that depend on the
+doctype for their output will recognize it only after you have set it, so the
+easiest approach is to specify it in your bootstrap:</p>
+<pre class="codehilite"><code class="language-php">use Zend\View\Helper\Doctype;
+
+$doctypeHelper = new Doctype();
+$doctypeHelper-&gt;doctype('XHTML1_STRICT');</code></pre>
+
+
+<p>And then print it out on top of your layout script:</p>
+<pre class="codehilite"><code class="language-php">&lt;?php echo $this-&gt;doctype() ?&gt;</code></pre>
+
+
+<p>Within an application based off the <a href="https://github.com/zendframework/ZendSkeletonApplication">skeleton application</a>,
+you can specify the doctype via configuration:</p>
+<pre class="codehilite"><code class="language-php">// module/Application/config/module.config.php:
+return [
+    /* ... */
+    'view_manager' =&gt; [
+        'doctype' =&gt; 'html5',
+        /* ... */
+    ],
+];</code></pre>
+
+
+<h2 id="retrieving-the-doctype">Retrieving the Doctype</h2>
+<p>If you need to know the doctype, you can do so by calling <code>getDoctype()</code> on the
+helper, which is returned by invoking the helper from the view.</p>
+<pre class="codehilite"><code class="language-php">$doctype = $this-&gt;doctype()-&gt;getDoctype();</code></pre>
+
+
+<p>Typically, you'll want to know if the doctype is XHTML or not; for this, the
+<code>isXhtml()</code> method will suffice:</p>
+<pre class="codehilite"><code class="language-php">if ($this-&gt;doctype()-&gt;isXhtml()) {
+    // do something differently
+}</code></pre>
+
+
+<p>You can also check if the doctype represents an HTML5 document.</p>
+<pre class="codehilite"><code class="language-php">if ($this-&gt;doctype()-&gt;isHtml5()) {
+    // do something differently
+}</code></pre>
+
+
+<h2 id="choosing-a-doctype-to-use-with-the-open-graph-protocol">Choosing a Doctype to Use with the Open Graph Protocol</h2>
+<p>To implement the <a href="http://opengraphprotocol.org/">Open Graph Protocol</a>, you may
+specify the <code>XHTML1_RDFA</code> doctype. This doctype allows a developer to use the
+<a href="http://www.w3.org/TR/xhtml-rdfa-primer/">Resource Description Framework</a> within
+an XHTML document.</p>
+<pre class="codehilite"><code class="language-php">use Zend\View\Helper\Doctype;
+
+$doctypeHelper = new Doctype();
+$doctypeHelper-&gt;doctype('XHTML1_RDFA');</code></pre>
+
+
+<p>The RDFa doctype allows XHTML to validate when the 'property' meta tag attribute
+is used per the Open Graph Protocol spec. Example within a view script:</p>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;doctype('XHTML1_RDFA'); ?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
+      xmlns:og=&quot;http://opengraphprotocol.org/schema/&quot;&gt;
+&lt;head&gt;
+   &lt;meta property=&quot;og:type&quot; content=&quot;musician&quot; /&gt;</code></pre>
+
+
+<p>In the previous example, we set the property to <code>og:type</code>. The <code>og</code> references
+the Open Graph namespace we specified in the html tag. The content identifies
+the page as being about a musician. See the <a href="http://opengraphprotocol.org/">Open Graph Protocol
+documentation</a> for supported properties. The
+<a href="../head-meta/">HeadMeta helper</a> may be used to programmatically set these Open
+Graph Protocol meta tags.</p>
+<p>Here is how you check if the doctype is set to <code>XHTML1_RDFA</code>:</p>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;doctype() ?&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
+    &lt;?php if ($view-&gt;doctype()-&gt;isRdfa()): ?&gt;
+      xmlns:og=&quot;http://opengraphprotocol.org/schema/&quot;
+      xmlns:fb=&quot;http://www.facebook.com/2008/fbml&quot;
+    &lt;?php endif; ?&gt;
+&gt;</code></pre>
+
+
+<h2 id="zend-mvc-view-manager">Zend MVC View Manager</h2>
+<p>If you're running a ZendMvc application, you should specify doctype via the
+<a href="https://zendframework.github.io/zend-mvc/services/#viewmanager">ViewManager</a> service.</p>
+
+<hr />
+
+
+<nav>
+  <ul class="pager hidden-print">
+    <li class="previous">
+      <a rel="prev" href="../cycle/"><i class="fa fa-arrow-left"></i> Previous</a>
+    </li>
+    <li class="next">
+      <a rel="next" href="../flash-messenger/">Next <i class="fa fa-arrow-right"></i></a>
+    </li>
+  </ul>
+</nav>
+</div>
+        
+    </div>
+    <!-- content:end -->
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Copyright (c) 2016 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a><br></small>
+        </p>
+        <p><small><a href="http://framework.zend.com">Learn more about Zend Framework</a></small></p>
+    </footer>
+
+    <script src="../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/prism-zf.js"></script>
+
+    <script>var base_url = '../..';</script>
+    <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+    <script src="../../js/base.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zf-components">
+  <div class="zf-components-grid">
+    <div class="zf-logo">
+      <a href="http://framework.zend.com" data-toggle="tooltip" data-placement="bottom" title="Go to the ZF homepage"><img src="../../img/zf-logo-mark.png" alt="Zend Framework" width="250" /></a>
+    </div>
+
+    <div class="component-list"></div>
+
+    <p class="zf-components-rollup"><a href="#">Hide list</a></p>
+  </div>
+</div>
+
+    <script>
+  // Prepare the component list dropdown for display
+  $(function () {
+    var components = $(".zf-components"),
+        componentList = components.find(".component-list"),
+        sidebar = $(".bs-sidebar.affix"),
+        sidebarInitialPos = sidebar.css("position"),
+        hidden,
+        componentToggle = $(".component-toggle"),
+        navbar = $(".navbar-fixed-top"),
+        rollUpLink = $(".zf-components-rollup a");
+
+    // Initial setup on document load
+    components.insertBefore(navbar);
+    $(".zf-logo a").tooltip();
+    componentToggle.tooltip();
+    rollUpLink.attr({ href: "#", alt: "Hide component list" });
+
+    // Cast initial sidebar position value
+    if (undefined === sidebarInitialPos) {
+      sidebarInitialPos = "fixed";
+    }
+
+    // Setup onclick events to toggle list
+    componentToggle.click(toggleComponentList);
+    rollUpLink.click(toggleComponentList);
+
+    // Toggle the component list display
+    function toggleComponentList(event) {
+      event.preventDefault();
+
+      if (hidden === undefined) {
+        // Not loaded yet; load and display.
+        loadComponentList();
+        return;
+      }
+
+      if (hidden) {
+        // Hidden; display.
+        showComponentList();
+        return;
+      }
+
+      // Currently visible; hide
+      hideComponentList();
+    }
+
+    // Show the component list
+    function showComponentList() {
+      navbar.css({position: "relative"});
+      sidebar.css({position: "relative"});
+      components
+        .css({"margin-top": "-" + components.outerHeight() + "px"})
+        .show()
+        .animate({"margin-top": 0}, {
+          complete: function () {
+            componentToggle
+              .data("placement", "top")
+              .attr("data-original-title", "Hide component list");
+            hidden = false;
+          },
+          queue: false
+        });
+    }
+
+    // Hide the component list
+    function hideComponentList() {
+      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
+        complete: function () {
+          navbar.css({position: "fixed"});
+          sidebar.css({position: sidebarInitialPos});
+          componentToggle
+            .data("placement", "bottom")
+            .attr("data-original-title", "Show component list");
+          components.hide();
+          hidden = true;
+        },
+        queue: false
+      });
+      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
+    }
+
+    // Inject a component into the componet list DOM.
+    function injectComponent(index, component) {
+      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
+    }
+
+    // Parse the component list, build the DOM, and display it.
+    function parseComponentList(components) {
+      $.each(components, injectComponent);
+      showComponentList();
+    }
+
+    // Fetch the component list and display it.
+    function loadComponentList () {
+      $.ajax({
+        url: "//zendframework.github.io/zf-mkdoc-theme/scripts/zf-component-list.json",
+        dataType: "text json",
+        success: parseComponentList,
+        error: function (e) {
+          console.log("Error occurred with XHR call", e);
+        }
+      });
+    }
+  });
+</script>
+    </body>
+
+</html>
