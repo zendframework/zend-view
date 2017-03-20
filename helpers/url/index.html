@@ -359,7 +359,7 @@ optional parameters being used:</p>
 <p>Now let's assume we want to get a link to display the detail page of a single
 news entry. For this task, the optional parameters <code>action</code> and <code>id</code> need to
 have values assigned. This is how you do that:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'details', 'id' =&gt;42]); ?&gt;&quot;&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'details', 'id' =&gt; 42]); ?&gt;&quot;&gt;
     Details of News #42
 &lt;/a&gt;</code></pre>
 
@@ -401,7 +401,7 @@ $url = $this-&gt;url(
     [
         'query' =&gt; [
             'page' =&gt; 13,
-        ].
+        ],
     ]
 );
 ?&gt;
