@@ -3,16 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>None/quick-start/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/quick-start/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,20 +20,20 @@
     
         
     <url>
-     <loc>None/php-renderer/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/php-renderer/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/view-scripts/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/view-scripts/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/view-event/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/view-event/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -42,122 +42,122 @@
     
         
     <url>
-     <loc>None/helpers/intro/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/intro/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/base-path/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/base-path/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/cycle/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/cycle/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/doctype/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/doctype/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/flash-messenger/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/flash-messenger/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/gravatar/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/gravatar/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/head-link/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/head-link/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/head-meta/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/head-meta/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/head-script/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/head-script/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/head-style/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/head-style/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/head-title/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/head-title/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/html-list/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/html-list/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/html-object/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/html-object/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/identity/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/identity/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/inline-script/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/inline-script/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/json/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/json/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/partial/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/partial/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/placeholder/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/placeholder/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/url/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/url/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/helpers/advanced-usage/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/helpers/advanced-usage/</loc>
+     <lastmod>2017-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

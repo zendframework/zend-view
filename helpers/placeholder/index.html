@@ -319,14 +319,12 @@ post-text to content (and custom separators for aggregated content).</p>
 <p>Basic usage of placeholders is to persist view data. Each invocation of the
 <code>Placeholder</code> helper expects a placeholder name; the helper then returns a
 placeholder container object that you can either manipulate or echo.</p>
-<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;placeholder('foo')-&gt;set(&quot;Some text for later&quot;) ?&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;?php $this-&gt;placeholder('foo')-&gt;set(&quot;Some text for later&quot;) ?&gt;
 
 &lt;?= $this-&gt;placeholder('foo'); ?&gt;</code></pre>
 
-
 <p>Results in:</p>
-<pre class="codehilite"><code class="language-html">Some text for later</code></pre>
-
+<pre class="codehilite"><code class="language-html linenums">Some text for later</code></pre>
 
 <h2 id="aggregate-content">Aggregate Content</h2>
 <p>Aggregating content via placeholders can be useful at times as well. For
@@ -348,11 +346,10 @@ variety of methods for formatting the content stored in the container:</p>
   passed, the string will be used. Use <code>getIndent()</code> at any time to determine
   what the current setting is.</li>
 </ul>
-<pre class="codehilite"><code class="language-php">&lt;!-- first view script --&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;!-- first view script --&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;exchangeArray($this-&gt;data) ?&gt;</code></pre>
 
-
-<pre class="codehilite"><code class="language-php">&lt;!-- later view script --&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;!-- later view script --&gt;
 &lt;?php
 $this-&gt;placeholder('foo')
     -&gt;setPrefix(&quot;&lt;ul&gt;\n    &lt;li&gt;&quot;)
@@ -363,19 +360,17 @@ $this-&gt;placeholder('foo')
 
 &lt;?= $this-&gt;placeholder('foo') ?&gt;</code></pre>
 
-
 <p>The above results in an unodered list with pretty indentation.</p>
 <p>Because the <code>Placeholder</code> container objects extend <code>ArrayObject</code>, you can also
 assign content to a specific key in the container easily, instead of simply
 pushing it into the container. Keys may be accessed either as object properties
 or as array keys.</p>
-<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;placeholder('foo')-&gt;bar = $this-&gt;data ?&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;?php $this-&gt;placeholder('foo')-&gt;bar = $this-&gt;data ?&gt;
 &lt;?= $this-&gt;placeholder('foo')-&gt;bar ?&gt;
 
 &lt;?php
 $foo = $this-&gt;placeholder('foo');
 echo $foo['bar'];</code></pre>
-
 
 <h2 id="capture-content">Capture Content</h2>
 <p>Occasionally you may have content for a placeholder in a view script that is
@@ -397,7 +392,7 @@ arbitrary content for later rendering using the following API.</p>
   according to how <code>captureStart()</code> was called.</li>
 </ul>
 <p>As an example:</p>
-<pre class="codehilite"><code class="language-php">&lt;!-- Default capture: append --&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;!-- Default capture: append --&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureStart();
 foreach ($this-&gt;data as $datum): ?&gt;
 &lt;div class=&quot;foo&quot;&gt;
@@ -409,9 +404,8 @@ foreach ($this-&gt;data as $datum): ?&gt;
 
 &lt;?= $this-&gt;placeholder('foo') ?&gt;</code></pre>
 
-
 <p>Alternately, capture to a key:</p>
-<pre class="codehilite"><code class="language-php">&lt;!-- Capture to key --&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;!-- Capture to key --&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureStart('SET', 'data');
 foreach ($this-&gt;data as $datum): ?&gt;
 &lt;div class=&quot;foo&quot;&gt;
@@ -422,7 +416,6 @@ foreach ($this-&gt;data as $datum): ?&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureEnd() ?&gt;
 
 &lt;?= $this-&gt;placeholder('foo')-&gt;data ?&gt;</code></pre>
-
 
 <h2 id="concrete-implementations">Concrete Implementations</h2>
 <p>zend-view ships with a number of "concrete" placeholder implementations. These

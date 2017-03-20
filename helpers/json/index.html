@@ -310,14 +310,12 @@ response header.  The JSON view helper does exactly that. In addition, by
 default, it disables layouts (if currently enabled), as layouts generally aren't
 used with JSON responses.</p>
 <p>The JSON helper sets the following header:</p>
-<pre class="codehilite"><code class="language-http">Content-Type: application/json</code></pre>
-
+<pre class="codehilite"><code class="language-http linenums">Content-Type: application/json</code></pre>
 
 <p>Most XmlHttpRequest libraries look for this header when parsing responses to
 determine how to handle the content.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;json($this-&gt;data) ?&gt;</code></pre>
-
+<pre class="codehilite"><code class="language-php linenums">&lt;?= $this-&gt;json($this-&gt;data) ?&gt;</code></pre>
 
 <blockquote>
 <h3 id="enabling-encoding-using-zendjsonexpr">Enabling encoding using Zend\Json\Expr</h3>
@@ -326,8 +324,7 @@ used internally to encode data.
 <code>Zend\Json\Json::encode</code> allows the encoding of native JSON expressions using <code>Zend\Json\Expr</code>
 objects. This option is disabled by default. To enable this option, pass a boolean <code>true</code> to the
 <code>enableJsonExprFinder</code> key of the options array:</p>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-json($this-data, ['enableJsonExprFinder' = true]) ?&gt;</code></pre>
-
+<pre class="codehilite"><code class="language-php linenums">&lt;?= $this-json($this-data, ['enableJsonExprFinder' = true]) ?&gt;</code></pre>
 
 </blockquote>
 

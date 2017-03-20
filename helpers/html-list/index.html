@@ -312,7 +312,7 @@ individual items will be escaped using the view objects registered escaping
 mechanisms; pass a <code>false</code> value if you want to allow markup in your lists.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <h3 id="unordered-list">Unordered list</h3>
-<pre class="codehilite"><code class="language-php">$items = [
+<pre class="codehilite"><code class="language-php linenums">$items = [
     'Level one, number one',
     [
         'Level two, number one',
@@ -327,9 +327,8 @@ mechanisms; pass a <code>false</code> value if you want to allow markup in your 
 
 echo $this-&gt;htmlList($items);</code></pre>
 
-
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul&gt;
+<pre class="codehilite"><code class="language-html linenums">&lt;ul&gt;
     &lt;li&gt;Level one, number one
         &lt;ul&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
@@ -344,13 +343,11 @@ echo $this-&gt;htmlList($items);</code></pre>
     &lt;li&gt;Level one, number two&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 
-
 <h3 id="ordered-list">Ordered list</h3>
-<pre class="codehilite"><code class="language-php">echo $this-&gt;htmlList($items, true);</code></pre>
-
+<pre class="codehilite"><code class="language-php linenums">echo $this-&gt;htmlList($items, true);</code></pre>
 
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ol&gt;
+<pre class="codehilite"><code class="language-html linenums">&lt;ol&gt;
     &lt;li&gt;Level one, number one
         &lt;ol&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
@@ -365,15 +362,13 @@ echo $this-&gt;htmlList($items);</code></pre>
     &lt;li&gt;Level one, number two&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
 
-
 <h3 id="html-attributes">HTML attributes</h3>
-<pre class="codehilite"><code class="language-php">$attribs = ['class' =&gt; 'foo'];
+<pre class="codehilite"><code class="language-php linenums">$attribs = ['class' =&gt; 'foo'];
 
 echo $this-&gt;htmlList($items, false, $attribs);</code></pre>
 
-
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul class=&quot;foo&quot;&gt;
+<pre class="codehilite"><code class="language-html linenums">&lt;ul class=&quot;foo&quot;&gt;
     &lt;li&gt;Level one, number one
         &lt;ul class=&quot;foo&quot;&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
@@ -388,9 +383,8 @@ echo $this-&gt;htmlList($items, false, $attribs);</code></pre>
     &lt;li&gt;Level one, number two&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 
-
 <h3 id="escape-output">Escape Output</h3>
-<pre class="codehilite"><code class="language-php">$items = [
+<pre class="codehilite"><code class="language-php linenums">$items = [
     'Level one, number &lt;strong&gt;one&lt;/strong&gt;',
     'Level one, number &lt;em&gt;two&lt;/em&gt;',
 ];
@@ -401,9 +395,8 @@ echo $this-&gt;htmlList($items);
 // Don't escape output
 echo $this-&gt;htmlList($items, false, false, false);</code></pre>
 
-
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;!-- Escape output (default) --&gt;
+<pre class="codehilite"><code class="language-html linenums">&lt;!-- Escape output (default) --&gt;
 &lt;ul class=&quot;foo&quot;&gt;
     &lt;li&gt;Level one, number &amp;lt;strong&amp;gt;one&amp;lt;/strong&amp;gt;&lt;/li&gt;
     &lt;li&gt;Level one, number &amp;lt;em&amp;gt;two&amp;lt;/em&amp;gt;&lt;/li&gt;

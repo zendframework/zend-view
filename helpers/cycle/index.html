@@ -310,7 +310,7 @@
 <p>The <code>Cycle</code> helper is used to alternate a set of values.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>To add elements to cycle, specify them in constructor:</p>
-<pre class="codehilite"><code class="language-php">&lt;table&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
         &lt;tr style=&quot;background-color: &lt;?= $this-&gt;cycle(['#F0F0F0', '#FFF'])-&gt;next() ?&gt;&quot;&gt;
             &lt;td&gt;&lt;?= $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
@@ -318,9 +318,8 @@
     &lt;?php endforeach ?&gt;
 &lt;/table&gt;</code></pre>
 
-
 <p>The output:</p>
-<pre class="codehilite"><code class="language-php">&lt;table&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;table&gt;
     &lt;tr style=&quot;background-color: #F0F0F0&quot;&gt;
        &lt;td&gt;First&lt;/td&gt;
     &lt;/tr&gt;
@@ -329,13 +328,11 @@
     &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
 
-
 <p>Instead of passing the data at invocation, you can assign it ahead of time:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;cycle()-&gt;assign(['#F0F0F0', '#FFF'])); ?&gt;</code></pre>
-
+<pre class="codehilite"><code class="language-php linenums">&lt;?php $this-&gt;cycle()-&gt;assign(['#F0F0F0', '#FFF'])); ?&gt;</code></pre>
 
 <p>You can also cycle in reverse, using the <code>prev()</code> method instead of <code>next()</code>:</p>
-<pre class="codehilite"><code class="language-php">&lt;table&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
     &lt;tr style=&quot;background-color: &lt;?php echo $this-&gt;cycle()-&gt;prev() ?&gt;&quot;&gt;
        &lt;td&gt;&lt;?php echo $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
@@ -343,9 +340,8 @@
     &lt;?php endforeach ?&gt;
 &lt;/table&gt;</code></pre>
 
-
 <p>The output of the two previous examples combined becomes:</p>
-<pre class="codehilite"><code class="language-php">&lt;table&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;table&gt;
     &lt;tr style=&quot;background-color: #FFF&quot;&gt;
         &lt;td&gt;First&lt;/td&gt;
     &lt;/tr&gt;
@@ -354,12 +350,11 @@
     &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
 
-
 <h2 id="working-with-two-or-more-cycles">Working with two or more cycles</h2>
 <p>If you are nesting cycles, you must provide all but one of them with a name; do
 this by providing a second parameter to the <code>cycle()</code> invocation:
 <code>$this-&gt;cycle(array('#F0F0F0', '#FFF'), 'cycle2')</code></p>
-<pre class="codehilite"><code class="language-php">&lt;table&gt;
+<pre class="codehilite"><code class="language-php linenums">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
         &lt;tr style=&quot;background-color: &lt;?= $this-&gt;cycle(['#F0F0F0', '#FFF'])-&gt;next() ?&gt;&quot;&gt;
             &lt;td&gt;&lt;?= $this-&gt;cycle([1, 2, 3], 'number')-&gt;next() ?&gt;&lt;/td&gt;
@@ -368,14 +363,12 @@ this by providing a second parameter to the <code>cycle()</code> invocation:
     &lt;?php endforeach ?&gt;
 &lt;/table&gt;</code></pre>
 
-
 <p>You can also provide a <code>$name</code> argument to <code>assign()</code>:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;cycle()-&gt;assign([1, 2, 3], 'number'); ?&gt;</code></pre>
-
+<pre class="codehilite"><code class="language-php linenums">&lt;?php $this-&gt;cycle()-&gt;assign([1, 2, 3], 'number'); ?&gt;</code></pre>
 
 <p>Or use the <code>setName()</code> method priort to invoking either of <code>next()</code> or <code>prev()</code>.</p>
 <p>As a combined example:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php
+<pre class="codehilite"><code class="language-php linenums">&lt;?php
 $this-&gt;cycle()-&gt;assign(['#F0F0F0', '#FFF'], 'colors');
 $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
 ?&gt;
