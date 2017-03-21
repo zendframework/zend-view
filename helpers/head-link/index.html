@@ -120,6 +120,12 @@
                         
                             
 <li >
+    <a href="../asset/">Asset</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../base-path/">BasePath</a>
 </li>
 
@@ -312,10 +318,10 @@ elements for later retrieval and output in your layout script.</p>
 <p>The <code>HeadLink</code> helper has special methods for adding stylesheet links to its
 stack:</p>
 <ul>
-<li><code>appendStylesheet($href, $media, $conditionalStylesheet, $extras)</code></li>
-<li><code>offsetSetStylesheet($index, $href, $media, $conditionalStylesheet, $extras)</code></li>
-<li><code>prependStylesheet($href, $media, $conditionalStylesheet, $extras)</code></li>
-<li><code>setStylesheet($href, $media, $conditionalStylesheet, $extras)</code></li>
+<li><code>appendStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = [])</code></li>
+<li><code>offsetSetStylesheet($index, $href, $media = 'screen', $conditionalStylesheet = '', $extras = [])</code></li>
+<li><code>prependStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = [])</code></li>
+<li><code>setStylesheet($href, $media = 'screen', $conditionalStylesheet = '', $extras = [])</code></li>
 </ul>
 <p>The <code>$media</code> value defaults to 'screen', but may be any valid media value.
 <code>$conditionalStylesheet</code> is a string or boolean <code>false</code>, and will be used at
@@ -325,10 +331,10 @@ extra values that you want to be added to the tag.</p>
 <p>Additionally, the <code>HeadLink</code> helper has special methods for adding 'alternate'
 links to its stack:</p>
 <ul>
-<li><code>appendAlternate($href, $type, $title, $extras)</code></li>
-<li><code>offsetSetAlternate($index, $href, $type, $title, $extras)</code></li>
-<li><code>prependAlternate($href, $type, $title, $extras)</code></li>
-<li><code>setAlternate($href, $type, $title, $extras)</code></li>
+<li><code>appendAlternate($href, $type, $title, $extras = [])</code></li>
+<li><code>offsetSetAlternate($index, $href, $type, $title, $extras = [])</code></li>
+<li><code>prependAlternate($href, $type, $title, $extras = [])</code></li>
+<li><code>setAlternate($href, $type, $title, $extras = [])</code></li>
 </ul>
 <p>The <code>headLink()</code> helper method allows specifying all attributes necessary for a
 <code>&lt;link&gt;</code> element, and allows you to also specify placement: whether the

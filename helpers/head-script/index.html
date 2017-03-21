@@ -120,6 +120,12 @@
                         
                             
 <li >
+    <a href="../asset/">Asset</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../base-path/">BasePath</a>
 </li>
 
@@ -320,14 +326,14 @@ scripting elements or link to a remote resource containing client-side scripting
 code. The <code>HeadScript</code> helper allows you to manage both.</p>
 <p>The <code>HeadScript</code> helper supports the following methods for setting and adding scripts:</p>
 <ul>
-<li><code>appendFile($src, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>offsetSetFile($index, $src, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>prependFile($src, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>setFile($src, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>appendScript($script, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>offsetSetScript($index, $script, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>prependScript($script, $type = 'text/javascript', $attrs = array())</code></li>
-<li><code>setScript($script, $type = 'text/javascript', $attrs = array())</code></li>
+<li><code>appendFile($src, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>offsetSetFile($index, $src, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>prependFile($src, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>setFile($src, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>appendScript($script, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>offsetSetScript($index, $script, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>prependScript($script, $type = 'text/javascript', $attrs = [])</code></li>
+<li><code>setScript($script, $type = 'text/javascript', $attrs = [])</code></li>
 </ul>
 <p>In the case of the <code>*File()</code> methods, <code>$src</code> is the remote location of the
 script to load; this is usually in the form of a URL or a path. For the
@@ -387,8 +393,9 @@ scripts at the end of your document is a good practice for speeding up
 delivery of your page, particularly when using 3rd party analytics scripts.</p>
 <h3 id="arbitrary-attributes-are-disabled-by-default">Arbitrary Attributes are Disabled by Default</h3>
 <p>By default, <code>HeadScript</code> only will render <code>&lt;script&gt;</code> attributes that are blessed by the W3C.
-These include <code>type</code>, <code>charset</code>, <code>defer</code>, <code>language</code>, and <code>src</code>. However, some JavaScript
-frameworks, notably <a href="http://www.dojotoolkit.org/">Dojo</a>, utilize custom attributes in order to
+These include <code>id</code>, <code>charset</code>, <code>crossorigin</code>, <code>defer</code>, <code>integrity</code>,
+<code>language</code>, <code>src</code>, and <code>type</code>. However, some JavaScript frameworks, notably
+<a href="http://www.dojotoolkit.org/">Dojo</a>, utilize custom attributes in order to
 modify behavior. To allow such attributes, you can enable them via the
 <code>setAllowArbitraryAttributes()</code> method:</p>
 <pre class="codehilite"><code class="language-php linenums">$this-&gt;headScript()-&gt;setAllowArbitraryAttributes(true);</code></pre>
