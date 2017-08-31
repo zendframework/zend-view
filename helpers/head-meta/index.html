@@ -4,36 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="zend-view">  
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>HeadMeta - zend-view</title>
 
-    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/zf-web.css" rel="stylesheet">
-    <link href="../../css/zf.css" rel="stylesheet">
-    <link href="../../css/prism-zf.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css" integrity="sha256-AIodEDkC8V/bHBkfyxzolUMw57jeQ9CauwhVW6YJ9CA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/styles-482aa2add1.css">
 
     
 </head>
@@ -301,11 +280,11 @@
         <div class="col-md-9" role="main">
 
 <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="../..">zend-view</a> &raquo;</li>
+  <li><a href="../..">zend-view</a></li>
   
     
       
-        <li>Helpers &raquo;</li>
+        <li>Helpers</li>
       
     
   
@@ -362,12 +341,12 @@ client-side caching rules or SEO keywords.</p>
 <p>For instance, if you wish to specify SEO keywords, you'd be creating a meta name
 tag with the name <code>keywords</code> and the content the keywords you wish to associate
 with your page:</p>
-<pre class="codehilite"><code class="language-php linenums">// setting meta keywords
+<pre class="codehilite"><code class="language-php">// setting meta keywords
 $this-&gt;headMeta()-&gt;appendName('keywords', 'framework, PHP, productivity');</code></pre>
 
 <p>If you wished to set some client-side caching rules, you'd set <code>http-equiv</code> tags
 with the rules you wish to enforce:</p>
-<pre class="codehilite"><code class="language-php linenums">// disabling client-side cache
+<pre class="codehilite"><code class="language-php">// disabling client-side cache
 $this-&gt;headMeta()
     -&gt;appendHttpEquiv('expires', 'Wed, 26 Feb 1997 08:21:57 GMT')
     -&gt;appendHttpEquiv('pragma', 'no-cache')
@@ -375,24 +354,24 @@ $this-&gt;headMeta()
 
 <p>Another popular use for meta tags is setting the content type, character set,
 and language:</p>
-<pre class="codehilite"><code class="language-php linenums">// setting content type and character set
+<pre class="codehilite"><code class="language-php">// setting content type and character set
 $this-&gt;headMeta()
     -&gt;appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
     -&gt;appendHttpEquiv('Content-Language', 'en-US');</code></pre>
 
 <p>If you are serving an HTML5 document, you should provide the character set like
 this:</p>
-<pre class="codehilite"><code class="language-php linenums">// setting character set in HTML5
+<pre class="codehilite"><code class="language-php">// setting character set in HTML5
 $this-&gt;headMeta()-&gt;setCharset('UTF-8'); // Will look like &lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
 
 <p>As a final example, an easy way to display a transitional message before a
 redirect is using a "meta refresh":</p>
-<pre class="codehilite"><code class="language-php linenums">// setting a meta refresh for 3 seconds to a new url:
+<pre class="codehilite"><code class="language-php">// setting a meta refresh for 3 seconds to a new url:
 $this-&gt;headMeta()
     -&gt;appendHttpEquiv('Refresh', '3;URL=http://www.some.org/some.html');</code></pre>
 
 <p>When you're ready to place your meta tags in the layout, echo the helper:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?= $this-&gt;headMeta() ?&gt;</code></pre>
+<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headMeta() ?&gt;</code></pre>
 
 <h2 id="usage-with-xhtml195rdfa-doctype">Usage with XHTML1_RDFA doctype</h2>
 <p>Enabling the RDFa doctype with the <a href="../doctype/">Doctype helper</a> enables the use
@@ -400,7 +379,7 @@ of the <code>property</code> attribute (in addition to the standard <code>name</
 <code>http-equiv</code>) with <code>HeadMeta</code>.  This is commonly used with the Facebook <a href="http://opengraphprotocol.org/">Open
 Graph Protocol</a>.</p>
 <p>For instance, you may specify an open graph page title and type as follows:</p>
-<pre class="codehilite"><code class="language-php linenums">$this-&gt;doctype(Zend\View\Helper\Doctype::XHTML1_RDFA);
+<pre class="codehilite"><code class="language-php">$this-&gt;doctype(Zend\View\Helper\Doctype::XHTML1_RDFA);
 $this-&gt;headMeta()-&gt;setProperty('og:title', 'my article title');
 $this-&gt;headMeta()-&gt;setProperty('og:type', 'article');
 echo $this-&gt;headMeta();
@@ -471,13 +450,11 @@ echo $this-&gt;headMeta();
 </div>
 
 
-    <script src="../../js/jquery-1.10.2.min.js"></script>
-    <script src="../../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../../js/prism-zf.js"></script>
-
+    <script src="//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo=" crossorigin="anonymous"></script>
     <script>var base_url = '../..';</script>
+    <script src="../../js/scripts-8b95ab2fc3.js"></script>
     <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-    <script src="../../js/base.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -518,112 +495,6 @@ echo $this-&gt;headMeta();
   </div>
 </div>
 
-    <script>
-  // Prepare the component list dropdown for display
-  $(function () {
-    var components = $(".zf-components"),
-        componentList = components.find(".component-list"),
-        sidebar = $(".bs-sidebar.affix"),
-        sidebarInitialPos = sidebar.css("position"),
-        hidden,
-        componentToggle = $(".component-toggle"),
-        navbar = $(".navbar-fixed-top"),
-        rollUpLink = $(".zf-components-rollup a");
-
-    // Initial setup on document load
-    components.insertBefore(navbar);
-    $(".zf-logo a").tooltip();
-    componentToggle.tooltip();
-    rollUpLink.attr({ href: "#", alt: "Hide component list" });
-
-    // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
-      sidebarInitialPos = "fixed";
-    }
-
-    // Setup onclick events to toggle list
-    componentToggle.click(toggleComponentList);
-    rollUpLink.click(toggleComponentList);
-
-    // Toggle the component list display
-    function toggleComponentList(event) {
-      event.preventDefault();
-
-      if (hidden === undefined) {
-        // Not loaded yet; load and display.
-        loadComponentList();
-        return;
-      }
-
-      if (hidden) {
-        // Hidden; display.
-        showComponentList();
-        return;
-      }
-
-      // Currently visible; hide
-      hideComponentList();
-    }
-
-    // Show the component list
-    function showComponentList() {
-      navbar.css({position: "relative"});
-      sidebar.css({position: "relative"});
-      components
-        .css({"margin-top": "-" + components.outerHeight() + "px"})
-        .show()
-        .animate({"margin-top": 0}, {
-          complete: function () {
-            componentToggle
-              .data("placement", "top")
-              .attr("data-original-title", "Hide component list");
-            hidden = false;
-          },
-          queue: false
-        });
-    }
-
-    // Hide the component list
-    function hideComponentList() {
-      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
-        complete: function () {
-          navbar.css({position: "fixed"});
-          sidebar.css({position: sidebarInitialPos});
-          componentToggle
-            .data("placement", "bottom")
-            .attr("data-original-title", "Show component list");
-          components.hide();
-          hidden = true;
-        },
-        queue: false
-      });
-      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
-    }
-
-    // Inject a component into the componet list DOM.
-    function injectComponent(index, component) {
-      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
-    }
-
-    // Parse the component list, build the DOM, and display it.
-    function parseComponentList(components) {
-      $.each(components, injectComponent);
-      showComponentList();
-    }
-
-    // Fetch the component list and display it.
-    function loadComponentList () {
-      $.ajax({
-        url: "//docs.zendframework.com/zf-mkdoc-theme/scripts/zf-component-list.json",
-        dataType: "text json",
-        success: parseComponentList,
-        error: function (e) {
-          console.log("Error occurred with XHR call", e);
-        }
-      });
-    }
-  });
-</script>
-    </body>
+</body>
 
 </html>

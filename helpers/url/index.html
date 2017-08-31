@@ -4,36 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="zend-view">  
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Url - zend-view</title>
 
-    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="../../css/base.css" rel="stylesheet">
-    <link href="../../css/zf-web.css" rel="stylesheet">
-    <link href="../../css/zf.css" rel="stylesheet">
-    <link href="../../css/prism-zf.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css" integrity="sha256-AIodEDkC8V/bHBkfyxzolUMw57jeQ9CauwhVW6YJ9CA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/styles-482aa2add1.css">
 
     
 </head>
@@ -307,11 +286,11 @@
         <div class="col-md-9" role="main">
 
 <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="../..">zend-view</a> &raquo;</li>
+  <li><a href="../..">zend-view</a></li>
   
     
       
-        <li>Helpers &raquo;</li>
+        <li>Helpers</li>
       
     
   
@@ -336,7 +315,7 @@ following definitions for the helper arguments:</p>
 <p>The following example shows a simple configuration for a news module. The route
 is called <code>news</code> and it has two <strong>optional</strong> parameters called <code>action</code> and
 <code>id</code>.</p>
-<pre class="codehilite"><code class="language-php linenums">// In a configuration array (e.g. returned by some module's module.config.php)
+<pre class="codehilite"><code class="language-php">// In a configuration array (e.g. returned by some module's module.config.php)
 'router' =&gt; [
     'routes' =&gt; [
         'news' =&gt; [
@@ -357,20 +336,20 @@ is called <code>news</code> and it has two <strong>optional</strong> parameters 
 
 <p>First, let's use the view helper to create the output for the URL <code>/news</code> without any of the
 optional parameters being used:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;a href=&quot;&lt;?= $this-&gt;url('news'); ?&gt;&quot;&gt;News Index&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-php">&lt;a href=&quot;&lt;?= $this-&gt;url('news'); ?&gt;&quot;&gt;News Index&lt;/a&gt;</code></pre>
 
 <p>This will render the output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news&quot;&gt;News Index&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news&quot;&gt;News Index&lt;/a&gt;</code></pre>
 
 <p>Now let's assume we want to get a link to display the detail page of a single
 news entry. For this task, the optional parameters <code>action</code> and <code>id</code> need to
 have values assigned. This is how you do that:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'details', 'id' =&gt; 42]); ?&gt;&quot;&gt;
+<pre class="codehilite"><code class="language-php">&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'details', 'id' =&gt; 42]); ?&gt;&quot;&gt;
     Details of News #42
 &lt;/a&gt;</code></pre>
 
 <p>This will render the output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news/details/42&quot;&gt;News Index&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news/details/42&quot;&gt;News Index&lt;/a&gt;</code></pre>
 
 <h2 id="query-string-arguments">Query String Arguments</h2>
 <p>Most SEO experts agree that pagination parameters should not be part of the URL
@@ -379,7 +358,7 @@ path; for example, the following URL would be considered a bad practice:
 string arguments, such as <code>/news/archive?page=13</code>. To achieve this, you'll need
 to make use of the <code>$options</code> argument from the view helper.</p>
 <p>We will use the same route configuration as defined above:</p>
-<pre class="codehilite"><code class="language-php linenums">// In a configuration array (e.g. returned by some module's module.config.php)
+<pre class="codehilite"><code class="language-php">// In a configuration array (e.g. returned by some module's module.config.php)
 'router' =&gt; [
     'routes' =&gt; [
         'news' =&gt; [
@@ -400,7 +379,7 @@ to make use of the <code>$options</code> argument from the view helper.</p>
 
 <p>To generate query string arguments from the view helper, you need to assign them
 as the third argument using the <code>query</code> key like this:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?php
+<pre class="codehilite"><code class="language-php">&lt;?php
 $url = $this-&gt;url(
     'news',
     ['action' =&gt; 'archive'],
@@ -414,14 +393,14 @@ $url = $this-&gt;url(
 &lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;News Archive Page #13&lt;/a&gt;</code></pre>
 
 <p>The above code sample would output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news/archive?page=13&quot;&gt;News Archive Page #13&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news/archive?page=13&quot;&gt;News Archive Page #13&lt;/a&gt;</code></pre>
 
 <h2 id="fragments">Fragments</h2>
 <p>Another possible entry within the <code>$options</code> array is the assignment of URL
 fragments (typically used to link to in-page anchors), denoted with using the
 <code>fragment</code> key. Let's assume we want to enter a link for users to directly jump
 to the comment section of a details page:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?php
+<pre class="codehilite"><code class="language-php">&lt;?php
 $url = $this-&gt;url(
     'news',
     ['action' =&gt; 'details', 'id' =&gt; 42],
@@ -433,10 +412,10 @@ $url = $this-&gt;url(
 &lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
 
 <p>The above code sample would output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news/details/42#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news/details/42#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
 
 <p>You can use <code>fragment</code> and <code>query</code> options at the same time!</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?php
+<pre class="codehilite"><code class="language-php">&lt;?php
 $url = $this-&gt;url(
     'news',
     ['action' =&gt; 'details', 'id' =&gt; 42],
@@ -451,12 +430,12 @@ $url = $this-&gt;url(
 &lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
 
 <p>The above code sample would output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news/details/42?commentPage=3#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news/details/42?commentPage=3#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre>
 
 <h2 id="fully-qualified-domain-name">Fully Qualified Domain Name</h2>
 <p>Another possible entry within the <code>$options</code> array is to output a fully
 qualified domain name (absolute URL), denoted using the <code>force_canonical</code> key:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?php
+<pre class="codehilite"><code class="language-php">&lt;?php
 $url = $this-&gt;url(
     'news',
     [],
@@ -468,7 +447,7 @@ $url = $this-&gt;url(
 &lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;News Index&lt;/a&gt;</code></pre>
 
 <p>The above code sample would output:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;http://www.example.com/news&quot;&gt;News Index&lt;/a&gt;</code></pre>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;http://www.example.com/news&quot;&gt;News Index&lt;/a&gt;</code></pre>
 
 <h2 id="reusing-matched-parameters">Reusing Matched Parameters</h2>
 <p>When you're on a route that has many parameters, often times it makes sense to
@@ -477,14 +456,14 @@ case, the argument <code>$reuseMatchedParams</code> will come in handy.</p>
 <p>As an example, we will imagine being on a detail page for our <code>news</code> route. We
 want to display links to the <code>edit</code> and <code>delete</code> actions without having to
 assign the ID again:</p>
-<pre class="codehilite"><code class="language-php linenums">// Currently url /news/details/777
+<pre class="codehilite"><code class="language-php">// Currently url /news/details/777
 
 &lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'edit'], null, true); ?&gt;&quot;&gt;Edit Me&lt;/a&gt;
 &lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'delete'], null, true); ?&gt;&quot;&gt;Delete Me&lt;/a&gt;</code></pre>
 
 <p>Notice the <code>true</code> argument in the fourth position. This tells the view helper to
 use the matched <code>id</code> (<code>777</code>) when creating the new URL:</p>
-<pre class="codehilite"><code class="language-html linenums">&lt;a href=&quot;/news/edit/777&quot;&gt;Edit Me&lt;/a&gt;
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/news/edit/777&quot;&gt;Edit Me&lt;/a&gt;
 &lt;a href=&quot;/news/delete/777&quot;&gt;Edit Me&lt;/a&gt;</code></pre>
 
 <h3 id="shorthand">Shorthand</h3>
@@ -492,7 +471,7 @@ use the matched <code>id</code> (<code>777</code>) when creating the new URL:</p
 route options are set, the third argument for the URL view helper will be
 checked against its type; when a <code>boolean</code> is passed, the helper uses it to set
 the value of the <code>$reuseMatchedParams</code> flag:</p>
-<pre class="codehilite"><code class="language-php linenums">$this-&gt;url('news', ['action' =&gt; 'archive'], null, true);
+<pre class="codehilite"><code class="language-php">$this-&gt;url('news', ['action' =&gt; 'archive'], null, true);
 // is equal to
 $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre>
 
@@ -558,13 +537,11 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre>
 </div>
 
 
-    <script src="../../js/jquery-1.10.2.min.js"></script>
-    <script src="../../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../../js/prism-zf.js"></script>
-
+    <script src="//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo=" crossorigin="anonymous"></script>
     <script>var base_url = '../..';</script>
+    <script src="../../js/scripts-8b95ab2fc3.js"></script>
     <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-    <script src="../../js/base.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -605,112 +582,6 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre>
   </div>
 </div>
 
-    <script>
-  // Prepare the component list dropdown for display
-  $(function () {
-    var components = $(".zf-components"),
-        componentList = components.find(".component-list"),
-        sidebar = $(".bs-sidebar.affix"),
-        sidebarInitialPos = sidebar.css("position"),
-        hidden,
-        componentToggle = $(".component-toggle"),
-        navbar = $(".navbar-fixed-top"),
-        rollUpLink = $(".zf-components-rollup a");
-
-    // Initial setup on document load
-    components.insertBefore(navbar);
-    $(".zf-logo a").tooltip();
-    componentToggle.tooltip();
-    rollUpLink.attr({ href: "#", alt: "Hide component list" });
-
-    // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
-      sidebarInitialPos = "fixed";
-    }
-
-    // Setup onclick events to toggle list
-    componentToggle.click(toggleComponentList);
-    rollUpLink.click(toggleComponentList);
-
-    // Toggle the component list display
-    function toggleComponentList(event) {
-      event.preventDefault();
-
-      if (hidden === undefined) {
-        // Not loaded yet; load and display.
-        loadComponentList();
-        return;
-      }
-
-      if (hidden) {
-        // Hidden; display.
-        showComponentList();
-        return;
-      }
-
-      // Currently visible; hide
-      hideComponentList();
-    }
-
-    // Show the component list
-    function showComponentList() {
-      navbar.css({position: "relative"});
-      sidebar.css({position: "relative"});
-      components
-        .css({"margin-top": "-" + components.outerHeight() + "px"})
-        .show()
-        .animate({"margin-top": 0}, {
-          complete: function () {
-            componentToggle
-              .data("placement", "top")
-              .attr("data-original-title", "Hide component list");
-            hidden = false;
-          },
-          queue: false
-        });
-    }
-
-    // Hide the component list
-    function hideComponentList() {
-      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
-        complete: function () {
-          navbar.css({position: "fixed"});
-          sidebar.css({position: sidebarInitialPos});
-          componentToggle
-            .data("placement", "bottom")
-            .attr("data-original-title", "Show component list");
-          components.hide();
-          hidden = true;
-        },
-        queue: false
-      });
-      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
-    }
-
-    // Inject a component into the componet list DOM.
-    function injectComponent(index, component) {
-      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
-    }
-
-    // Parse the component list, build the DOM, and display it.
-    function parseComponentList(components) {
-      $.each(components, injectComponent);
-      showComponentList();
-    }
-
-    // Fetch the component list and display it.
-    function loadComponentList () {
-      $.ajax({
-        url: "//docs.zendframework.com/zf-mkdoc-theme/scripts/zf-component-list.json",
-        dataType: "text json",
-        success: parseComponentList,
-        error: function (e) {
-          console.log("Error occurred with XHR call", e);
-        }
-      });
-    }
-  });
-</script>
-    </body>
+</body>
 
 </html>

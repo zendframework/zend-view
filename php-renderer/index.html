@@ -4,36 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="zend-view">  
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>The PhpRenderer - zend-view</title>
 
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
-    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="../css/base.css" rel="stylesheet">
-    <link href="../css/zf-web.css" rel="stylesheet">
-    <link href="../css/zf.css" rel="stylesheet">
-    <link href="../css/prism-zf.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-    <script>
-    WebFont.load({
-        google: {
-            families: ['Open Sans', 'PT Sans']
-        }
-    });
-    </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css" integrity="sha256-AIodEDkC8V/bHBkfyxzolUMw57jeQ9CauwhVW6YJ9CA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles-482aa2add1.css">
 
     
 </head>
@@ -303,11 +282,11 @@
         <div class="col-md-9" role="main">
 
 <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="..">zend-view</a> &raquo;</li>
+  <li><a href="..">zend-view</a></li>
   
     
       
-        <li>Rendering Views &raquo;</li>
+        <li>Rendering Views</li>
       
     
   
@@ -327,7 +306,7 @@ within your view script. Anything you can do with PHP is available to you.</p>
 <code>PhpRenderer</code>, providing it with a resolver which will resolve templates to PHP
 view scripts, and then calling its <code>render()</code> method.</p>
 <p>Instantiating a renderer:</p>
-<pre class="codehilite"><code class="language-php linenums">use Zend\View\Renderer\PhpRenderer;
+<pre class="codehilite"><code class="language-php">use Zend\View\Renderer\PhpRenderer;
 
 $renderer = new PhpRenderer();</code></pre>
 
@@ -353,7 +332,7 @@ with the <code>PhpRenderer</code> are:</p>
 <p>We suggest using the <code>AggregateResolver</code>, as it allows you to create a
 multi-tiered strategy for resolving template names.</p>
 <p>Programmatically, you would then do something like this:</p>
-<pre class="codehilite"><code class="language-php linenums">use Zend\View\Renderer\PhpRenderer;
+<pre class="codehilite"><code class="language-php">use Zend\View\Renderer\PhpRenderer;
 use Zend\View\Resolver;
 
 $renderer = new PhpRenderer();
@@ -386,7 +365,7 @@ getting low priority, when resolving.</p>
 <p>If you are started your application via the <a href="https://github.com/zendframework/ZendSkeletonApplication">skeleton
 application</a>, you can
 provide the above via configuration:</p>
-<pre class="codehilite"><code class="language-php linenums">// In the Application module configuration
+<pre class="codehilite"><code class="language-php">// In the Application module configuration
 // (module/Application/config/module.config.php):
 return [
     'view_manager' =&gt; [
@@ -418,7 +397,7 @@ inject some variables. This can be done in 4 different ways.</p>
   <code>ViewModel</code> to the <code>render()</code> method:</li>
 </ul>
 <p>As an example of the latter:</p>
-<pre class="codehilite"><code class="language-php linenums">use Zend\View\Model\ViewModel;
+<pre class="codehilite"><code class="language-php">use Zend\View\Model\ViewModel;
 use Zend\View\Renderer\PhpRenderer;
 
 $renderer = new PhpRenderer();
@@ -433,7 +412,7 @@ $renderer-&gt;render($model);</code></pre>
 
 <p>Now, let's render something. As an example, let us say you have a list of
 book data.</p>
-<pre class="codehilite"><code class="language-php linenums">// use a model to get the data for book authors and titles.
+<pre class="codehilite"><code class="language-php">// use a model to get the data for book authors and titles.
 $data = [
     [
         'author' =&gt; 'Hernando de Soto',
@@ -458,7 +437,7 @@ echo $renderer-&gt;render('booklist');</code></pre>
 <p>More often than not, you'll likely be using the MVC layer. As such, you should
 be thinking in terms of view models. Let's consider the following code from
 within an action method of a controller.</p>
-<pre class="codehilite"><code class="language-php linenums">namespace Bookstore\Controller;
+<pre class="codehilite"><code class="language-php">namespace Bookstore\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -484,7 +463,7 @@ class BookController extends AbstractActionController
 }</code></pre>
 
 <p>This will then be rendered as if the following were executed:</p>
-<pre class="codehilite"><code class="language-php linenums">$renderer-&gt;render($model);</code></pre>
+<pre class="codehilite"><code class="language-php">$renderer-&gt;render($model);</code></pre>
 
 <p>Now we need the associated view script. At this point, we'll assume that the
 template <code>booklist</code> resolves to the file <code>booklist.phtml</code>. This is a PHP script
@@ -492,7 +471,7 @@ like any other, with one exception: it executes inside the scope of the
 <code>PhpRenderer</code> instance, which means that references to <code>$this</code> point to the
 <code>PhpRenderer</code> instance properties and methods. Thus, a very basic view script
 could look like this:</p>
-<pre class="codehilite"><code class="language-php linenums">&lt;?php if ($this-&gt;books): ?&gt;
+<pre class="codehilite"><code class="language-php">&lt;?php if ($this-&gt;books): ?&gt;
 
     &lt;!-- A table of some books. --&gt;
     &lt;table&gt;
@@ -543,24 +522,24 @@ and/or create view models, create view scripts, and render view scripts.</p>
 its work. Use the following methods to configure the renderer.</p>
 <p>Unless otherwise noted, class names are relative to the <code>Zend\View</code> namespace.</p>
 <h3 id="sethelperpluginmanager">setHelperPluginManager</h3>
-<pre class="codehilite"><code class="language-php linenums">setHelperPluginManager(string|HelperPluginManager $helpers): void</code></pre>
+<pre class="codehilite"><code class="language-php">setHelperPluginManager(string|HelperPluginManager $helpers): void</code></pre>
 
 <p>Set the helper plugin manager instance used to load, register, and retrieve
 <a href="../helpers/intro/">helpers</a>.</p>
 <h3 id="setresolver">setResolver</h3>
-<pre class="codehilite"><code class="language-php linenums">setResolver(Resolver\\ResolverInterface $resolver) : void</code></pre>
+<pre class="codehilite"><code class="language-php">setResolver(Resolver\\ResolverInterface $resolver) : void</code></pre>
 
 <p>Set the resolver instance.</p>
 <h3 id="setfilterchain">setFilterChain</h3>
-<pre class="codehilite"><code class="language-php linenums">setFilterChain(\Zend\Filter\FilterChain $filters) : void</code></pre>
+<pre class="codehilite"><code class="language-php">setFilterChain(\Zend\Filter\FilterChain $filters) : void</code></pre>
 
 <p>Set a filter chain to use as an output filter on rendered content.</p>
 <h3 id="setvars">setVars</h3>
-<pre class="codehilite"><code class="language-php linenums">setVars(array|\ArrayAccess|Variables $variables) : void</code></pre>
+<pre class="codehilite"><code class="language-php">setVars(array|\ArrayAccess|Variables $variables) : void</code></pre>
 
 <p>Set the variables to use when rendering a view script/template.</p>
 <h3 id="setcanrendertrees">setCanRenderTrees</h3>
-<pre class="codehilite"><code class="language-php linenums">setCanRenderTrees(boolean $canRenderTrees) : void</code></pre>
+<pre class="codehilite"><code class="language-php">setCanRenderTrees(boolean $canRenderTrees) : void</code></pre>
 
 <p>Set the flag indicating whether or not we should render trees of view models. If
 set to true, the <code>Zend\View\View</code> instance will not attempt to render children
@@ -574,7 +553,7 @@ within your view scripts or when interacting with the <code>PhpRenderer</code>. 
 there are a few additional methods you may be interested in.</p>
 <p>Unless otherwise noted, class names are relative to the <code>Zend\View</code> namespace.</p>
 <h3 id="render">render</h3>
-<pre class="codehilite"><code class="language-php linenums">render(
+<pre class="codehilite"><code class="language-php">render(
     string|Model\ModelInterface $nameOrModel,
     array|\Traversable $values = null
 ) : string</code></pre>
@@ -593,23 +572,23 @@ these will be used when rendering; otherwise, the variables container already
 present, if any, will be used.</p>
 <p>The method returns the script output.</p>
 <h3 id="resolver">resolver</h3>
-<pre class="codehilite"><code class="language-php linenums">resolver() : Resolver\ResolverInterface</code></pre>
+<pre class="codehilite"><code class="language-php">resolver() : Resolver\ResolverInterface</code></pre>
 
 <p>Retrieves the current <code>Resolver</code> instance.</p>
 <h3 id="vars">vars</h3>
-<pre class="codehilite"><code class="language-php linenums">vars(string $key = null) : mixed</code></pre>
+<pre class="codehilite"><code class="language-php">vars(string $key = null) : mixed</code></pre>
 
 <p>Retrieve a single variable from the container if a key is provided; otherwise it
 will return the variables container.</p>
 <h3 id="plugin">plugin</h3>
-<pre class="codehilite"><code class="language-php linenums">plugin(string $name, array $options = null) : Helper\HelperInterface</code></pre>
+<pre class="codehilite"><code class="language-php">plugin(string $name, array $options = null) : Helper\HelperInterface</code></pre>
 
 <p>Retrieve a plugin/helper instance. Proxies to the plugin manager's <code>get()</code>
 method; as such, any <code>$options</code> you pass will be passed to the plugin's
 constructor if this is the first time the plugin has been retrieved. See the
 section on <a href="../helpers/intro/">helpers</a> for more information.</p>
 <h3 id="addtemplate">addTemplate</h3>
-<pre class="codehilite"><code class="language-php linenums">addTemplate(string $template) : void</code></pre>
+<pre class="codehilite"><code class="language-php">addTemplate(string $template) : void</code></pre>
 
 <p>Add a template to the stack. When used, the next call to <code>render()</code> will loop
 through all templates added using this method, rendering them one by one; the
@@ -677,13 +656,11 @@ output of the last will be returned.</p>
 </div>
 
 
-    <script src="../js/jquery-1.10.2.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
-    <script src="../js/prism-zf.js"></script>
-
+    <script src="//cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo=" crossorigin="anonymous"></script>
     <script>var base_url = '..';</script>
+    <script src="../js/scripts-8b95ab2fc3.js"></script>
     <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-    <script src="../js/base.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -724,112 +701,6 @@ output of the last will be returned.</p>
   </div>
 </div>
 
-    <script>
-  // Prepare the component list dropdown for display
-  $(function () {
-    var components = $(".zf-components"),
-        componentList = components.find(".component-list"),
-        sidebar = $(".bs-sidebar.affix"),
-        sidebarInitialPos = sidebar.css("position"),
-        hidden,
-        componentToggle = $(".component-toggle"),
-        navbar = $(".navbar-fixed-top"),
-        rollUpLink = $(".zf-components-rollup a");
-
-    // Initial setup on document load
-    components.insertBefore(navbar);
-    $(".zf-logo a").tooltip();
-    componentToggle.tooltip();
-    rollUpLink.attr({ href: "#", alt: "Hide component list" });
-
-    // Cast initial sidebar position value
-    if (undefined === sidebarInitialPos) {
-      sidebarInitialPos = "fixed";
-    }
-
-    // Setup onclick events to toggle list
-    componentToggle.click(toggleComponentList);
-    rollUpLink.click(toggleComponentList);
-
-    // Toggle the component list display
-    function toggleComponentList(event) {
-      event.preventDefault();
-
-      if (hidden === undefined) {
-        // Not loaded yet; load and display.
-        loadComponentList();
-        return;
-      }
-
-      if (hidden) {
-        // Hidden; display.
-        showComponentList();
-        return;
-      }
-
-      // Currently visible; hide
-      hideComponentList();
-    }
-
-    // Show the component list
-    function showComponentList() {
-      navbar.css({position: "relative"});
-      sidebar.css({position: "relative"});
-      components
-        .css({"margin-top": "-" + components.outerHeight() + "px"})
-        .show()
-        .animate({"margin-top": 0}, {
-          complete: function () {
-            componentToggle
-              .data("placement", "top")
-              .attr("data-original-title", "Hide component list");
-            hidden = false;
-          },
-          queue: false
-        });
-    }
-
-    // Hide the component list
-    function hideComponentList() {
-      components.animate({"margin-top": "-" + components.outerHeight() + "px"}, {
-        complete: function () {
-          navbar.css({position: "fixed"});
-          sidebar.css({position: sidebarInitialPos});
-          componentToggle
-            .data("placement", "bottom")
-            .attr("data-original-title", "Show component list");
-          components.hide();
-          hidden = true;
-        },
-        queue: false
-      });
-      sidebar.animate({ top: sidebarInitialTop + "px" }, { queue: false});
-    }
-
-    // Inject a component into the componet list DOM.
-    function injectComponent(index, component) {
-      componentList.append('<div class="component"><h4><a href="' + component.url + '">' + component.name + '</a></h4><p>' + component.description + '</p></div>');
-    }
-
-    // Parse the component list, build the DOM, and display it.
-    function parseComponentList(components) {
-      $.each(components, injectComponent);
-      showComponentList();
-    }
-
-    // Fetch the component list and display it.
-    function loadComponentList () {
-      $.ajax({
-        url: "//docs.zendframework.com/zf-mkdoc-theme/scripts/zf-component-list.json",
-        dataType: "text json",
-        success: parseComponentList,
-        error: function (e) {
-          console.log("Error occurred with XHR call", e);
-        }
-      });
-    }
-  });
-</script>
-    </body>
+</body>
 
 </html>
