@@ -382,8 +382,8 @@ substitution, and more.</p>
 <p>Additionally, zend-mvc integrates with zend-view via a number of event listeners
 in the <code>Zend\Mvc\View</code> namespace.</p>
 <p>This section of the manual is designed to show you typical usage patterns of the
-view layer when using it with <a href="https://zendframework.github.io/zend-mvc/">zend-mvc</a>.
-The assumption is that you are using the <a href="https://zendframework.github.io/zend-servicemanager/">service manager</a>
+view layer when using it with <a href="https://docs.zendframework.com/zend-mvc/">zend-mvc</a>.
+The assumption is that you are using the <a href="https://docs.zendframework.com/zend-servicemanager/">service manager</a>
 and the default MVC view strategies.</p>
 <h2 id="configuration">Configuration</h2>
 <p>The default configuration will typically work out-of-the-box. However, you will
@@ -496,7 +496,7 @@ variables, could this be made simpler?  Definitely.</p>
 first will look to see if you returned an associative array from your
 controller; if so, it will create a View Model and make this associative array
 the Variables Container; this View Model then replaces the
-<a href="http://zendframework.github.io/zend-mvc/mvc-event/">MvcEvent</a>'s result. It will
+<a href="https://docs.zendframework.com/zend-mvc/mvc-event/">MvcEvent</a>'s result. It will
 also look to see if you returned nothing or <code>null</code>; if so, it will create a View
 Model without any variables attached; this View Model also replaces the
 <code>MvcEvent</code>'s result.</p>
@@ -1037,7 +1037,7 @@ class MyController extends AbstractActionController
     }
 }</code></pre></p>
 <p>Or you could switch the <code>ViewModel</code> dynamically based on the "Accept" HTTP Header with the 
-<a href="http://zendframework.github.io/zend-mvc/plugins/#acceptableviewmodelselector-plugin">Zend-Mvc-Plugin AcceptableViewModelSelector</a>.</p>
+<a href="https://docs.zendframework.com/zend-mvc/plugins/#acceptableviewmodelselector-plugin">Zend-Mvc-Plugin AcceptableViewModelSelector</a>.</p>
 
 
 
