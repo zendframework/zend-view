@@ -215,6 +215,12 @@
                             
                                 
     <li class="subnavigation__list-item ">
+        <a href="../layout/" class="subnavigation__link">Layout</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
         <a href="../partial/" class="subnavigation__link">Partial</a>
     </li>
 
@@ -346,7 +352,8 @@
 <p>The <code>Identity</code> helper allows retrieving the identity from the
 <code>AuthenticationService</code>.</p>
 <p>For the <code>Identity</code> helper to work, a <code>Zend\Authentication\AuthenticationService</code>
-name or alias must be defined and recognized by the <code>ServiceManager</code>.</p>
+or <code>Zend\Authentication\AuthenticationServiceInterface</code> name or alias must be
+defined and recognized by the <code>ServiceManager</code>.</p>
 <p><code>Identity</code> returns the identity discovered in the <code>AuthenticationService</code>, or
 <code>null</code> if no identity is available.</p>
 <h2 id="basic-usage">Basic Usage</h2>
@@ -376,6 +383,9 @@ return [
         ],
     ],
 ];</code></pre>
+
+<p>If that service is not registered, the plugin will then look for a service named
+<code>Zend\Authentication\AuthenticationServiceInterface</code>, and use that if found.</p>
 
 
 
@@ -573,6 +583,12 @@ return [
                                 
     <li class="subnavigation__list-item ">
         <a href="../json/" class="subnavigation__link">Json</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="../layout/" class="subnavigation__link">Layout</a>
     </li>
 
                             

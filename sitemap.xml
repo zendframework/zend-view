@@ -144,6 +144,12 @@
     </url>
         
     <url>
+     <loc>/helpers/layout/</loc>
+     <lastmod>2018-12-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/helpers/partial/</loc>
      <lastmod>2018-12-06</lastmod>
      <changefreq>daily</changefreq>

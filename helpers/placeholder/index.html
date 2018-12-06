@@ -215,6 +215,12 @@
                             
                                 
     <li class="subnavigation__list-item ">
+        <a href="../layout/" class="subnavigation__link">Layout</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
         <a href="../partial/" class="subnavigation__link">Partial</a>
     </li>
 
@@ -342,6 +348,10 @@
                     </li>
                 
                     <li class="toc__entry">
+                        <a href="#clearing-content" class="toc__link">Clearing Content</a>
+                    </li>
+                
+                    <li class="toc__entry">
                         <a href="#concrete-implementations" class="toc__link">Concrete Implementations</a>
                     </li>
                 
@@ -400,7 +410,7 @@ $this-&gt;placeholder('foo')
 
 &lt;?= $this-&gt;placeholder('foo') ?&gt;</code></pre>
 
-<p>The above results in an unodered list with pretty indentation.</p>
+<p>The above results in an unordered list with pretty indentation.</p>
 <p>Because the <code>Placeholder</code> container objects extend <code>ArrayObject</code>, you can also
 assign content to a specific key in the container easily, instead of simply
 pushing it into the container. Keys may be accessed either as object properties
@@ -456,6 +466,16 @@ foreach ($this-&gt;data as $datum): ?&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureEnd() ?&gt;
 
 &lt;?= $this-&gt;placeholder('foo')-&gt;data ?&gt;</code></pre>
+
+<h2 id="clearing-content">Clearing Content</h2>
+<p>In certain situations it is desirable to remove or clear containers and
+aggregated content. The placeholder view helper provides two methods to either
+delete a specific container or clear all containers at once:</p>
+<h3 id="delete-a-single-container">Delete a single container</h3>
+<pre class="codehilite"><code class="language-php">$this-&gt;plugin('placeholder')-&gt;deleteContainer('myNamedContainer');</code></pre>
+
+<h3 id="clear-all-containers">Clear all containers</h3>
+<pre class="codehilite"><code class="language-php">$this-&gt;plugin('placeholder')-&gt;clearContainers();</code></pre>
 
 <h2 id="concrete-implementations">Concrete Implementations</h2>
 <p>zend-view ships with a number of "concrete" placeholder implementations. These
@@ -669,6 +689,12 @@ element itself.</p>
                                 
     <li class="subnavigation__list-item ">
         <a href="../json/" class="subnavigation__link">Json</a>
+    </li>
+
+                            
+                                
+    <li class="subnavigation__list-item ">
+        <a href="../layout/" class="subnavigation__link">Layout</a>
     </li>
 
                             
