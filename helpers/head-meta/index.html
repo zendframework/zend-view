@@ -336,6 +336,10 @@
             <ul class="toc__list">
                 
                     <li class="toc__entry">
+                        <a href="#autoescape" class="toc__link">AutoEscape</a>
+                    </li>
+                
+                    <li class="toc__entry">
                         <a href="#basic-usage" class="toc__link">Basic Usage</a>
                     </li>
                 
@@ -378,6 +382,18 @@ attributes.</p>
 <li><code>prependProperty($property, $content, $modifiers)</code></li>
 <li><code>setProperty($property, $content, $modifiers)</code></li>
 </ul>
+<p>Finally, starting in 2.11.2, you can call the following method to determine
+whether or not to autoescape values used in meta tags:</p>
+<ul>
+<li><code>setAutoEscape(bool $autoEscape = true)</code> (enabled by default)</li>
+</ul>
+<blockquote>
+<h3 id="autoescape">AutoEscape</h3>
+<p><strong>Disable this flag at your own risk.</strong> The one documented case where it is
+necessary to disable the flag is when setting the <code>X-UA-Compatible</code>
+<code>http-equiv</code> value to switch behavior for Internet Explorer, as escaped values
+will not trigger correct representation.</p>
+</blockquote>
 <p>The <code>$keyValue</code> item is used to define a value for the <code>name</code> or <code>http-equiv</code>
 key; <code>$content</code> is the value for the 'content' key, and <code>$modifiers</code> is an
 optional associative array that can contain keys for <code>lang</code> and/or <code>scheme</code>.</p>
