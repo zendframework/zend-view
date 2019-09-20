@@ -141,8 +141,8 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://docs.zendframework.com/zend-view/cookbook/setting-module-specific-layouts/</loc>
+     <lastmod>2019-09-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
