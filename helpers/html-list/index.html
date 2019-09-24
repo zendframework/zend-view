@@ -433,7 +433,7 @@ individual items will be escaped using the view objects registered escaping
 mechanisms; pass a <code>false</code> value if you want to allow markup in your lists.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <h3 id="unordered-list">Unordered list</h3>
-<pre class="codehilite"><code class="language-php">$items = [
+<p> <pre class=codehilite><code class=language-php>$items = [
     'Level one, number one',
     [
         'Level two, number one',
@@ -446,10 +446,9 @@ mechanisms; pass a <code>false</code> value if you want to allow markup in your 
     'Level one, number two',
 ];
 
-echo $this-&gt;htmlList($items);</code></pre>
-
+echo $this-&gt;htmlList($items);</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;ul&gt;
     &lt;li&gt;Level one, number one
         &lt;ul&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
@@ -462,13 +461,11 @@ echo $this-&gt;htmlList($items);</code></pre>
         &lt;/ul&gt;
     &lt;/li&gt;
     &lt;li&gt;Level one, number two&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
+&lt;/ul&gt;</code></pre></p>
 <h3 id="ordered-list">Ordered list</h3>
-<pre class="codehilite"><code class="language-php">echo $this-&gt;htmlList($items, true);</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>echo $this-&gt;htmlList($items, true);</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ol&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;ol&gt;
     &lt;li&gt;Level one, number one
         &lt;ol&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
@@ -481,20 +478,18 @@ echo $this-&gt;htmlList($items);</code></pre>
         &lt;/ol&gt;
     &lt;/li&gt;
     &lt;li&gt;Level one, number two&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-
+&lt;/ol&gt;</code></pre></p>
 <h3 id="html-attributes">HTML attributes</h3>
-<pre class="codehilite"><code class="language-php">$attribs = ['class' =&gt; 'foo'];
+<p> <pre class=codehilite><code class=language-php>$attribs = ['class' =&gt; 'foo'];
 
-echo $this-&gt;htmlList($items, false, $attribs);</code></pre>
-
+echo $this-&gt;htmlList($items, false, $attribs);</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul class="foo"&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;ul class=&quot;foo&quot;&gt;
     &lt;li&gt;Level one, number one
-        &lt;ul class="foo"&gt;
+        &lt;ul class=&quot;foo&quot;&gt;
             &lt;li&gt;Level two, number one&lt;/li&gt;
             &lt;li&gt;Level two, number two
-                &lt;ul class="foo"&gt;
+                &lt;ul class=&quot;foo&quot;&gt;
                     &lt;li&gt;Level three, number one&lt;/li&gt;
                 &lt;/ul&gt;
             &lt;/li&gt;
@@ -502,10 +497,9 @@ echo $this-&gt;htmlList($items, false, $attribs);</code></pre>
         &lt;/ul&gt;
     &lt;/li&gt;
     &lt;li&gt;Level one, number two&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
+&lt;/ul&gt;</code></pre></p>
 <h3 id="escape-output">Escape Output</h3>
-<pre class="codehilite"><code class="language-php">$items = [
+<p> <pre class=codehilite><code class=language-php>$items = [
     'Level one, number &lt;strong&gt;one&lt;/strong&gt;',
     'Level one, number &lt;em&gt;two&lt;/em&gt;',
 ];
@@ -514,20 +508,19 @@ echo $this-&gt;htmlList($items, false, $attribs);</code></pre>
 echo $this-&gt;htmlList($items);
 
 // Don't escape output
-echo $this-&gt;htmlList($items, false, false, false);</code></pre>
-
+echo $this-&gt;htmlList($items, false, false, false);</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;!-- Escape output (default) --&gt;
-&lt;ul class="foo"&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;!-- Escape output (default) --&gt;
+&lt;ul class=&quot;foo&quot;&gt;
     &lt;li&gt;Level one, number &amp;lt;strong&amp;gt;one&amp;lt;/strong&amp;gt;&lt;/li&gt;
     &lt;li&gt;Level one, number &amp;lt;em&amp;gt;two&amp;lt;/em&amp;gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!-- Don't escape output --&gt;
-&lt;ul class="foo"&gt;
+&lt;ul class=&quot;foo&quot;&gt;
     &lt;li&gt;Level one, number &lt;strong&gt;one&lt;/strong&gt;&lt;/li&gt;
     &lt;li&gt;Level one, number &lt;em&gt;two&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;</code></pre></p>
 
 
 

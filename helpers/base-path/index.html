@@ -433,23 +433,22 @@ correct.</p>
 <p>If you're running a zend-mvc application, <code>basePath()</code> will point to the
 <code>public</code> folder of the application's root.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class="codehilite"><code class="language-php">/*
- * The following assume that the base URL of the page/application is "/mypage".
+<p> <pre class=codehilite><code class=language-php>/*
+ * The following assume that the base URL of the page/application is &quot;/mypage&quot;.
  */
 
 /*
  * Prints:
- * &lt;base href="/mypage/" /&gt;
+ * &lt;base href=&quot;/mypage/&quot; /&gt;
  */
-&lt;base href="&lt;?= $this-&gt;basePath() ?&gt;" /&gt;
+&lt;base href=&quot;&lt;?= $this-&gt;basePath() ?&gt;&quot; /&gt;
 
 /*
  * Prints:
- * &lt;link rel="stylesheet" type="text/css" href="/mypage/css/base.css" /&gt;
+ * &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/mypage/css/base.css&quot; /&gt;
  */
-&lt;link rel="stylesheet" type="text/css"
-     href="&lt;?= $this-&gt;basePath('css/base.css') ?&gt;" /&gt;</code></pre>
-
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+     href=&quot;&lt;?= $this-&gt;basePath('css/base.css') ?&gt;&quot; /&gt;</code></pre></p>
 <blockquote>
 <h3 id="indexphp-script">index.php script</h3>
 <p>For simplicity's sake, we strip out the entry PHP file (e.g., <code>index.php</code>)

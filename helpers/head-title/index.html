@@ -445,7 +445,7 @@ explicitly pass a different attach order as the second parameter.</p>
 title segments for each level of depth in your application: site, module,
 controller, action, and potentially resource. This could be achieved in the
 module class.</p>
-<pre class="codehilite"><code class="language-php">// module/MyModule/Module.php
+<p> <pre class=codehilite><code class=language-php>// module/MyModule/Module.php
 &lt;?php
 
 namespace MyModule;
@@ -490,21 +490,17 @@ class Module
         $headTitleHelper-&gt;append($module);
         $headTitleHelper-&gt;append($siteName);
     }
-}</code></pre>
-
+}</code></pre></p>
 <p>When you're finally ready to render the title in your layout script, echo the
 helper:</p>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headTitle() ?&gt;</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headTitle() ?&gt;</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">&lt;title&gt;action - controller - module - Zend Framework&lt;/title&gt;</code></pre>
-
+<p> <pre class=codehilite><code class=language-html>&lt;title&gt;action - controller - module - Zend Framework&lt;/title&gt;</code></pre></p>
 <p>In case you want the title without the <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code> tags you can use
 the <code>renderTitle()</code> method:</p>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headTitle()-&gt;renderTitle() ?&gt;</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headTitle()-&gt;renderTitle() ?&gt;</code></pre></p>
 <p>Output:</p>
-<pre class="codehilite"><code class="language-html">action - controller - module - Zend Framework</code></pre>
+<p> <pre class=codehilite><code class=language-html>action - controller - module - Zend Framework</code></pre></p>
 
 
 

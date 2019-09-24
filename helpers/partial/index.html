@@ -448,24 +448,21 @@ This provides a way to have alternating colors on table rows, for example.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>Basic usage of partials is to render a template fragment in its own view scope.
 Consider the following partial script:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php // partial.phtml ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php // partial.phtml ?&gt;
 &lt;ul&gt;
     &lt;li&gt;From: &lt;?= $this-&gt;escapeHtml($this-&gt;from) ?&gt;&lt;/li&gt;
     &lt;li&gt;Subject: &lt;?= $this-&gt;escapeHtml($this-&gt;subject) ?&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
+&lt;/ul&gt;</code></pre></p>
 <p>You would then call it from your view script using the following:</p>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;partial('partial.phtml', [
+<p> <pre class=codehilite><code class=language-php>&lt;?= $this-&gt;partial('partial.phtml', [
     'from' =&gt; 'Team Framework',
     'subject' =&gt; 'view partials',
-]); ?&gt;</code></pre>
-
+]); ?&gt;</code></pre></p>
 <p>Which would then render:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;ul&gt;
     &lt;li&gt;From: Team Framework&lt;/li&gt;
     &lt;li&gt;Subject: view partials&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-
+&lt;/ul&gt;</code></pre></p>
 <blockquote>
 <h3 id="what-is-a-model">What is a model?</h3>
 <p>A model used with the <code>Partial</code> view helper can be one of the following:</p>
@@ -482,13 +479,13 @@ Consider the following partial script:</p>
 <p>If your model is an object, you may want to have it passed <strong>as an object</strong> to
 the partial script, instead of serializing it to an array of variables. You
 can do this by setting the <code>objectKey</code> property of the appropriate helper:</p>
-<pre class="codehilite"><code class="language-php">// Tell partial to pass objects as 'model' variable
-$view-&gt;partial()-&gt;setObjectKey('model');
-
-// Tell partial to pass objects from partialLoop as 'model' variable
+<p>```php
+// Tell partial to pass objects as 'model' variable
+$view-&gt;partial()-&gt;setObjectKey('model');</p>
+<p>// Tell partial to pass objects from partialLoop as 'model' variable
 // in final partial view script:
-$view-&gt;partialLoop()-&gt;setObjectKey('model');</code></pre>
-
+$view-&gt;partialLoop()-&gt;setObjectKey('model');
+```</p>
 <p>This technique is particularly useful when passing
 <code>Zend\Db\ResultSet\ResultSet</code>s to <code>partialLoop()</code>, as you then have full
 access to your row objects within the view scripts, allowing you to call
@@ -504,25 +501,22 @@ iterable item (array or object implementing <code>Iterator</code>) as the model.
 iterates over this, passing, the items to the partial script as the model. Items
 in the iterator may be any model the <code>Partial</code> view helper allows.</p>
 <p>Let's assume the following partial view script:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php // partialLoop.phtml ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php // partialLoop.phtml ?&gt;
     &lt;dt&gt;&lt;?= $this-&gt;key ?&gt;&lt;/dt&gt;
-    &lt;dd&gt;&lt;?= $this-&gt;value ?&gt;&lt;/dd&gt;</code></pre>
-
+    &lt;dd&gt;&lt;?= $this-&gt;value ?&gt;&lt;/dd&gt;</code></pre></p>
 <p>And the following "model":</p>
-<pre class="codehilite"><code class="language-php">$model = [
+<p> <pre class=codehilite><code class=language-php>$model = [
     ['key' =&gt; 'Mammal', 'value' =&gt; 'Camel'],
     ['key' =&gt; 'Bird', 'value' =&gt; 'Penguin'],
     ['key' =&gt; 'Reptile', 'value' =&gt; 'Asp'],
     ['key' =&gt; 'Fish', 'value' =&gt; 'Flounder'],
-];</code></pre>
-
+];</code></pre></p>
 <p>In your view script, you could then invoke the <code>PartialLoop</code> helper:</p>
-<pre class="codehilite"><code class="language-php">&lt;dl&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;dl&gt;
 &lt;?= $this-&gt;partialLoop('partialLoop.phtml', $model) ?&gt;
-&lt;/dl&gt;</code></pre>
-
+&lt;/dl&gt;</code></pre></p>
 <p>Resulting in the following:</p>
-<pre class="codehilite"><code class="language-html">&lt;dl&gt;
+<p> <pre class=codehilite><code class=language-html>&lt;dl&gt;
     &lt;dt&gt;Mammal&lt;/dt&gt;
     &lt;dd&gt;Camel&lt;/dd&gt;
 
@@ -534,7 +528,7 @@ in the iterator may be any model the <code>Partial</code> view helper allows.</p
 
     &lt;dt&gt;Fish&lt;/dt&gt;
     &lt;dd&gt;Flounder&lt;/dd&gt;
-&lt;/dl&gt;</code></pre>
+&lt;/dl&gt;</code></pre></p>
 
 
 

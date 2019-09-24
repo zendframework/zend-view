@@ -467,9 +467,9 @@ media, or dir are all permissible.</p>
 allows you to hide it from specific browsers. To add the conditional tags,
 pass the conditional value as part of the <code>$attributes</code> parameter in the
 method calls.</p>
-<pre class="codehilite"><code class="language-php">// adding comments
-$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></pre>
-
+<p><code>php
+// adding comments
+$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></p>
 </blockquote>
 <p><code>HeadStyle</code> also allows capturing style declarations; this can be useful if you
 want to create the declarations programmatically, and then place them elsewhere.
@@ -495,66 +495,59 @@ use another encoding with <code>headStyle</code>, you must:</p>
 <li>Attach the custom strategy in the <code>ViewEvent</code>.</li>
 </ol>
 <p>First we have to write the custom renderer:</p>
-<pre class="codehilite"><code class="language-php">// module/MyModule/View/Renderer/MyRenderer.php
-namespace MyModule\View\Renderer;
-
-// Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
-use Zend\View\Renderer\PhpRenderer;
-
-class MyRenderer extends PhpRenderer
+<p>```php
+// module/MyModule/View/Renderer/MyRenderer.php
+namespace MyModule\View\Renderer;</p>
+<p>// Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
+use Zend\View\Renderer\PhpRenderer;</p>
+<p>class MyRenderer extends PhpRenderer
 {
-   /**
+   /*<em>
     * @var string
-    */
-   protected $encoding;
-
-   /**
+    </em>/
+   protected $encoding;</p>
+<p>/*<em>
     * Constructor
     *
     * @param  string $encoding The encoding to be used
-    */
+    </em>/
    public function __construct($encoding)
    {
       parent::__construct();
       $this-&gt;encoding = $encoding;
-   }
-
-   /**
+   }</p>
+<p>/*<em>
     * Sets the encoding
     *
     * @param string $encoding The encoding to be used
-    */
+    </em>/
    public function setEncoding($encoding)
    {
       $this-&gt;encoding = $encoding;
-   }
-
-   /**
+   }</p>
+<p>/*<em>
     * Gets the encoding
     *
     * @return string The encoding being used
-    */
+    </em>/
    public function getEncoding()
    {
       return $this-&gt;encoding;
    }
-}</code></pre>
-
+}
+```</p>
 <p>Now we make some configuration in the module class:</p>
-<pre class="codehilite"><code class="language-php">// module/MyModule.php
-namespace MyModule;
-
-use MyModule\View\Renderer\MyRenderer;
+<p>```php
+// module/MyModule.php
+namespace MyModule;</p>
+<p>use MyModule\View\Renderer\MyRenderer;
 use Zend\Mvc\MvcEvent;
-use Zend\View\Strategy\PhpRendererStrategy;
-
-class Module
+use Zend\View\Strategy\PhpRendererStrategy;</p>
+<p>class Module
 {
-   public function getConfig(){/* ... */}
-
-   public function getAutoloaderConfig(){/* ... */}
-
-   public function getServiceConfig()
+   public function getConfig(){/<em> ... </em>/}</p>
+<p>public function getAutoloaderConfig(){/<em> ... </em>/}</p>
+<p>public function getServiceConfig()
    {
       return [
          'factories' =&gt; [
@@ -571,40 +564,39 @@ class Module
             },
          ],
       ];
-   }
-
-   public function onBootstrap(MvcEvent $e)
+   }</p>
+<p>public function onBootstrap(MvcEvent $e)
    {
       // Register a render event
       $app = $e-&gt;getParam('application');
       $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
-   }
+   }</p>
+<pre class="codehilite"><code>public function registerMyStrategy(MvcEvent $e)
+{
+    $app        = $e-&gt;getTarget();
+    $locator    = $app-&gt;getServiceManager();
+    $view       = $locator-&gt;get('Zend\View\View');
+    $myStrategy = $locator-&gt;get('MyCustomStrategy');
 
-    public function registerMyStrategy(MvcEvent $e)
-    {
-        $app        = $e-&gt;getTarget();
-        $locator    = $app-&gt;getServiceManager();
-        $view       = $locator-&gt;get('Zend\View\View');
-        $myStrategy = $locator-&gt;get('MyCustomStrategy');
-
-        // Attach strategy, which is a listener aggregate, at high priority
-        $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
-    }
+    // Attach strategy, which is a listener aggregate, at high priority
+    $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
 }</code></pre>
 
+
+<p>}
+```</p>
 <p>See the quick start <a href="../../quick-start/#creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</a>
 chapter for more information on how to create and register custom strategies
 to your view.</p>
 </blockquote>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>You may specify a new style tag at any time:</p>
-<pre class="codehilite"><code class="language-php">// adding styles
-$this-&gt;headStyle()-&gt;appendStyle($styles);</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>// adding styles
+$this-&gt;headStyle()-&gt;appendStyle($styles);</code></pre></p>
 <p>Order is very important with CSS; you may need to ensure that declarations are
 loaded in a specific order due to the order of the cascade; use the various
 <code>append</code>, <code>prepend</code>, and <code>offsetSet</code> directives to aid in this task:</p>
-<pre class="codehilite"><code class="language-php">// Putting styles in order
+<p> <pre class=codehilite><code class=language-php>// Putting styles in order
 
 // place at a particular offset:
 $this-&gt;headStyle()-&gt;offsetSetStyle(100, $customStyles);
@@ -613,23 +605,20 @@ $this-&gt;headStyle()-&gt;offsetSetStyle(100, $customStyles);
 $this-&gt;headStyle()-&gt;appendStyle($finalStyles);
 
 // place at beginning
-$this-&gt;headStyle()-&gt;prependStyle($firstStyles);</code></pre>
-
+$this-&gt;headStyle()-&gt;prependStyle($firstStyles);</code></pre></p>
 <p>When you're finally ready to output all style declarations in your layout
 script, echo the helper:</p>
-<pre class="codehilite"><code class="language-php">&lt;?= $this-&gt;headStyle() ?&gt;</code></pre>
-
+<p> <pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headStyle() ?&gt;</code></pre></p>
 <h2 id="capturing-style-declarations">Capturing Style Declarations</h2>
 <p>Sometimes you need to generate CSS style declarations programmatically. While
 you could use string concatenation, heredocs, and the like, often it's easier
 just to do so by creating the styles and sprinkling in PHP tags. <code>HeadStyle</code>
 lets you do just that, capturing it to the stack:</p>
-<pre class="codehilite"><code class="language-php">&lt;?php $this-&gt;headStyle()-&gt;captureStart() ?&gt;
+<p> <pre class=codehilite><code class=language-php>&lt;?php $this-&gt;headStyle()-&gt;captureStart() ?&gt;
 body {
     background-color: &lt;?= $this-&gt;bgColor ?&gt;;
 }
-&lt;?php $this-&gt;headStyle()-&gt;captureEnd() ?&gt;</code></pre>
-
+&lt;?php $this-&gt;headStyle()-&gt;captureEnd() ?&gt;</code></pre></p>
 <p>The following assumptions are made:</p>
 <ul>
 <li>The style declarations will be appended to the stack. If you wish for them to
