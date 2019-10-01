@@ -429,25 +429,25 @@
 <p>The <code>Layout</code> helper is used to get and set the template for the layout or to 
 retrieving the root view model.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<h3 id="change-the-layout-template">Change the Layout Template</h3>
+<h3>Change the Layout Template</h3>
 <p>If you're running a zend-mvc application then the layout template is set in the
 configuration for the <a href="https://docs.zendframework.com/zend-mvc/services/#viewmanager"><code>ViewManager</code></a>.</p>
 <p>To change the layout template within a view script, call:</p>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;layout('layout/backend');</code></pre></p>
 <p>Or use the <code>setTemplate</code> method:</p>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;layout()-&gt;setTemplate('layout/backend');</code></pre></p>
-<h3 id="set-view-variable-on-layout-model">Set View Variable on Layout Model</h3>
+<h3>Set View Variable on Layout Model</h3>
 <p>The <code>Layout</code> helper can also retrieve the view model for the layout (root): </p>
 <p> <pre class=codehilite><code class=language-php>/** @var \Zend\View\Model\ViewModel $rootViewModel */
 $rootViewModel = $this-&gt;layout();</code></pre></p>
 <p>This offers the possibility to set variables for the layout script.</p>
-<h4 id="set-a-single-variable">Set a Single Variable</h4>
+<h4>Set a Single Variable</h4>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;layout()-&gt;setVariable('infoText', 'Some text for later');</code></pre></p>
 <p>Use in your layout script:</p>
 <p> <pre class=codehilite><code class=language-php>if (isset($infoText)) {
     echo $infoText;
 }</code></pre></p>
-<h4 id="set-a-set-of-variables">Set a Set of Variables</h4>
+<h4>Set a Set of Variables</h4>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;layout()-&gt;setVariables([
     'headerText' =&gt; '…',
     'footerText' =&gt; '…',
@@ -487,7 +487,7 @@ $rootViewModel = $this-&gt;layout();</code></pre></p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-view/edit/master/doc/helpers/layout.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-view/edit/master/doc/book/helpers/layout.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
