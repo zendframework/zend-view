@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/url/">
+    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/escape/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
-    <title>Url - zend-view - Zend Framework Docs</title>
+    <title>Escape - zend-view - Zend Framework Docs</title>
 
     <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
 </head>
@@ -165,8 +165,8 @@
 
                                     
                                         
-    <li class="subnavigation__list-item ">
-        <a href="../escape/" class="subnavigation__link">Escape</a>
+    <li class="subnavigation__list-item subnavigation__list-item--active">
+        <a href="./" class="subnavigation__link">Escape</a>
     </li>
 
                                     
@@ -267,8 +267,8 @@
 
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Url</a>
+    <li class="subnavigation__list-item ">
+        <a href="../url/" class="subnavigation__link">Url</a>
     </li>
 
                                     
@@ -396,7 +396,7 @@
                 
             
 
-            <li class="active">Url</li>
+            <li class="active">Escape</li>
         
     
 </ol>
@@ -422,23 +422,35 @@
             <ul class="toc__list">
                 
                     <li class="toc__entry">
-                        <a href="#basic-usage" class="toc__link">Basic Usage</a>
+                        <a href="#escapecss" class="toc__link">EscapeCss</a>
                     </li>
                 
                     <li class="toc__entry">
-                        <a href="#query-string-arguments" class="toc__link">Query String Arguments</a>
+                        <a href="#escapehtml" class="toc__link">EscapeHtml</a>
                     </li>
                 
                     <li class="toc__entry">
-                        <a href="#fragments" class="toc__link">Fragments</a>
+                        <a href="#escapehtmlattr" class="toc__link">EscapeHtmlAttr</a>
                     </li>
                 
                     <li class="toc__entry">
-                        <a href="#fully-qualified-domain-name" class="toc__link">Fully Qualified Domain Name</a>
+                        <a href="#escapejs" class="toc__link">EscapeJs</a>
                     </li>
                 
                     <li class="toc__entry">
-                        <a href="#reusing-matched-parameters" class="toc__link">Reusing Matched Parameters</a>
+                        <a href="#escapeurl" class="toc__link">EscapeUrl</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#using-encoding" class="toc__link">Using Encoding</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#using-recursion" class="toc__link">Using Recursion</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#using-custom-escaper" class="toc__link">Using Custom Escaper</a>
                     </li>
                 
             </ul>
@@ -447,167 +459,155 @@
 
     </div>
 
-    <h1 id="url">Url</h1>
-<p>The URL view helper is used to create a string representation of the routes that
-you define within your application. The syntax for the view helper is
-<code>$this-&gt;url($name, $params, $options, $reuseMatchedParameters)</code>, using the
-following definitions for the helper arguments:</p>
+    <h1 id="escape">Escape</h1>
+<p>The following helpers can <strong>escape output in view scripts and defend from XSS
+and related vulnerabilities</strong>. To escape different contexts of a HTML document,
+zend-view provides the following helpers:</p>
 <ul>
-<li><code>$name</code>: The name of the route you want to output.</li>
-<li><code>$params</code>: An array of parameters that is defined within the respective route
-  configuration.</li>
-<li><code>$options</code>: An array of options that will be used to create the URL.</li>
-<li><code>$reuseMatchedParams</code>: A flag indicating if the currently matched route
-  parameters should be used when generating the new URL.</li>
+<li><a href="#escapecss"><code>EscapeCss</code></a></li>
+<li><a href="#escapehtml"><code>EscapeHtml</code></a></li>
+<li><a href="#escapehtmlattr"><code>EscapeHtmlAttr</code></a></li>
+<li><a href="#escapejs"><code>EscapeJs</code></a></li>
+<li><a href="#escapeurl"><code>EscapeUrl</code></a></li>
 </ul>
-<p>Let's take a look at how this view helper is used in real-world applications.</p>
-<h2 id="basic-usage">Basic Usage</h2>
-<p>The following example shows a simple configuration for a news module. The route
-is called <code>news</code> and it has two <strong>optional</strong> parameters called <code>action</code> and
-<code>id</code>.</p>
-<p> <pre class=codehilite><code class=language-php>// In a configuration array (e.g. returned by some module's module.config.php)
-'router' =&gt; [
-    'routes' =&gt; [
-        'news' =&gt; [
-            'type'    =&gt; 'segment',
-            'options' =&gt; [
-                'route'       =&gt; '/news[/:action][/:id]',
-                'constraints' =&gt; [
-                    'action' =&gt; '[a-zA-Z][a-zA-Z0-9_-]*',
-                ],
-                'defaults' =&gt; [
-                    'controller' =&gt; 'news',
-                    'action'     =&gt; 'index',
-                ],
-            ],
-        ],
-    ],
-],</code></pre></p>
-<p>First, let's use the view helper to create the output for the URL <code>/news</code> without any of the
-optional parameters being used:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;a href=&quot;&lt;?= $this-&gt;url('news'); ?&gt;&quot;&gt;News Index&lt;/a&gt;</code></pre></p>
-<p>This will render the output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news&quot;&gt;News Index&lt;/a&gt;</code></pre></p>
-<p>Now let's assume we want to get a link to display the detail page of a single
-news entry. For this task, the optional parameters <code>action</code> and <code>id</code> need to
-have values assigned. This is how you do that:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'details', 'id' =&gt; 42]); ?&gt;&quot;&gt;
-    Details of News #42
-&lt;/a&gt;</code></pre></p>
-<p>This will render the output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news/details/42&quot;&gt;News Index&lt;/a&gt;</code></pre></p>
-<h2 id="query-string-arguments">Query String Arguments</h2>
-<p>Most SEO experts agree that pagination parameters should not be part of the URL
-path; for example, the following URL would be considered a bad practice:
-<code>/news/archive/page/13</code>. Pagination is more correctly accomplished using a query
-string arguments, such as <code>/news/archive?page=13</code>. To achieve this, you'll need
-to make use of the <code>$options</code> argument from the view helper.</p>
-<p>We will use the same route configuration as defined above:</p>
-<p> <pre class=codehilite><code class=language-php>// In a configuration array (e.g. returned by some module's module.config.php)
-'router' =&gt; [
-    'routes' =&gt; [
-        'news' =&gt; [
-            'type'    =&gt; 'segment',
-            'options' =&gt; [
-                'route'       =&gt; '/news[/:action][/:id]',
-                'constraints' =&gt; [
-                    'action' =&gt; '[a-zA-Z][a-zA-Z0-9_-]*',
-                ],
-                'defaults' =&gt; [
-                    'controller' =&gt; 'news',
-                    'action'     =&gt; 'index',
-                ],
-            ],
-        ],
-    ],
-],</code></pre></p>
-<p>To generate query string arguments from the view helper, you need to assign them
-as the third argument using the <code>query</code> key like this:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
-$url = $this-&gt;url(
-    'news',
-    ['action' =&gt; 'archive'],
-    [
-        'query' =&gt; [
-            'page' =&gt; 13,
-        ],
-    ]
-);
-?&gt;
-&lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;News Archive Page #13&lt;/a&gt;</code></pre></p>
-<p>The above code sample would output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news/archive?page=13&quot;&gt;News Archive Page #13&lt;/a&gt;</code></pre></p>
-<h2 id="fragments">Fragments</h2>
-<p>Another possible entry within the <code>$options</code> array is the assignment of URL
-fragments (typically used to link to in-page anchors), denoted with using the
-<code>fragment</code> key. Let's assume we want to enter a link for users to directly jump
-to the comment section of a details page:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
-$url = $this-&gt;url(
-    'news',
-    ['action' =&gt; 'details', 'id' =&gt; 42],
-    [
-        'fragment' =&gt; 'comments',
-    ]
-);
-?&gt;
-&lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre></p>
-<p>The above code sample would output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news/details/42#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre></p>
-<p>You can use <code>fragment</code> and <code>query</code> options at the same time!</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
-$url = $this-&gt;url(
-    'news',
-    ['action' =&gt; 'details', 'id' =&gt; 42],
-    [
-        'query' =&gt; [
-            'commentPage' =&gt; 3,
-        ],
-        'fragment' =&gt; 'comments',
-    ]
-);
-?&gt;
-&lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre></p>
-<p>The above code sample would output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news/details/42?commentPage=3#comments&quot;&gt;Comment Section of News #42&lt;/a&gt;</code></pre></p>
-<h2 id="fully-qualified-domain-name">Fully Qualified Domain Name</h2>
-<p>Another possible entry within the <code>$options</code> array is to output a fully
-qualified domain name (absolute URL), denoted using the <code>force_canonical</code> key:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php
-$url = $this-&gt;url(
-    'news',
-    [],
-    [
-        'force_canonical' =&gt; true,
-    ]
-);
-?&gt;
-&lt;a href=&quot;&lt;?= $url; ?&gt;&quot;&gt;News Index&lt;/a&gt;</code></pre></p>
-<p>The above code sample would output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;http://www.example.com/news&quot;&gt;News Index&lt;/a&gt;</code></pre></p>
-<h2 id="reusing-matched-parameters">Reusing Matched Parameters</h2>
-<p>When you're on a route that has many parameters, often times it makes sense to
-reuse currently matched parameters instead of assigning them explicitly. In this
-case, the argument <code>$reuseMatchedParams</code> will come in handy.</p>
-<p>As an example, we will imagine being on a detail page for our <code>news</code> route. We
-want to display links to the <code>edit</code> and <code>delete</code> actions without having to
-assign the ID again:</p>
-<p> <pre class=codehilite><code class=language-php>// Currently url /news/details/777
+<p>More informations to the operation and the background of security can be found
+in the
+<a href="https://docs.zendframework.com/zend-escaper/configuration/">documentation of zend-escaper</a>.</p>
+<blockquote>
+<h3>Installation Requirements</h3>
+<p>The escape helpers depends on the zend-escaper component, so be sure to have
+it installed before getting started:</p>
+<p><code>bash
+$ composer require zendframework/zend-escaper</code></p>
+</blockquote>
+<h2 id="escapecss">EscapeCss</h2>
+<p> <pre class=codehilite><code class=language-php>$css = &lt;&lt;&lt;CSS
+body {
+    background-image: url('http://example.com/foo.jpg?&lt;/style&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
+}
+CSS;
 
-&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'edit'], null, true); ?&gt;&quot;&gt;Edit Me&lt;/a&gt;
-&lt;a href=&quot;&lt;?= $this-&gt;url('news', ['action' =&gt; 'delete'], null, true); ?&gt;&quot;&gt;Delete Me&lt;/a&gt;</code></pre></p>
-<p>Notice the <code>true</code> argument in the fourth position. This tells the view helper to
-use the matched <code>id</code> (<code>777</code>) when creating the new URL:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;/news/edit/777&quot;&gt;Edit Me&lt;/a&gt;
-&lt;a href=&quot;/news/delete/777&quot;&gt;Edit Me&lt;/a&gt;</code></pre></p>
-<h3>Shorthand</h3>
-<p>Due to the fact that reusing parameters is a use case that can happen when no
-route options are set, the third argument for the URL view helper will be
-checked against its type; when a <code>boolean</code> is passed, the helper uses it to set
-the value of the <code>$reuseMatchedParams</code> flag:</p>
-<p> <pre class=codehilite><code class=language-php>$this-&gt;url('news', ['action' =&gt; 'archive'], null, true);
-// is equal to
-$this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
+echo $this-&gt;escapeCss($css);</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-css>body\20 \7B \D \A \20 \20 \20 \20 background\2D image\3A \20 url\28 \27 http\3A \2F \2F example\2E com\2F foo\2E jpg\3F \3C \2F style\3E \3C script\3E alert\28 1\29 \3C \2F script\3E \27 \29 \3B \D \A \7D </code></pre></p>
+<h2 id="escapehtml">EscapeHtml</h2>
+<p> <pre class=codehilite><code class=language-php>$html = &quot;&lt;script&gt;alert('zend-framework')&lt;/script&gt;&quot;;
+
+echo $this-&gt;escapeHtml($html);</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-html>&amp;lt;script&amp;gt;alert(&amp;#039;zend-framework&amp;#039;)&amp;lt;/script&amp;gt;</code></pre></p>
+<h2 id="escapehtmlattr">EscapeHtmlAttr</h2>
+<p> <pre class=codehilite><code class=language-php+html>&lt;?php $html = 'faketitle onmouseover=alert(/zend-framework/);'; ?&gt;
+
+&lt;a title=&lt;?= $this-&gt;escapeHtmlAttr($html) ?&gt;&gt;click&lt;/a&gt;</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-html>&lt;a title=faketitle&amp;#x20;onmouseover&amp;#x3D;alert&amp;#x28;&amp;#x2F;zend-framework&amp;#x2F;&amp;#x29;&amp;#x3B;&gt;click&lt;/a&gt;</code></pre></p>
+<h2 id="escapejs">EscapeJs</h2>
+<p> <pre class=codehilite><code class=language-php>$js = &quot;window.location = 'https://framework.zend.com/?cookie=' + document.cookie&quot;;
+
+echo $this-&gt;escapeJs($js);</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-js>window.location\x20\x3D\x20\x27https\x3A\x2F\x2Fframework.zend.com\x2F\x3Fcookie\x3D\x27\x20\x2B\x20document.cookie</code></pre></p>
+<h2 id="escapeurl">EscapeUrl</h2>
+<p> <pre class=codehilite><code class=language-php>&lt;?php
+$url = &lt;&lt;&lt;JS
+&quot; onmouseover=&quot;alert('zf2')
+JS;
+?&gt;
+
+&lt;a href=&quot;http://example.com/?name=&lt;?= $this-&gt;escapeUrl($url) ?&gt;&quot;&gt;click&lt;/a&gt;</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-html>&lt;a href=&quot;http://example.com/?name=%22%20onmouseover%3D%22alert%28%27zf2%27%29&quot;&gt;click&lt;/a&gt;</code></pre></p>
+<h2 id="using-encoding">Using Encoding</h2>
+<p> <pre class=codehilite><code class=language-php>$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');</code></pre></p>
+<p>All allowed encodings can be found in the
+<a href="https://docs.zendframework.com/zend-escaper/configuration/">documentation of zend-escaper</a>.</p>
+<h3>Get Current Value</h3>
+<p>To get the current value of this option, use the <code>getEncoding()</code> method.</p>
+<p> <pre class=codehilite><code class=language-php>$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');
+
+echo $this-&gt;escapeHtml()-&gt;getEncoding(); // iso-8859-15</code></pre></p>
+<h3>Default Value</h3>
+<p>The default value for all escape helpers is <code>utf-8</code>.</p>
+<h2 id="using-recursion">Using Recursion</h2>
+<p>All escape helpers can use recursion for the given values during the escape
+operation. This allows the escaping of the datatypes <code>array</code> and <code>object</code>. </p>
+<h3>Escape an Array</h3>
+<p>To escape an <code>array</code>, the second parameter <code>$recurse</code> must be use the constant
+<code>RECURSE_ARRAY</code> of an escape helper: </p>
+<p> <pre class=codehilite><code class=language-php>$html = [
+    'headline' =&gt; '&lt;h1&gt;Foo&lt;/h1&gt;',
+    'content'  =&gt; [
+        'paragraph' =&gt; '&lt;p&gt;Bar&lt;/p&gt;',
+    ],
+];
+
+var_dump($this-&gt;escapeHtml($html, Zend\View\Helper\EscapeHtml::RECURSE_ARRAY));</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-php>array(2) {
+  'headline' =&gt;
+  string(24) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
+  'content' =&gt;
+  array(1) {
+    'paragraph' =&gt;
+    string(22) &quot;&amp;lt;p&amp;gt;Bar&amp;lt;/p&amp;gt;&quot;
+  }
+}</code></pre></p>
+<h3>Escape an Object</h3>
+<p>An escape helper can use the <code>__toString()</code> method of an object. No additional
+parameter is needed:</p>
+<p> <pre class=codehilite><code class=language-php>$object = new class {
+    public function __toString() : string
+    {
+        return '&lt;h1&gt;Foo&lt;/h1&gt;';
+    }
+};
+
+echo $this-&gt;escapeHtml($object); // &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;</code></pre></p>
+<p>An escape helper can also use the <code>toArray()</code> method of an object. The second
+parameter <code>$recurse</code> must be use the constant <code>RECURSE_OBJECT</code> of an escape
+helper: </p>
+<p> <pre class=codehilite><code class=language-php>$object = new class {
+    public function toArray() : array
+    {
+        return ['headline' =&gt; '&lt;h1&gt;Foo&lt;/h1&gt;'];
+    }
+};
+
+var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-php>array(1) {
+  'headline' =&gt;
+  string(3) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
+}</code></pre></p>
+<p>If the object does not contains the methods <code>__toString()</code> or <code>toArray()</code> then
+the object is casted to an <code>array</code>:</p>
+<p> <pre class=codehilite><code class=language-php>$object = new class {
+    public $headline = '&lt;h1&gt;Foo&lt;/h1&gt;';
+};
+
+var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));</code></pre></p>
+<p>Output:</p>
+<p> <pre class=codehilite><code class=language-php>array(1) {
+  'headline' =&gt;
+  string(3) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
+}</code></pre></p>
+<h2 id="using-custom-escaper">Using Custom Escaper</h2>
+<p>Create an own instance of <code>Zend\Escaper\Escaper</code> and set to any of the escape
+helpers:</p>
+<p> <pre class=codehilite><code class=language-php>$escaper = new Zend\Escaper\Escaper('utf-8');
+
+$this-&gt;escapeHtml()-&gt;setEscaper($escaper);</code></pre></p>
+<h3>Get Current Value</h3>
+<p>To get the current value, use the <code>getEscaper()</code> method.</p>
+<p> <pre class=codehilite><code class=language-php>&lt;?php
+$escaper = new Zend\Escaper\Escaper('utf-8');
+$this-&gt;escapeHtml()-&gt;setEscaper($escaper);
+
+var_dump($this-&gt;escapeHtml()-&gt;getEscaper()); // instance of Zend\Escaper\Escaper</code></pre></p>
+<h3>Default Value</h3>
+<p>The default value is an instance of <code>Zend\Escaper\Escaper</code>, created by the
+helper.</p>
 
 
 
@@ -618,7 +618,7 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
         
         <li class="page-nav__item">
             
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../placeholder/">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../doctype/">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             
@@ -627,7 +627,7 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
         
         <li class="page-nav__item">
             
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../advanced-usage/">
+                <a rel="next" class="page-nav__link page-nav__link--next" href="../flash-messenger/">
                     Next <i class="fa fa-chevron-right"></i>
                 </a>
             
@@ -641,7 +641,7 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-view/edit/master/doc/book/helpers/url.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-view/edit/master/doc/book/helpers/escape.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
@@ -761,8 +761,8 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
 
                                     
                                         
-    <li class="subnavigation__list-item ">
-        <a href="../escape/" class="subnavigation__link">Escape</a>
+    <li class="subnavigation__list-item subnavigation__list-item--active">
+        <a href="./" class="subnavigation__link">Escape</a>
     </li>
 
                                     
@@ -863,8 +863,8 @@ $this-&gt;url('news', ['action' =&gt; 'archive'], true);</code></pre></p>
 
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Url</a>
+    <li class="subnavigation__list-item ">
+        <a href="../url/" class="subnavigation__link">Url</a>
     </li>
 
                                     
