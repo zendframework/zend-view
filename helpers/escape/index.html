@@ -489,7 +489,7 @@ CSS;
 
 echo $this-&gt;escapeCss($css);</code></pre></p>
 <p>Output:</p>
-<p> <pre class=codehilite><code class=language-css>body\20 \7B \D \A \20 \20 \20 \20 background\2D image\3A \20 url\28 \27 http\3A \2F \2F example\2E com\2F foo\2E jpg\3F \3C \2F style\3E \3C script\3E alert\28 1\29 \3C \2F script\3E \27 \29 \3B \D \A \7D </code></pre></p>
+<p> <pre class=codehilite><code class=language-css>body\20 \7B \D \A \20 \20 \20 \20 background\2D image\3A \20 url\28 \27 http\3A \2F \2F example\2E com\2F foo\2E jpg\3F \3C \2F style\3E \3C script\3E alert\28 1\29 \3C \2F script\3E \27 \29 \3B \D \A \7D</code></pre></p>
 <h2 id="escapehtml">EscapeHtml</h2>
 <p> <pre class=codehilite><code class=language-php>$html = &quot;&lt;script&gt;alert('zend-framework')&lt;/script&gt;&quot;;
 
@@ -531,10 +531,10 @@ echo $this-&gt;escapeHtml()-&gt;getEncoding(); // iso-8859-15</code></pre></p>
 <p>The default value for all escape helpers is <code>utf-8</code>.</p>
 <h2 id="using-recursion">Using Recursion</h2>
 <p>All escape helpers can use recursion for the given values during the escape
-operation. This allows the escaping of the datatypes <code>array</code> and <code>object</code>. </p>
+operation. This allows the escaping of the datatypes <code>array</code> and <code>object</code>.</p>
 <h3>Escape an Array</h3>
 <p>To escape an <code>array</code>, the second parameter <code>$recurse</code> must be use the constant
-<code>RECURSE_ARRAY</code> of an escape helper: </p>
+<code>RECURSE_ARRAY</code> of an escape helper:</p>
 <p> <pre class=codehilite><code class=language-php>$html = [
     'headline' =&gt; '&lt;h1&gt;Foo&lt;/h1&gt;',
     'content'  =&gt; [
@@ -566,7 +566,7 @@ parameter is needed:</p>
 echo $this-&gt;escapeHtml($object); // &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;</code></pre></p>
 <p>An escape helper can also use the <code>toArray()</code> method of an object. The second
 parameter <code>$recurse</code> must be use the constant <code>RECURSE_OBJECT</code> of an escape
-helper: </p>
+helper:</p>
 <p> <pre class=codehilite><code class=language-php>$object = new class {
     public function toArray() : array
     {
@@ -641,7 +641,7 @@ helper.</p>
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-view/edit/master/doc/book/helpers/escape.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-view/edit/master/docs/book/helpers/escape.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>

@@ -463,7 +463,7 @@ cumbersome, you can set a default attach order by calling
 <code>setDefaultAttachOrder()</code> which is applied to all <code>headTitle()</code> calls unless you
 explicitly pass a different attach order as the second parameter.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<p>Specify a title tag in a view script, e.g. 
+<p>Specify a title tag in a view script, e.g.
 <code>module/Album/view/album/album/index.phtml</code>:</p>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums');</code></pre></p>
 <p>Render the title in the layout script, e.g.
@@ -472,7 +472,7 @@ explicitly pass a different attach order as the second parameter.</p>
 <p>Output:</p>
 <p> <pre class=codehilite><code class=language-html>&lt;title&gt;My albums&lt;/title&gt;</code></pre></p>
 <h3>Add the Website Name</h3>
-<p>A typical usage includes the website name in the title. Add the name and <a href="#using-separator">set a 
+<p>A typical usage includes the website name in the title. Add the name and <a href="#using-separator">set a
 separator</a> in the layout script, e.g.
 <code>module/Application/view/layout/layout.phtml</code></p>
 <p> <pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headTitle('Music')-&gt;setSeparator(' - ') ?&gt;</code></pre></p>
@@ -550,7 +550,7 @@ echo $this-&gt;headTitle(); // &lt;title&gt;My albums | Music&lt;/title&gt;</cod
 method.</p>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;headTitle()-&gt;setSeparator(' | ');
 
-echo $this-&gt;headTitle()-&gt;getSeparator(); //  | </code></pre></p>
+echo $this-&gt;headTitle()-&gt;getSeparator(); //  |</code></pre></p>
 <h3>Default Value</h3>
 <p>The default value is an empty <code>string</code> that means no extra content is added
 between the titles on rendering.</p>
@@ -559,12 +559,12 @@ between the titles on rendering.</p>
 <p> <pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')-&gt;setPrefix('Music: ')-&gt;setPostfix('𝄞');
 
 echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;</code></pre></p>
-<p>More descriptions and another example of usage can be found at the 
-<a href="../placeholder/#aggregate-content"><code>Placeholder</code> helper</a>. </p>
+<p>More descriptions and another example of usage can be found at the
+<a href="../placeholder/#aggregate-content"><code>Placeholder</code> helper</a>.</p>
 <h2 id="render-without-tags">Render without Tags</h2>
 <p>In case the title is needed without the <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code> tags the
 <code>renderTitle()</code> method can be used.</p>
-<p> <pre class=codehilite><code class=language-php>echo $this-&gt;headTitle('My albums')-&gt;renderTitle(); // My albums </code></pre></p>
+<p> <pre class=codehilite><code class=language-php>echo $this-&gt;headTitle('My albums')-&gt;renderTitle(); // My albums</code></pre></p>
 
 
 
@@ -598,7 +598,7 @@ echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;<
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-view/edit/master/doc/book/helpers/head-title.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-view/edit/master/docs/book/helpers/head-title.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
