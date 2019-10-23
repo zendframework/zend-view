@@ -475,7 +475,7 @@ other then <code>text/javascript</code>. To prevent such escaping, pass an <code
 with a value of true as part of the <code>$attrs</code> parameter in the method calls.</p>
 <p>```php
 // jquery template
-$template = '&lt;div class="book"{{:title}}&lt;/div';</p>
+$template = '<div class="book">{{:title}}</div>';</p>
 <p>$this-&gt;headScript()-&gt;appendScript(
     $template,
     'text/x-jquery-tmpl',
