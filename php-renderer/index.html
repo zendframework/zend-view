@@ -530,7 +530,7 @@ inject some variables. This can be done in 4 different ways.</p>
 <ul>
 <li>Pass an associative array (or <code>ArrayAccess</code> instance, or <code>Zend\View\Variables</code>
   instance) of items as the second argument to <code>render()</code>:
-  <code>$renderer-&gt;render($templateName, array('foo' =&amp;gt; 'bar))</code></li>
+  <code>$renderer-&gt;render($templateName, ['foo' =&gt; 'bar'])</code></li>
 <li>Assign a <code>Zend\View\Variables</code> instance, associative array, or <code>ArrayAccess</code>
   instance to the <code>setVars()</code> method.</li>
 <li>Assign variables as instance properties of the renderer: <code>$renderer-&gt;foo =

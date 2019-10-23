@@ -477,7 +477,7 @@
 <h2 id="working-with-two-or-more-cycles">Working with two or more cycles</h2>
 <p>If you are nesting cycles, you must provide all but one of them with a name; do
 this by providing a second parameter to the <code>cycle()</code> invocation:
-<code>$this-&gt;cycle(array('odd', 'even'), 'cycle2')</code></p>
+<code>$this-&gt;cycle(['odd', 'even'], 'cycle2')</code></p>
 <p> <pre class=codehilite><code class=language-php>&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
         &lt;tr class=&quot;&lt;?= $this-&gt;cycle(['odd', 'even'])-&gt;next() ?&gt;&quot;&gt;

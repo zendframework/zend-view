@@ -461,16 +461,16 @@ media, or dir are all permissible.</p>
 allows you to hide it from specific browsers. To add the conditional tags,
 pass the conditional value as part of the <code>$attributes</code> parameter in the
 method calls.</p>
-<p><code>php
+<p><pre class=codehilite><code class=language-php>
 // adding comments
-$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></p>
+$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></pre></p>
 </blockquote>
 <p><code>HeadStyle</code> also allows capturing style declarations; this can be useful if you
 want to create the declarations programmatically, and then place them elsewhere.
 The usage for this will be showed in an example below.</p>
 <p>Finally, you can also use the <code>headStyle()</code> method to quickly add declarations
 elements; the signature for this is <code>headStyle($content = null, $placement =
-'APPEND', $attributes = array())</code>.  <code>$placement</code> should be either <code>APPEND</code>,
+'APPEND', $attributes = [])</code>.  <code>$placement</code> should be either <code>APPEND</code>,
 <code>PREPEND</code>, or <code>SET</code>.</p>
 <p><code>HeadStyle</code> overrides each of <code>append()</code>, <code>offsetSet()</code>, <code>prepend()</code>, and
 <code>set()</code> to enforce usage of the special methods as listed above. Internally, it
@@ -489,59 +489,59 @@ use another encoding with <code>headStyle</code>, you must:</p>
 <li>Attach the custom strategy in the <code>ViewEvent</code>.</li>
 </ol>
 <p>First we have to write the custom renderer:</p>
-<p>```php
+<p><pre class=codehilite><code class=language-php>
 // module/MyModule/View/Renderer/MyRenderer.php
-namespace MyModule\View\Renderer;</p>
-<p>// Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
-use Zend\View\Renderer\PhpRenderer;</p>
-<p>class MyRenderer extends PhpRenderer
+namespace MyModule\View\Renderer;
+// Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
+use Zend\View\Renderer\PhpRenderer;
+class MyRenderer extends PhpRenderer
 {
-   /*<em>
+   /*&lt;em&gt;
     * @var string
-    </em>/
-   protected $encoding;</p>
-<p>/*<em>
+    &lt;/em&gt;/
+   protected $encoding;
+/*&lt;em&gt;
     * Constructor
     *
     * @param  string $encoding The encoding to be used
-    </em>/
+    &lt;/em&gt;/
    public function __construct($encoding)
    {
       parent::__construct();
       $this-&gt;encoding = $encoding;
-   }</p>
-<p>/*<em>
+   }
+/*&lt;em&gt;
     * Sets the encoding
     *
     * @param string $encoding The encoding to be used
-    </em>/
+    &lt;/em&gt;/
    public function setEncoding($encoding)
    {
       $this-&gt;encoding = $encoding;
-   }</p>
-<p>/*<em>
+   }
+/*&lt;em&gt;
     * Gets the encoding
     *
     * @return string The encoding being used
-    </em>/
+    &lt;/em&gt;/
    public function getEncoding()
    {
       return $this-&gt;encoding;
    }
 }
-```</p>
+</code></pre></p>
 <p>Now we make some configuration in the module class:</p>
-<p>```php
+<p><pre class=codehilite><code class=language-php>
 // module/MyModule.php
-namespace MyModule;</p>
-<p>use MyModule\View\Renderer\MyRenderer;
+namespace MyModule;
+use MyModule\View\Renderer\MyRenderer;
 use Zend\Mvc\MvcEvent;
-use Zend\View\Strategy\PhpRendererStrategy;</p>
-<p>class Module
+use Zend\View\Strategy\PhpRendererStrategy;
+class Module
 {
-   public function getConfig(){/<em> ... </em>/}</p>
-<p>public function getAutoloaderConfig(){/<em> ... </em>/}</p>
-<p>public function getServiceConfig()
+   public function getConfig(){/&lt;em&gt; ... &lt;/em&gt;/}
+public function getAutoloaderConfig(){/&lt;em&gt; ... &lt;/em&gt;/}
+public function getServiceConfig()
    {
       return [
          'factories' =&gt; [
@@ -558,14 +558,14 @@ use Zend\View\Strategy\PhpRendererStrategy;</p>
             },
          ],
       ];
-   }</p>
-<p>public function onBootstrap(MvcEvent $e)
+   }
+public function onBootstrap(MvcEvent $e)
    {
       // Register a render event
       $app = $e-&gt;getParam('application');
       $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
-   }</p>
-<pre class="codehilite"><code>public function registerMyStrategy(MvcEvent $e)
+   }
+&lt;pre class="codehilite"&gt;&lt;code&gt;public function registerMyStrategy(MvcEvent $e)
 {
     $app        = $e-&gt;getTarget();
     $locator    = $app-&gt;getServiceManager();
@@ -574,11 +574,11 @@ use Zend\View\Strategy\PhpRendererStrategy;</p>
 
     // Attach strategy, which is a listener aggregate, at high priority
     $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
-}</code></pre>
+}&lt;/code&gt;&lt;/pre&gt;
 
 
-<p>}
-```</p>
+}
+</code></pre></p>
 <p>See the quick start <a href="../../quick-start/#creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</a>
 chapter for more information on how to create and register custom strategies
 to your view.</p>

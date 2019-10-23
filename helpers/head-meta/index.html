@@ -482,7 +482,7 @@ key; <code>$content</code> is the value for the 'content' key, and <code>$modifi
 optional associative array that can contain keys for <code>lang</code> and/or <code>scheme</code>.</p>
 <p>You may also set meta tags using the <code>headMeta()</code> helper method, which has the
 following signature: <code>headMeta($content, $keyValue, $keyType = 'name',
-$modifiers = array(), $placement = 'APPEND')</code>.  <code>$keyValue</code> is the content for
+$modifiers = [], $placement = 'APPEND')</code>.  <code>$keyValue</code> is the content for
 the key specified in <code>$keyType</code>, which should be either <code>name</code> or <code>http-equiv</code>.
 <code>$keyType</code> may also be specified as <code>property</code> if the doctype has been set to
 <code>XHTML1_RDFA</code>. <code>$placement</code> can be <code>SET</code> (overwrites all previously stored

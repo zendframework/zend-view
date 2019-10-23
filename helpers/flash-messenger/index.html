@@ -517,10 +517,10 @@ $flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
     -&gt;setMessageSeparatorString('&lt;/li&gt;&lt;li&gt;')
     -&gt;setMessageCloseString('&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;');
 
-echo $flash-&gt;render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
-echo $flash-&gt;render('info',    array('alert', 'alert-dismissible', 'alert-info'));
-echo $flash-&gt;render('default', array('alert', 'alert-dismissible', 'alert-warning'));
-echo $flash-&gt;render('success', array('alert', 'alert-dismissible', 'alert-success'));</code></pre></p>
+echo $flash-&gt;render('error',   ['alert', 'alert-dismissible', 'alert-danger']);
+echo $flash-&gt;render('info',    ['alert', 'alert-dismissible', 'alert-info']);
+echo $flash-&gt;render('default', ['alert', 'alert-dismissible', 'alert-warning']);
+echo $flash-&gt;render('success', ['alert', 'alert-dismissible', 'alert-success']);</code></pre></p>
 <p>The output of the above example would create dismissable <code>FlashMessages</code> with
 the following HTML markup. The example only covers one type of <code>FlashMessenger</code>
 output; if you would have several <code>FlashMessages</code> available in each of the
