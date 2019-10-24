@@ -667,37 +667,40 @@ additional View Model, <code>$sidebarBlockView</code>, which will be captured to
 <code>block</code> view variable.</p>
 <p>To better visualize this, let's look at what the final content might look like,
 with comments detailing where each nested view model is injected.</p>
-<p>Here are the templates, rendered based on a 12-column grid:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-4><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-4-0_php role=tab data-toggle=tab data-lang=php>Php</a></li><li class="nav-item "><a href=#tab-group-4-1_php role=tab data-toggle=tab data-lang=php>Php</a></li><li class="nav-item "><a href=#tab-group-4-2_php role=tab data-toggle=tab data-lang=php>Php</a></li><li class="nav-item "><a href=#tab-group-4-3_php role=tab data-toggle=tab data-lang=php>Php</a></li><li class="nav-item "><a href=#tab-group-4-4_php role=tab data-toggle=tab data-lang=php>Php</a></li></ul><div class=tab-content><div id=tab-group-4-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>&lt;?php // &quot;content/article/view&quot; template ?&gt;
-&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
+<p>Here are the templates, rendered based on a 12-column grid.</p>
+<p>The <code>content/article/view</code> template:</p>
+<p> <pre class=codehilite><code class=language-php>&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
 &lt;div class=&quot;row content&quot;&gt;
     &lt;?= $this-&gt;article ?&gt;
 
     &lt;?= $this-&gt;sidebar_primary ?&gt;
 
     &lt;?= $this-&gt;sidebar_secondary ?&gt;
-&lt;/div&gt;</code></pre></div><div id=tab-group-4-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>&lt;?php // &quot;content/article&quot; template ?&gt;
-    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
+&lt;/div&gt;</code></pre></p>
+<p>The <code>content/article</code> template:</p>
+<p> <pre class=codehilite><code class=language-php>    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
          template --&gt;
     &lt;article class=&quot;span8&quot;&gt;
         &lt;?= $this-&gt;escapeHtml('article') ?&gt;
-    &lt;/article&gt;</code></pre></div><div id=tab-group-4-2_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>&lt;?php // &quot;content/main-sidebar&quot; template ?&gt;
-    &lt;!-- This is from the $primarySidebarView View Model, and the
+    &lt;/article&gt;</code></pre></p>
+<p>The <code>content/main-sidebar</code> template:</p>
+<p> <pre class=codehilite><code class=language-php>    &lt;!-- This is from the $primarySidebarView View Model, and the
          &quot;content/main-sidebar&quot; template --&gt;
     &lt;div class=&quot;span2 sidebar&quot;&gt;
         sidebar content...
-    &lt;/div&gt;</code></pre></div><div id=tab-group-4-3_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>&lt;?php // &quot;content/secondary-sidebar template ?&gt;
-    &lt;!-- This is from the $secondarySidebarView View Model, and the
+    &lt;/div&gt;</code></pre></p>
+<p>The <code>content/secondary-sidebar</code> template:</p>
+<p> <pre class=codehilite><code class=language-php>    &lt;!-- This is from the $secondarySidebarView View Model, and the
          &quot;content/secondary-sidebar&quot; template --&gt;
     &lt;div class=&quot;span2 sidebar pull-right&quot;&gt;
         &lt;?= $this-&gt;block ?&gt;
-    &lt;/div&gt;</code></pre></div><div id=tab-group-4-4_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>&lt;?php // &quot;content/block template ?&gt;
-        &lt;!-- This is from the $sidebarBlockView View Model, and the
+    &lt;/div&gt;</code></pre></p>
+<p>The <code>content/block</code> template:</p>
+<p> <pre class=codehilite><code class=language-php>        &lt;!-- This is from the $sidebarBlockView View Model, and the
             &quot;content/block&quot; template --&gt;
         &lt;div class=&quot;block&quot;&gt;
             block content...
-        &lt;/div&gt;</code></pre></div></div></div>
-
+        &lt;/div&gt;</code></pre></p>
 <p>And here is the aggregate, generated content:</p>
 <p> <pre class=codehilite><code class=language-html>&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
 &lt;div class=&quot;row content&quot;&gt;
