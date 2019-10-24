@@ -607,31 +607,33 @@ dependencies and injects them.</p>
 as follows:</p>
 <p><pre class=codehilite><code class=language-php>
 namespace MyModule\View\Helper;
+
 use Zend\View\Helper\EscapeHtml;
+
 class SpecialPurpose
 {
     private $count = 0;
-&lt;pre class="codehilite"&gt;&lt;code&gt;private $escaper;
 
-public function __construct(EscapeHtml $escaper)
-{
-    $this-&gt;escaper = $escaper;
-}
+    private $escaper;
 
-public function __invoke()
-{
-    $this-&gt;count++;
-    $output  = sprintf(&quot;I have seen 'The Jerk' %d time(s).&quot;, $this-&gt;count);
-    $escaper = $this-&gt;escaper;
-    return $escaper($output);
-}&lt;/code&gt;&lt;/pre&gt;
+    public function __construct(EscapeHtml $escaper)
+    {
+        $this-&gt;escaper = $escaper;
+    }
 
-
+    public function __invoke()
+    {
+        $this-&gt;count++;
+        $output  = sprintf(&quot;I have seen 'The Jerk' %d time(s).&quot;, $this-&gt;count);
+        $escaper = $this-&gt;escaper;
+        return $escaper($output);
+    }
 }
 </code></pre></p>
 <p>Then we would write a factory like the following:</p>
 <p><pre class=codehilite><code class=language-php>
 use Zend\ServiceManager\AbstractPluginManager;
+
 class SpecialPurposeFactory
 {
     public function __invoke($container)
@@ -640,10 +642,9 @@ class SpecialPurposeFactory
             // zend-servicemanager v3. v2 passes the helper manager directly.
             $container = $container-&gt;get('ViewHelperManager');
         }
-&lt;pre class="codehilite"&gt;&lt;code&gt;    return new SpecialPurpose($container-&gt;get('escapeHtml'));
-}&lt;/code&gt;&lt;/pre&gt;
 
-
+        return new SpecialPurpose($container-&gt;get('escapeHtml'));
+    }
 }
 </code></pre></p>
 <p>If access to the view were required, we'd pass the <code>PhpRenderer</code> service

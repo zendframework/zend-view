@@ -463,7 +463,8 @@ pass the conditional value as part of the <code>$attributes</code> parameter in 
 method calls.</p>
 <p><pre class=codehilite><code class=language-php>
 // adding comments
-$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);</code></pre></p>
+$this-&gt;headStyle()-&gt;appendStyle($styles, ['conditional' =&gt; 'lt IE 7']);
+</code></pre></p>
 </blockquote>
 <p><code>HeadStyle</code> also allows capturing style declarations; this can be useful if you
 want to create the declarations programmatically, and then place them elsewhere.
@@ -492,38 +493,43 @@ use another encoding with <code>headStyle</code>, you must:</p>
 <p><pre class=codehilite><code class=language-php>
 // module/MyModule/View/Renderer/MyRenderer.php
 namespace MyModule\View\Renderer;
+
 // Since we just want to implement the getEncoding() method, we can extend the Zend native renderer
 use Zend\View\Renderer\PhpRenderer;
+
 class MyRenderer extends PhpRenderer
 {
-   /*&lt;em&gt;
+   /**
     * @var string
-    &lt;/em&gt;/
+    */
    protected $encoding;
-/*&lt;em&gt;
+
+   /**
     * Constructor
     *
     * @param  string $encoding The encoding to be used
-    &lt;/em&gt;/
+    */
    public function __construct($encoding)
    {
       parent::__construct();
       $this-&gt;encoding = $encoding;
    }
-/*&lt;em&gt;
+
+   /**
     * Sets the encoding
     *
     * @param string $encoding The encoding to be used
-    &lt;/em&gt;/
+    */
    public function setEncoding($encoding)
    {
       $this-&gt;encoding = $encoding;
    }
-/*&lt;em&gt;
+
+   /**
     * Gets the encoding
     *
     * @return string The encoding being used
-    &lt;/em&gt;/
+    */
    public function getEncoding()
    {
       return $this-&gt;encoding;
@@ -534,14 +540,18 @@ class MyRenderer extends PhpRenderer
 <p><pre class=codehilite><code class=language-php>
 // module/MyModule.php
 namespace MyModule;
+
 use MyModule\View\Renderer\MyRenderer;
 use Zend\Mvc\MvcEvent;
 use Zend\View\Strategy\PhpRendererStrategy;
+
 class Module
 {
-   public function getConfig(){/&lt;em&gt; ... &lt;/em&gt;/}
-public function getAutoloaderConfig(){/&lt;em&gt; ... &lt;/em&gt;/}
-public function getServiceConfig()
+   public function getConfig(){/* ... */}
+
+   public function getAutoloaderConfig(){/* ... */}
+
+   public function getServiceConfig()
    {
       return [
          'factories' =&gt; [
@@ -559,24 +569,24 @@ public function getServiceConfig()
          ],
       ];
    }
-public function onBootstrap(MvcEvent $e)
+
+   public function onBootstrap(MvcEvent $e)
    {
       // Register a render event
       $app = $e-&gt;getParam('application');
       $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
    }
-&lt;pre class="codehilite"&gt;&lt;code&gt;public function registerMyStrategy(MvcEvent $e)
-{
-    $app        = $e-&gt;getTarget();
-    $locator    = $app-&gt;getServiceManager();
-    $view       = $locator-&gt;get('Zend\View\View');
-    $myStrategy = $locator-&gt;get('MyCustomStrategy');
 
-    // Attach strategy, which is a listener aggregate, at high priority
-    $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
-}&lt;/code&gt;&lt;/pre&gt;
+    public function registerMyStrategy(MvcEvent $e)
+    {
+        $app        = $e-&gt;getTarget();
+        $locator    = $app-&gt;getServiceManager();
+        $view       = $locator-&gt;get('Zend\View\View');
+        $myStrategy = $locator-&gt;get('MyCustomStrategy');
 
-
+        // Attach strategy, which is a listener aggregate, at high priority
+        $view-&gt;getEventManager()-&gt;attach($myStrategy, 100);
+    }
 }
 </code></pre></p>
 <p>See the quick start <a href="../../quick-start/#creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</a>

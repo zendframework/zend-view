@@ -466,7 +466,8 @@ $this-&gt;headScript()-&gt;appendFile(
     '/js/prototype.js',
     'text/javascript',
     ['conditional' =&gt; 'lt IE 7']
-);</code></pre></p>
+);
+</code></pre></p>
 <h3>Preventing HTML style comments or CDATA wrapping of scripts</h3>
 <p>By default, <code>HeadScript</code> will wrap scripts with HTML comments or it wraps
 scripts with XHTML CDATA.  This behavior can be problematic when you intend to
@@ -475,7 +476,8 @@ other then <code>text/javascript</code>. To prevent such escaping, pass an <code
 with a value of true as part of the <code>$attrs</code> parameter in the method calls.</p>
 <p><pre class=codehilite><code class=language-php>
 // jquery template
-$template = '&lt;div class="book"&gt;{{:title}}&lt;/div&gt;';
+$template = '&lt;div class=&quot;book&quot;&gt;{{:title}}&lt;/div&gt;';
+
 $this-&gt;headScript()-&gt;appendScript(
     $template,
     'text/x-jquery-tmpl',
@@ -514,7 +516,8 @@ These include <code>id</code>, <code>charset</code>, <code>crossorigin</code>, <
 modify behavior. To allow such attributes, you can enable them via the
 <code>setAllowArbitraryAttributes()</code> method:</p>
 <p><pre class=codehilite><code class=language-php>
-$this-&gt;headScript()-&gt;setAllowArbitraryAttributes(true);</code></pre></p>
+$this-&gt;headScript()-&gt;setAllowArbitraryAttributes(true);
+</code></pre></p>
 </blockquote>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>You may specify a new script tag at any time. As noted above, these may be links
