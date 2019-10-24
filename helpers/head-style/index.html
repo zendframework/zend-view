@@ -499,41 +499,41 @@ use Zend\View\Renderer\PhpRenderer;
 
 class MyRenderer extends PhpRenderer
 {
-   /**
-    * @var string
-    */
-   protected $encoding;
+    /**
+     * @var string
+     */
+    protected $encoding;
 
-   /**
-    * Constructor
-    *
-    * @param  string $encoding The encoding to be used
-    */
-   public function __construct($encoding)
-   {
-      parent::__construct();
-      $this-&gt;encoding = $encoding;
-   }
+    /**
+     * Constructor
+     *
+     * @param  string $encoding The encoding to be used
+     */
+    public function __construct($encoding)
+    {
+        parent::__construct();
+        $this-&gt;encoding = $encoding;
+    }
 
-   /**
-    * Sets the encoding
-    *
-    * @param string $encoding The encoding to be used
-    */
-   public function setEncoding($encoding)
-   {
-      $this-&gt;encoding = $encoding;
-   }
+    /**
+     * Sets the encoding
+     *
+     * @param string $encoding The encoding to be used
+     */
+    public function setEncoding($encoding)
+    {
+        $this-&gt;encoding = $encoding;
+    }
 
-   /**
-    * Gets the encoding
-    *
-    * @return string The encoding being used
-    */
-   public function getEncoding()
-   {
-      return $this-&gt;encoding;
-   }
+    /**
+     * Gets the encoding
+     *
+     * @return string The encoding being used
+     */
+    public function getEncoding()
+    {
+        return $this-&gt;encoding;
+    }
 }
 </code></pre></p>
 <p>Now we make some configuration in the module class:</p>
@@ -547,35 +547,35 @@ use Zend\View\Strategy\PhpRendererStrategy;
 
 class Module
 {
-   public function getConfig(){/* ... */}
+    public function getConfig(){/* ... */}
 
-   public function getAutoloaderConfig(){/* ... */}
+    public function getAutoloaderConfig(){/* ... */}
 
-   public function getServiceConfig()
-   {
-      return [
-         'factories' =&gt; [
-            // Register our custom renderer in the container
-            'MyCustomRenderer' =&gt; function ($container) {
-               return new MyRenderer('ISO-8859-1');
-            },
-            'MyCustomStrategy' =&gt; function ($container) {
-               // As stated before, we just want to implement the
-               // getEncoding() method, so we can use the base PhpRendererStrategy
-               // and provide our custom renderer to it.
-               $myRenderer = $container-&gt;get('MyCustomRenderer');
-               return new PhpRendererStrategy($myRenderer);
-            },
-         ],
-      ];
-   }
+    public function getServiceConfig()
+    {
+        return [
+            'factories' =&gt; [
+                // Register our custom renderer in the container
+                'MyCustomRenderer' =&gt; function ($container) {
+                    return new MyRenderer('ISO-8859-1');
+                },
+                'MyCustomStrategy' =&gt; function ($container) {
+                    // As stated before, we just want to implement the
+                    // getEncoding() method, so we can use the base PhpRendererStrategy
+                    // and provide our custom renderer to it.
+                    $myRenderer = $container-&gt;get('MyCustomRenderer');
+                    return new PhpRendererStrategy($myRenderer);
+                },
+            ],
+        ];
+    }
 
-   public function onBootstrap(MvcEvent $e)
-   {
-      // Register a render event
-      $app = $e-&gt;getParam('application');
-      $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
-   }
+    public function onBootstrap(MvcEvent $e)
+    {
+        // Register a render event
+        $app = $e-&gt;getParam('application');
+        $app-&gt;getEventManager()-&gt;attach('render', [$this, 'registerMyStrategy'], 100);
+    }
 
     public function registerMyStrategy(MvcEvent $e)
     {
