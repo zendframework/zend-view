@@ -456,11 +456,11 @@ post-text to content (and custom separators for aggregated content).</p>
 <p>Basic usage of placeholders is to persist view data. Each invocation of the
 <code>Placeholder</code> helper expects a placeholder name; the helper then returns a
 placeholder container object that you can either manipulate or echo.</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php $this-&gt;placeholder('foo')-&gt;set(&quot;Some text for later&quot;) ?&gt;
+<pre class=codehilite><code class=language-php>&lt;?php $this-&gt;placeholder('foo')-&gt;set(&quot;Some text for later&quot;) ?&gt;
 
-&lt;?= $this-&gt;placeholder('foo'); ?&gt;</code></pre></p>
+&lt;?= $this-&gt;placeholder('foo'); ?&gt;</code></pre>
 <p>Results in:</p>
-<p> <pre class=codehilite><code class=language-html>Some text for later</code></pre></p>
+<pre class=codehilite><code class=language-html>Some text for later</code></pre>
 <h2 id="aggregate-content">Aggregate Content</h2>
 <p>Aggregating content via placeholders can be useful at times as well. For
 instance, your view script may have a variable array from which you wish to
@@ -498,12 +498,12 @@ $this-&gt;placeholder('foo')
 assign content to a specific key in the container easily, instead of simply
 pushing it into the container. Keys may be accessed either as object properties
 or as array keys.</p>
-<p> <pre class=codehilite><code class=language-php>&lt;?php $this-&gt;placeholder('foo')-&gt;bar = $this-&gt;data ?&gt;
+<pre class=codehilite><code class=language-php>&lt;?php $this-&gt;placeholder('foo')-&gt;bar = $this-&gt;data ?&gt;
 &lt;?= $this-&gt;placeholder('foo')-&gt;bar ?&gt;
 
 &lt;?php
 $foo = $this-&gt;placeholder('foo');
-echo $foo['bar'];</code></pre></p>
+echo $foo['bar'];</code></pre>
 <h2 id="capture-content">Capture Content</h2>
 <p>Occasionally you may have content for a placeholder in a view script that is
 easiest to template; the <code>Placeholder</code> view helper allows you to capture
@@ -524,7 +524,7 @@ arbitrary content for later rendering using the following API.</p>
   according to how <code>captureStart()</code> was called.</li>
 </ul>
 <p>As an example:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;!-- Default capture: append --&gt;
+<pre class=codehilite><code class=language-php>&lt;!-- Default capture: append --&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureStart();
 foreach ($this-&gt;data as $datum): ?&gt;
 &lt;div class=&quot;foo&quot;&gt;
@@ -534,9 +534,9 @@ foreach ($this-&gt;data as $datum): ?&gt;
 &lt;?php endforeach; ?&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureEnd() ?&gt;
 
-&lt;?= $this-&gt;placeholder('foo') ?&gt;</code></pre></p>
+&lt;?= $this-&gt;placeholder('foo') ?&gt;</code></pre>
 <p>Alternately, capture to a key:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;!-- Capture to key --&gt;
+<pre class=codehilite><code class=language-php>&lt;!-- Capture to key --&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureStart('SET', 'data');
 foreach ($this-&gt;data as $datum): ?&gt;
 &lt;div class=&quot;foo&quot;&gt;
@@ -546,15 +546,15 @@ foreach ($this-&gt;data as $datum): ?&gt;
  &lt;?php endforeach; ?&gt;
 &lt;?php $this-&gt;placeholder('foo')-&gt;captureEnd() ?&gt;
 
-&lt;?= $this-&gt;placeholder('foo')-&gt;data ?&gt;</code></pre></p>
+&lt;?= $this-&gt;placeholder('foo')-&gt;data ?&gt;</code></pre>
 <h2 id="clearing-content">Clearing Content</h2>
 <p>In certain situations it is desirable to remove or clear containers and
 aggregated content. The placeholder view helper provides two methods to either
 delete a specific container or clear all containers at once:</p>
 <h3>Delete a single container</h3>
-<p> <pre class=codehilite><code class=language-php>$this-&gt;plugin('placeholder')-&gt;deleteContainer('myNamedContainer');</code></pre></p>
+<pre class=codehilite><code class=language-php>$this-&gt;plugin('placeholder')-&gt;deleteContainer('myNamedContainer');</code></pre>
 <h3>Clear all containers</h3>
-<p> <pre class=codehilite><code class=language-php>$this-&gt;plugin('placeholder')-&gt;clearContainers();</code></pre></p>
+<pre class=codehilite><code class=language-php>$this-&gt;plugin('placeholder')-&gt;clearContainers();</code></pre>
 <h2 id="concrete-implementations">Concrete Implementations</h2>
 <p>zend-view ships with a number of "concrete" placeholder implementations. These
 are for commonly used placeholders: doctype, page title, and various <code>&lt;head&gt;</code>

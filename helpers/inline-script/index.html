@@ -451,7 +451,7 @@ analytics scripts.  Some JS libraries need to be included in the HTML
 </blockquote>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>Add to the layout script:</p>
-<p> <pre class=codehilite><code class=language-php>&lt;body&gt;
+<pre class=codehilite><code class=language-php>&lt;body&gt;
     &lt;!-- Content --&gt;
 
     &lt;?php
@@ -459,25 +459,25 @@ analytics scripts.  Some JS libraries need to be included in the HTML
         -&gt;prependFile($this-&gt;basePath('js/vendor/foundation.min.js'))
         -&gt;prependFile($this-&gt;basePath('js/vendor/jquery.js'));
     ?&gt;
-&lt;/body&gt;</code></pre></p>
+&lt;/body&gt;</code></pre>
 <p>Output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;body&gt;
+<pre class=codehilite><code class=language-html>&lt;body&gt;
     &lt;!-- Content --&gt;
 
     &lt;script type=&quot;text/javascript&quot; src=&quot;/js/vendor/jquery.js&quot;&gt;&lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot; src=&quot;/js/vendor/foundation.min.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;</code></pre></p>
+&lt;/body&gt;</code></pre>
 <h2 id="capturing-scripts">Capturing Scripts</h2>
 <p>Add in your view scripts:</p>
-<p> <pre class=codehilite><code class=language-php>$this-&gt;inlineScript()-&gt;captureStart();
+<pre class=codehilite><code class=language-php>$this-&gt;inlineScript()-&gt;captureStart();
 echo &lt;&lt;&lt;JS
     $('select').change(function(){
         location.href = $(this).val();
     });
 JS;
-$this-&gt;inlineScript()-&gt;captureEnd();</code></pre></p>
+$this-&gt;inlineScript()-&gt;captureEnd();</code></pre>
 <p>Output:</p>
-<p> <pre class=codehilite><code class=language-html>&lt;body&gt;
+<pre class=codehilite><code class=language-html>&lt;body&gt;
     &lt;!-- Content --&gt;
 
     &lt;script type=&quot;text/javascript&quot; src=&quot;/js/vendor/jquery.js&quot;&gt;&lt;/script&gt;
@@ -489,7 +489,7 @@ $this-&gt;inlineScript()-&gt;captureEnd();</code></pre></p>
         });
         //--&gt;
     &lt;/script&gt;
-&lt;/body&gt;</code></pre></p>
+&lt;/body&gt;</code></pre>
 
 
 

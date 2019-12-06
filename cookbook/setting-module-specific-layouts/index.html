@@ -450,7 +450,7 @@ to get the called controller from the current request.</p>
 <h2 id="create-listener">Create Listener</h2>
 <p>Create a listener as a separate class, e.g.
 <code>module/Admin/src/Listener/LayoutListener.php</code>:</p>
-<p> <pre class=codehilite><code class=language-php>namespace Admin\Listener;
+<pre class=codehilite><code class=language-php>namespace Admin\Listener;
 
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
@@ -516,11 +516,11 @@ class LayoutListener extends AbstractListenerAggregate
         // Change template
         $layoutViewModel-&gt;setTemplate($name);
     }
-}</code></pre></p>
+}</code></pre>
 <h2 id="register-listener">Register Listener</h2>
 <p>Extend the module class to register the listener, e.g.
 <code>module/Admin/Module.php</code>:</p>
-<p> <pre class=codehilite><code class=language-php>namespace Admin;
+<pre class=codehilite><code class=language-php>namespace Admin;
 
 use Admin\Listener\LayoutListener;
 use Zend\Mvc\MvcEvent;
@@ -543,7 +543,7 @@ class Module
     }
 
     // …
-}</code></pre></p>
+}</code></pre>
 <blockquote>
 <p>More informations on registering module-specific listeners can be found in the
 <a href="https://docs.zendframework.com/zend-mvc/examples/#registering-module-specific-listeners">documentation of zend-mvc</a>.</p>
@@ -551,7 +551,7 @@ class Module
 <h2 id="add-template-scripts-to-the-configuration">Add Template Scripts to the Configuration</h2>
 <p>Extend the configuration of a module to add the specific layout script, e.g.
 <code>module/Admin/config/module.config.php</code>:</p>
-<p> <pre class=codehilite><code class=language-php>return [
+<pre class=codehilite><code class=language-php>return [
     // Add the following array
     'view_manager' =&gt; [
         'template_map' =&gt; [
@@ -559,9 +559,9 @@ class Module
         ],
     ],
     // …
-];</code></pre></p>
+];</code></pre>
 <p>And in another module, e.g. <code>module/Album/config/module.config.php</code>:</p>
-<p> <pre class=codehilite><code class=language-php>return [
+<pre class=codehilite><code class=language-php>return [
     // Add the following array
     'view_manager' =&gt; [
         'template_map' =&gt; [
@@ -569,7 +569,7 @@ class Module
         ],
     ],
     // …
-];</code></pre></p>
+];</code></pre>
 <p>The name of the array key must follow the format <code>layout/{module-name}</code> and the
 value must contain the path to the layout file. The path and the filename can be
 freely chosen.</p>
