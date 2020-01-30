@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/asset/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/asset/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Asset - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -447,19 +447,25 @@ your view scripts, while having that map to:</p>
 <p><code>Zend\View\Helper\Service\AssetFactory</code> checks the application configuration,
 making it possible to set up the resource map through your <code>module.config.php</code>
 or application configuration. As an example:</p>
-<pre class=codehilite><code class=language-php>'view_helper_config' =&gt; [
+<pre><code class="language-php">'view_helper_config' =&gt; [
     'asset' =&gt; [
         'resource_map' =&gt; [
             'css/style.css' =&gt; 'css/style-3a97ff4ee3.css',
             'js/vendor.js' =&gt; 'js/vendor-a507086eba.js',
         ],
     ],
-],</code></pre>
+],
+</code></pre>
+
 <p>Within your view script, you would reference the asset name:</p>
-<pre class=codehilite><code class=language-php>// Usable in any of your .phtml files:
-echo $this-&gt;asset('css/style.css');</code></pre>
+<pre><code class="language-php">// Usable in any of your .phtml files:
+echo $this-&gt;asset('css/style.css');
+</code></pre>
+
 <p>which then emits the following output:</p>
-<pre class=codehilite><code class=language-html>css/style-3a97ff4ee3.css</code></pre>
+<pre><code class="language-html">css/style-3a97ff4ee3.css
+</code></pre>
+
 <p>The first argument of the <code>asset</code> helper is the regular asset name, which will
 be replaced by the associated value defined in the <code>resource_map</code> of the
 configuration.</p>
@@ -473,17 +479,21 @@ an array, the helper will raise a <code>Zend\View\Exception\RuntimeException</co
 <h2 id="resource-map-in-json-file">Resource map in JSON file</h2>
 <p>A number of build tools, such as gulp-rev and grunt-rev, will create a JSON
 resource map file such as <code>rev-manifest.json</code>:</p>
-<pre class=codehilite><code class=language-javascript>{
+<pre><code class="language-javascript">{
     &quot;css/style.css&quot;: &quot;css/style-3a97ff4ee3.css&quot;,
     &quot;js/vendor.js&quot;: &quot;js/vendor-a507086eba.js&quot;
-}</code></pre>
+}
+</code></pre>
+
 <p>You can incorporate these into your configuration manually by fetching and
 decoding the contents:</p>
-<pre class=codehilite><code class=language-php>'view_helper_config' =&gt; [
+<pre><code class="language-php">'view_helper_config' =&gt; [
     'asset' =&gt; [
         'resource_map' =&gt; json_decode(file_get_contents('path/to/rev-manifest.json'), true),
     ],
-],</code></pre>
+],
+</code></pre>
+
 <p>If you have enabled configuration caching, these values <em>will also be cached</em>,
 meaning that the above operation will occur exactly once in your production
 configuration.</p>
@@ -818,7 +828,7 @@ configuration.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -826,10 +836,10 @@ configuration.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -837,27 +847,28 @@ configuration.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

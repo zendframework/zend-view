@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/head-meta/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/head-meta/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>HeadMeta - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -501,59 +501,74 @@ client-side caching rules or SEO keywords.</p>
 <p>For instance, if you wish to specify SEO keywords, you'd be creating a meta name
 tag with the name <code>keywords</code> and the content the keywords you wish to associate
 with your page:</p>
-<pre class=codehilite><code class=language-php>// setting meta keywords
-$this-&gt;headMeta()-&gt;appendName('keywords', 'framework, PHP, productivity');</code></pre>
+<pre><code class="language-php">// setting meta keywords
+$this-&gt;headMeta()-&gt;appendName('keywords', 'framework, PHP, productivity');
+</code></pre>
+
 <p>If you wished to set some client-side caching rules, you'd set <code>http-equiv</code> tags
 with the rules you wish to enforce:</p>
-<pre class=codehilite><code class=language-php>// disabling client-side cache
+<pre><code class="language-php">// disabling client-side cache
 $this-&gt;headMeta()
     -&gt;appendHttpEquiv('expires', 'Wed, 26 Feb 1997 08:21:57 GMT')
     -&gt;appendHttpEquiv('pragma', 'no-cache')
-    -&gt;appendHttpEquiv('Cache-Control', 'no-cache');</code></pre>
+    -&gt;appendHttpEquiv('Cache-Control', 'no-cache');
+</code></pre>
+
 <p>Another popular use for meta tags is setting the content type, character set,
 and language:</p>
-<pre class=codehilite><code class=language-php>// setting content type and character set
+<pre><code class="language-php">// setting content type and character set
 $this-&gt;headMeta()
     -&gt;appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
-    -&gt;appendHttpEquiv('Content-Language', 'en-US');</code></pre>
+    -&gt;appendHttpEquiv('Content-Language', 'en-US');
+</code></pre>
+
 <p>If you are serving an HTML5 document, you should provide the character set like
 this:</p>
-<pre class=codehilite><code class=language-php>// setting character set in HTML5
-$this-&gt;headMeta()-&gt;setCharset('UTF-8'); // Will look like &lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+<pre><code class="language-php">// setting character set in HTML5
+$this-&gt;headMeta()-&gt;setCharset('UTF-8'); // Will look like &lt;meta charset=&quot;UTF-8&quot;&gt;
+</code></pre>
+
 <p>As a final example, an easy way to display a transitional message before a
 redirect is using a "meta refresh":</p>
-<pre class=codehilite><code class=language-php>// setting a meta refresh for 3 seconds to a new url:
+<pre><code class="language-php">// setting a meta refresh for 3 seconds to a new url:
 $this-&gt;headMeta()
-    -&gt;appendHttpEquiv('Refresh', '3;URL=http://www.some.org/some.html');</code></pre>
+    -&gt;appendHttpEquiv('Refresh', '3;URL=http://www.some.org/some.html');
+</code></pre>
+
 <p>When you're ready to place your meta tags in the layout, echo the helper:</p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headMeta() ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?= $this-&gt;headMeta() ?&gt;
+</code></pre>
+
 <h2 id="usage-with-xhtml195rdfa-doctype">Usage with XHTML1_RDFA doctype</h2>
 <p>Enabling the RDFa doctype with the <a href="../doctype/">Doctype helper</a> enables the use
 of the <code>property</code> attribute (in addition to the standard <code>name</code> and
 <code>http-equiv</code>) with <code>HeadMeta</code>.  This is commonly used with the Facebook <a href="http://opengraphprotocol.org/">Open
 Graph Protocol</a>.</p>
 <p>For instance, you may specify an open graph page title and type as follows:</p>
-<pre class=codehilite><code class=language-php>$this-&gt;doctype(Zend\View\Helper\Doctype::XHTML1_RDFA);
+<pre><code class="language-php">$this-&gt;doctype(Zend\View\Helper\Doctype::XHTML1_RDFA);
 $this-&gt;headMeta()-&gt;setProperty('og:title', 'my article title');
 $this-&gt;headMeta()-&gt;setProperty('og:type', 'article');
 echo $this-&gt;headMeta();
 
 // output is:
 //   &lt;meta property=&quot;og:title&quot; content=&quot;my article title&quot; /&gt;
-//   &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;</code></pre>
+//   &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+</code></pre>
+
 <h2 id="usage-with-html5-doctype">Usage with HTML5 doctype</h2>
 <p>Enabling the HTML5 doctype with the <a href="../doctype/">Doctype helper</a> enables the use
 of the <code>itemprop</code> attribute (in addition to the standard <code>name</code> and
 <code>http-equiv</code>) with <code>HeadMeta</code>.  This is typically used to add
 <a href="https://schema.org">Microdata</a> to the head of your document.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;doctype(Zend\View\Helper\Doctype::HTML5);
+<pre><code class="language-php">$this-&gt;doctype(Zend\View\Helper\Doctype::HTML5);
 $this-&gt;headMeta()-&gt;setItemprop('headline', 'My Article Headline');
 $this-&gt;headMeta()-&gt;setItemprop('dateCreated', $date-&gt;format('c'));
 echo $this-&gt;headMeta();
 
 // output is:
 //   &lt;meta itemprop=&quot;headline&quot; content=&quot;My Article Headline&quot;&gt;
-//   &lt;meta itemprop=&quot;dateCreated&quot; content=&quot;2018-07-12T22:19:06+00:00&quot;&gt;</code></pre>
+//   &lt;meta itemprop=&quot;dateCreated&quot; content=&quot;2018-07-12T22:19:06+00:00&quot;&gt;
+</code></pre>
 
 
 
@@ -885,7 +900,7 @@ echo $this-&gt;headMeta();
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -893,10 +908,10 @@ echo $this-&gt;headMeta();
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -904,27 +919,28 @@ echo $this-&gt;headMeta();
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

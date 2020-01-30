@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/html-tag/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/html-tag/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>HtmlTag - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -443,33 +443,47 @@
 <p>The <code>HtmlTag</code> helper is used to <strong>create the root of an HTML document</strong>, the
 open and close tags for the <code>&lt;html&gt;</code> element.</p>
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;htmlTag(['lang' =&gt; 'en'])-&gt;openTag() ?&gt;
+<pre><code class="language-php">&lt;?= $this-&gt;htmlTag(['lang' =&gt; 'en'])-&gt;openTag() ?&gt;
 &lt;!-- Some HTML --&gt;
-&lt;?= $this-&gt;htmlTag()-&gt;closeTag() ?&gt;</code></pre>
+&lt;?= $this-&gt;htmlTag()-&gt;closeTag() ?&gt;
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&lt;html lang=&quot;en&quot;&gt;
+<pre><code class="language-html">&lt;html lang=&quot;en&quot;&gt;
 &lt;!-- Some HTML --&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
+
 <h2 id="using-attributes">Using Attributes</h2>
 <h3>Set a single Attribute</h3>
-<div class=md-fenced-code-tabs id=tab-tab-group-2><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-2-0_php role=tab data-toggle=tab data-lang=php>Invoke Usage</a></li><li class="nav-item "><a href=#tab-group-2-1_php role=tab data-toggle=tab data-lang=php>Setter Usage</a></li></ul><div class=tab-content><div id=tab-group-2-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;htmlTag(['lang' =&gt; 'en']);
+<p>```php fct_label="Invoke Usage"
+$this-&gt;htmlTag(['lang' =&gt; 'en']);</p>
+<p>echo $this-&gt;htmlTag()-&gt;openTag(); // <html lang="en"></p>
+<pre><code>
+```php fct_label=&quot;Setter Usage&quot;
+$this-&gt;htmlTag()-&gt;setAttribute('lang', 'en');
 
-echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot;&gt;</code></pre></div><div id=tab-group-2-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;htmlTag()-&gt;setAttribute('lang', 'en');
-
-echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot;&gt;</code></pre></div></div></div>
+echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot;&gt;
+</code></pre>
 
 <h3>Set multiple Attributes</h3>
-<div class=md-fenced-code-tabs id=tab-tab-group-3><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-3-0_php role=tab data-toggle=tab data-lang=php>Invoke Usage</a></li><li class="nav-item "><a href=#tab-group-3-1_php role=tab data-toggle=tab data-lang=php>Setter Usage</a></li></ul><div class=tab-content><div id=tab-group-3-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;htmlTag(['lang' =&gt; 'en', 'id' =&gt; 'example']);
+<p>```php fct_label="Invoke Usage"
+$this-&gt;htmlTag(['lang' =&gt; 'en', 'id' =&gt; 'example']);</p>
+<p>echo $this-&gt;htmlTag()-&gt;openTag(); // <html lang="en" id="example"></p>
+<pre><code>
+```php fct_label=&quot;Setter Usage&quot;
+$this-&gt;htmlTag()-&gt;setAttributes(['lang' =&gt; 'en', 'id' =&gt; 'example']);
 
-echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot; id=&quot;example&quot;&gt;</code></pre></div><div id=tab-group-3-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;htmlTag()-&gt;setAttributes(['lang' =&gt; 'en', 'id' =&gt; 'example']);
-
-echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot; id=&quot;example&quot;&gt;</code></pre></div></div></div>
+echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html lang=&quot;en&quot; id=&quot;example&quot;&gt;
+</code></pre>
 
 <h3>Get current Value</h3>
 <p>To get the current value, use the <code>getAttributes()</code> method.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;htmlTag(['lang' =&gt; 'en', 'id' =&gt; 'example']);
+<pre><code class="language-php">$this-&gt;htmlTag(['lang' =&gt; 'en', 'id' =&gt; 'example']);
 
-var_dump($this-&gt;htmlTag()-&gt;getAttributes()); // ['lang' =&gt; 'en', 'id' =&gt; 'example']</code></pre>
+var_dump($this-&gt;htmlTag()-&gt;getAttributes()); // ['lang' =&gt; 'en', 'id' =&gt; 'example']
+</code></pre>
+
 <h3>Default Value</h3>
 <p>The default value is an empty <code>array</code> that means no attributes are set.</p>
 <h2 id="using-namespace">Using Namespace</h2>
@@ -478,19 +492,23 @@ for XHTML documents. To use this functionality, the <a href="../doctype/"><code>
 is used.</p>
 <p>The namespace is added only if the document type is set to an XHTML type and use
 is enabled:</p>
-<pre class=codehilite><code class=language-php>// Set doctype to XHTML
+<pre><code class="language-php">// Set doctype to XHTML
 $this-&gt;doctype(Zend\View\Helper\Doctype::XHTML1_STRICT);
 
 // Add namespace to open tag
 $this-&gt;htmlTag()-&gt;setUseNamespaces(true);
 
 // Output
-echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</code></pre>
+echo $this-&gt;htmlTag()-&gt;openTag(); // &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+</code></pre>
+
 <h3>Get current Value</h3>
 <p>To get the current value, use the <code>getUseNamespaces()</code> method.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;htmlTag()-&gt;setUseNamespaces(true);
+<pre><code class="language-php">$this-&gt;htmlTag()-&gt;setUseNamespaces(true);
 
-var_dump($this-&gt;htmlTag()-&gt;getUseNamespaces()); // true</code></pre>
+var_dump($this-&gt;htmlTag()-&gt;getUseNamespaces()); // true
+</code></pre>
+
 <h3>Default Value</h3>
 <p>The default value is <code>false</code> that means no namespace is added as attribute.</p>
 
@@ -824,7 +842,7 @@ var_dump($this-&gt;htmlTag()-&gt;getUseNamespaces()); // true</code></pre>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -832,10 +850,10 @@ var_dump($this-&gt;htmlTag()-&gt;getUseNamespaces()); // true</code></pre>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -843,27 +861,28 @@ var_dump($this-&gt;htmlTag()-&gt;getUseNamespaces()); // true</code></pre>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/cycle/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/cycle/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Cycle - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -439,58 +439,72 @@
 <p>The <code>Cycle</code> helper is used to alternate a set of values.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>To add elements to cycle, specify them in constructor:</p>
-<pre class=codehilite><code class=language-php>&lt;table&gt;
+<pre><code class="language-php">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
         &lt;tr class=&quot;&lt;?= $this-&gt;cycle(['odd', 'even'])-&gt;next() ?&gt;&quot;&gt;
             &lt;td&gt;&lt;?= $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;?php endforeach ?&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
+
 <p>The output:</p>
-<pre class=codehilite><code class=language-php>&lt;table&gt;
+<pre><code class="language-php">&lt;table&gt;
     &lt;tr class=&quot;odd&quot;&gt;
        &lt;td&gt;First&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class=&quot;even&quot;&gt;
        &lt;td&gt;Second&lt;/td&gt;
     &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
+
 <p>Instead of passing the data at invocation, you can assign it ahead of time:</p>
-<pre class=codehilite><code class=language-php>&lt;?php $this-&gt;cycle()-&gt;assign(['odd', 'even']); ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?php $this-&gt;cycle()-&gt;assign(['odd', 'even']); ?&gt;
+</code></pre>
+
 <p>You can also cycle in reverse, using the <code>prev()</code> method instead of <code>next()</code>:</p>
-<pre class=codehilite><code class=language-php>&lt;table&gt;
+<pre><code class="language-php">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
     &lt;tr class=&quot;&lt;?= $this-&gt;cycle()-&gt;prev() ?&gt;&quot;&gt;
        &lt;td&gt;&lt;?php echo $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;?php endforeach ?&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
+
 <p>The output of the two previous examples combined becomes:</p>
-<pre class=codehilite><code class=language-php>&lt;table&gt;
+<pre><code class="language-php">&lt;table&gt;
     &lt;tr class=&quot;even&quot;&gt;
        &lt;td&gt;First&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class=&quot;odd&quot;&gt;
        &lt;td&gt;Second&lt;/td&gt;
     &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
+
 <h2 id="working-with-two-or-more-cycles">Working with two or more cycles</h2>
 <p>If you are nesting cycles, you must provide all but one of them with a name; do
 this by providing a second parameter to the <code>cycle()</code> invocation:
 <code>$this-&gt;cycle(['odd', 'even'], 'cycle2')</code></p>
-<pre class=codehilite><code class=language-php>&lt;table&gt;
+<pre><code class="language-php">&lt;table&gt;
     &lt;?php foreach ($this-&gt;books as $book): ?&gt;
         &lt;tr class=&quot;&lt;?= $this-&gt;cycle(['odd', 'even'])-&gt;next() ?&gt;&quot;&gt;
             &lt;td&gt;&lt;?= $this-&gt;cycle([1, 2, 3], 'number')-&gt;next() ?&gt;&lt;/td&gt;
             &lt;td&gt;&lt;?= $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;?php endforeach ?&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
+
 <p>You can also provide a <code>$name</code> argument to <code>assign()</code>:</p>
-<pre class=codehilite><code class=language-php>&lt;?php $this-&gt;cycle()-&gt;assign([1, 2, 3], 'number'); ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?php $this-&gt;cycle()-&gt;assign([1, 2, 3], 'number'); ?&gt;
+</code></pre>
+
 <p>Or use the <code>setName()</code> method priort to invoking either of <code>next()</code> or <code>prev()</code>.</p>
 <p>As a combined example:</p>
-<pre class=codehilite><code class=language-php>&lt;?php
+<pre><code class="language-php">&lt;?php
 $this-&gt;cycle()-&gt;assign(['odd', 'even'], 'classes');
 $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
 ?&gt;
@@ -501,7 +515,8 @@ $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
             &lt;td&gt;&lt;?= $this-&gt;escapeHtml($book['author']) ?&gt;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;?php endforeach ?&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
 
 
 
@@ -833,7 +848,7 @@ $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -841,10 +856,10 @@ $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -852,27 +867,28 @@ $this-&gt;cycle()-&gt;assign([1, 2, 3], 'numbers');
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

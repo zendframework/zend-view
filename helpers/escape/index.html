@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/escape/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/escape/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Escape - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -482,52 +482,76 @@ $ composer require zendframework/zend-escaper
 </code></pre>
 </blockquote>
 <h2 id="escapecss">EscapeCss</h2>
-<pre class=codehilite><code class=language-php>$css = &lt;&lt;&lt;CSS
+<pre><code class="language-php">$css = &lt;&lt;&lt;CSS
 body {
     background-image: url('http://example.com/foo.jpg?&lt;/style&gt;&lt;script&gt;alert(1)&lt;/script&gt;');
 }
 CSS;
 
-echo $this-&gt;escapeCss($css);</code></pre>
+echo $this-&gt;escapeCss($css);
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-css>body\20 \7B \D \A \20 \20 \20 \20 background\2D image\3A \20 url\28 \27 http\3A \2F \2F example\2E com\2F foo\2E jpg\3F \3C \2F style\3E \3C script\3E alert\28 1\29 \3C \2F script\3E \27 \29 \3B \D \A \7D</code></pre>
+<pre><code class="language-css">body\20 \7B \D \A \20 \20 \20 \20 background\2D image\3A \20 url\28 \27 http\3A \2F \2F example\2E com\2F foo\2E jpg\3F \3C \2F style\3E \3C script\3E alert\28 1\29 \3C \2F script\3E \27 \29 \3B \D \A \7D
+</code></pre>
+
 <h2 id="escapehtml">EscapeHtml</h2>
-<pre class=codehilite><code class=language-php>$html = &quot;&lt;script&gt;alert('zend-framework')&lt;/script&gt;&quot;;
+<pre><code class="language-php">$html = &quot;&lt;script&gt;alert('zend-framework')&lt;/script&gt;&quot;;
 
-echo $this-&gt;escapeHtml($html);</code></pre>
+echo $this-&gt;escapeHtml($html);
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&amp;lt;script&amp;gt;alert(&amp;#039;zend-framework&amp;#039;)&amp;lt;/script&amp;gt;</code></pre>
+<pre><code class="language-html">&amp;lt;script&amp;gt;alert(&amp;#039;zend-framework&amp;#039;)&amp;lt;/script&amp;gt;
+</code></pre>
+
 <h2 id="escapehtmlattr">EscapeHtmlAttr</h2>
-<pre class=codehilite><code class=language-php+html>&lt;?php $html = 'faketitle onmouseover=alert(/zend-framework/);'; ?&gt;
+<pre><code class="language-php+html">&lt;?php $html = 'faketitle onmouseover=alert(/zend-framework/);'; ?&gt;
 
-&lt;a title=&lt;?= $this-&gt;escapeHtmlAttr($html) ?&gt;&gt;click&lt;/a&gt;</code></pre>
+&lt;a title=&lt;?= $this-&gt;escapeHtmlAttr($html) ?&gt;&gt;click&lt;/a&gt;
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&lt;a title=faketitle&amp;#x20;onmouseover&amp;#x3D;alert&amp;#x28;&amp;#x2F;zend-framework&amp;#x2F;&amp;#x29;&amp;#x3B;&gt;click&lt;/a&gt;</code></pre>
+<pre><code class="language-html">&lt;a title=faketitle&amp;#x20;onmouseover&amp;#x3D;alert&amp;#x28;&amp;#x2F;zend-framework&amp;#x2F;&amp;#x29;&amp;#x3B;&gt;click&lt;/a&gt;
+</code></pre>
+
 <h2 id="escapejs">EscapeJs</h2>
-<pre class=codehilite><code class=language-php>$js = &quot;window.location = 'https://framework.zend.com/?cookie=' + document.cookie&quot;;
+<pre><code class="language-php">$js = &quot;window.location = 'https://framework.zend.com/?cookie=' + document.cookie&quot;;
 
-echo $this-&gt;escapeJs($js);</code></pre>
+echo $this-&gt;escapeJs($js);
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-js>window.location\x20\x3D\x20\x27https\x3A\x2F\x2Fframework.zend.com\x2F\x3Fcookie\x3D\x27\x20\x2B\x20document.cookie</code></pre>
+<pre><code class="language-js">window.location\x20\x3D\x20\x27https\x3A\x2F\x2Fframework.zend.com\x2F\x3Fcookie\x3D\x27\x20\x2B\x20document.cookie
+</code></pre>
+
 <h2 id="escapeurl">EscapeUrl</h2>
-<pre class=codehilite><code class=language-php>&lt;?php
+<pre><code class="language-php">&lt;?php
 $url = &lt;&lt;&lt;JS
 &quot; onmouseover=&quot;alert('zf2')
 JS;
 ?&gt;
 
-&lt;a href=&quot;http://example.com/?name=&lt;?= $this-&gt;escapeUrl($url) ?&gt;&quot;&gt;click&lt;/a&gt;</code></pre>
+&lt;a href=&quot;http://example.com/?name=&lt;?= $this-&gt;escapeUrl($url) ?&gt;&quot;&gt;click&lt;/a&gt;
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&lt;a href=&quot;http://example.com/?name=%22%20onmouseover%3D%22alert%28%27zf2%27%29&quot;&gt;click&lt;/a&gt;</code></pre>
+<pre><code class="language-html">&lt;a href=&quot;http://example.com/?name=%22%20onmouseover%3D%22alert%28%27zf2%27%29&quot;&gt;click&lt;/a&gt;
+</code></pre>
+
 <h2 id="using-encoding">Using Encoding</h2>
-<pre class=codehilite><code class=language-php>$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');</code></pre>
+<pre><code class="language-php">$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');
+</code></pre>
+
 <p>All allowed encodings can be found in the
 <a href="https://docs.zendframework.com/zend-escaper/configuration/">documentation of zend-escaper</a>.</p>
 <h3>Get Current Value</h3>
 <p>To get the current value of this option, use the <code>getEncoding()</code> method.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');
+<pre><code class="language-php">$this-&gt;escapeHtml()-&gt;setEncoding('iso-8859-15');
 
-echo $this-&gt;escapeHtml()-&gt;getEncoding(); // iso-8859-15</code></pre>
+echo $this-&gt;escapeHtml()-&gt;getEncoding(); // iso-8859-15
+</code></pre>
+
 <h3>Default Value</h3>
 <p>The default value for all escape helpers is <code>utf-8</code>.</p>
 <h2 id="using-recursion">Using Recursion</h2>
@@ -536,16 +560,18 @@ operation. This allows the escaping of the datatypes <code>array</code> and <cod
 <h3>Escape an Array</h3>
 <p>To escape an <code>array</code>, the second parameter <code>$recurse</code> must be use the constant
 <code>RECURSE_ARRAY</code> of an escape helper:</p>
-<pre class=codehilite><code class=language-php>$html = [
+<pre><code class="language-php">$html = [
     'headline' =&gt; '&lt;h1&gt;Foo&lt;/h1&gt;',
     'content'  =&gt; [
         'paragraph' =&gt; '&lt;p&gt;Bar&lt;/p&gt;',
     ],
 ];
 
-var_dump($this-&gt;escapeHtml($html, Zend\View\Helper\EscapeHtml::RECURSE_ARRAY));</code></pre>
+var_dump($this-&gt;escapeHtml($html, Zend\View\Helper\EscapeHtml::RECURSE_ARRAY));
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-php>array(2) {
+<pre><code class="language-php">array(2) {
   'headline' =&gt;
   string(24) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
   'content' =&gt;
@@ -553,59 +579,75 @@ var_dump($this-&gt;escapeHtml($html, Zend\View\Helper\EscapeHtml::RECURSE_ARRAY)
     'paragraph' =&gt;
     string(22) &quot;&amp;lt;p&amp;gt;Bar&amp;lt;/p&amp;gt;&quot;
   }
-}</code></pre>
+}
+</code></pre>
+
 <h3>Escape an Object</h3>
 <p>An escape helper can use the <code>__toString()</code> method of an object. No additional
 parameter is needed:</p>
-<pre class=codehilite><code class=language-php>$object = new class {
+<pre><code class="language-php">$object = new class {
     public function __toString() : string
     {
         return '&lt;h1&gt;Foo&lt;/h1&gt;';
     }
 };
 
-echo $this-&gt;escapeHtml($object); // &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;</code></pre>
+echo $this-&gt;escapeHtml($object); // &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
+</code></pre>
+
 <p>An escape helper can also use the <code>toArray()</code> method of an object. The second
 parameter <code>$recurse</code> must be use the constant <code>RECURSE_OBJECT</code> of an escape
 helper:</p>
-<pre class=codehilite><code class=language-php>$object = new class {
+<pre><code class="language-php">$object = new class {
     public function toArray() : array
     {
         return ['headline' =&gt; '&lt;h1&gt;Foo&lt;/h1&gt;'];
     }
 };
 
-var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));</code></pre>
+var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-php>array(1) {
+<pre><code class="language-php">array(1) {
   'headline' =&gt;
   string(3) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
-}</code></pre>
+}
+</code></pre>
+
 <p>If the object does not contains the methods <code>__toString()</code> or <code>toArray()</code> then
 the object is casted to an <code>array</code>:</p>
-<pre class=codehilite><code class=language-php>$object = new class {
+<pre><code class="language-php">$object = new class {
     public $headline = '&lt;h1&gt;Foo&lt;/h1&gt;';
 };
 
-var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));</code></pre>
+var_dump($this-&gt;escapeHtml($object, Zend\View\Helper\EscapeHtml::RECURSE_OBJECT));
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-php>array(1) {
+<pre><code class="language-php">array(1) {
   'headline' =&gt;
   string(3) &quot;&amp;lt;h1&amp;gt;Foo&amp;lt;/h1&amp;gt;&quot;
-}</code></pre>
+}
+</code></pre>
+
 <h2 id="using-custom-escaper">Using Custom Escaper</h2>
 <p>Create an own instance of <code>Zend\Escaper\Escaper</code> and set to any of the escape
 helpers:</p>
-<pre class=codehilite><code class=language-php>$escaper = new Zend\Escaper\Escaper('utf-8');
+<pre><code class="language-php">$escaper = new Zend\Escaper\Escaper('utf-8');
 
-$this-&gt;escapeHtml()-&gt;setEscaper($escaper);</code></pre>
+$this-&gt;escapeHtml()-&gt;setEscaper($escaper);
+</code></pre>
+
 <h3>Get Current Value</h3>
 <p>To get the current value, use the <code>getEscaper()</code> method.</p>
-<pre class=codehilite><code class=language-php>&lt;?php
+<pre><code class="language-php">&lt;?php
 $escaper = new Zend\Escaper\Escaper('utf-8');
 $this-&gt;escapeHtml()-&gt;setEscaper($escaper);
 
-var_dump($this-&gt;escapeHtml()-&gt;getEscaper()); // instance of Zend\Escaper\Escaper</code></pre>
+var_dump($this-&gt;escapeHtml()-&gt;getEscaper()); // instance of Zend\Escaper\Escaper
+</code></pre>
+
 <h3>Default Value</h3>
 <p>The default value is an instance of <code>Zend\Escaper\Escaper</code>, created by the
 helper.</p>
@@ -940,7 +982,7 @@ helper.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -948,10 +990,10 @@ helper.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -959,27 +1001,28 @@ helper.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

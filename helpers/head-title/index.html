@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/head-title/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/head-title/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>HeadTitle - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -465,106 +465,141 @@ explicitly pass a different attach order as the second parameter.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>Specify a title tag in a view script, e.g.
 <code>module/Album/view/album/album/index.phtml</code>:</p>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums');</code></pre>
+<pre><code class="language-php">$this-&gt;headTitle('My albums');
+</code></pre>
+
 <p>Render the title in the layout script, e.g.
 <code>module/Application/view/layout/layout.phtml</code></p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headTitle() ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?= $this-&gt;headTitle() ?&gt;
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&lt;title&gt;My albums&lt;/title&gt;</code></pre>
+<pre><code class="language-html">&lt;title&gt;My albums&lt;/title&gt;
+</code></pre>
+
 <h3>Add the Website Name</h3>
 <p>A typical usage includes the website name in the title. Add the name and <a href="#using-separator">set a
 separator</a> in the layout script, e.g.
 <code>module/Application/view/layout/layout.phtml</code></p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;headTitle('Music')-&gt;setSeparator(' - ') ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?= $this-&gt;headTitle('Music')-&gt;setSeparator(' - ') ?&gt;
+</code></pre>
+
 <p>Output:</p>
-<pre class=codehilite><code class=language-html>&lt;title&gt;My albums - Music&lt;/title&gt;</code></pre>
+<pre><code class="language-html">&lt;title&gt;My albums - Music&lt;/title&gt;
+</code></pre>
+
 <h2 id="set-content">Set Content</h2>
 <p>The normal behaviour is to append the content to the title (container).</p>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
+<pre><code class="language-php">$this-&gt;headTitle('My albums')
 $this-&gt;headTitle('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;My albumsMusic&lt;/title&gt;</code></pre>
+echo $this-&gt;headTitle(); // &lt;title&gt;My albumsMusic&lt;/title&gt;
+</code></pre>
+
 <h3>Append Content</h3>
 <p>To explicitly append content, the second paramater <code>$setType</code> or the concrete
 method <code>append()</code> of the helper can be used:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-6><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-6-0_php role=tab data-toggle=tab data-lang=php>Invoke Usage</a></li><li class="nav-item "><a href=#tab-group-6-1_php role=tab data-toggle=tab data-lang=php>Setter Usage</a></li></ul><div class=tab-content><div id=tab-group-6-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
-$this-&gt;headTitle('Music', 'APPEND');
-
-echo $this-&gt;headTitle(); // &lt;title&gt;My albumsMusic&lt;/title&gt;</code></pre></div><div id=tab-group-6-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
+<p>```php fct_label="Invoke Usage"
+$this-&gt;headTitle('My albums')
+$this-&gt;headTitle('Music', 'APPEND');</p>
+<p>echo $this-&gt;headTitle(); // <title>My albumsMusic</title></p>
+<pre><code>
+```php fct_label=&quot;Setter Usage&quot;
+$this-&gt;headTitle('My albums')
 $this-&gt;headTitle()-&gt;append('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;My albumsMusic&lt;/title&gt;</code></pre></div></div></div>
+echo $this-&gt;headTitle(); // &lt;title&gt;My albumsMusic&lt;/title&gt;
+</code></pre>
 
 <p>The constant <code>Zend\View\Helper\Placeholder\Container\AbstractContainer::APPEND</code>
 can also be used as value for the second parameter <code>$setType</code>.</p>
 <h3>Prepend Content</h3>
 <p>To prepend content, the second paramater <code>$setType</code> or the concrete method
 <code>prepend()</code> of the helper can be used:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-7><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-7-0_php role=tab data-toggle=tab data-lang=php>Invoke Usage</a></li><li class="nav-item "><a href=#tab-group-7-1_php role=tab data-toggle=tab data-lang=php>Setter Usage</a></li></ul><div class=tab-content><div id=tab-group-7-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
-$this-&gt;headTitle('Music', 'PREPEND');
-
-echo $this-&gt;headTitle(); // &lt;title&gt;MusicMy albums&lt;/title&gt;</code></pre></div><div id=tab-group-7-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
+<p>```php fct_label="Invoke Usage"
+$this-&gt;headTitle('My albums')
+$this-&gt;headTitle('Music', 'PREPEND');</p>
+<p>echo $this-&gt;headTitle(); // <title>MusicMy albums</title></p>
+<pre><code>
+```php fct_label=&quot;Setter Usage&quot;
+$this-&gt;headTitle('My albums')
 $this-&gt;headTitle()-&gt;prepend('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;MusicMy albums&lt;/title&gt;</code></pre></div></div></div>
+echo $this-&gt;headTitle(); // &lt;title&gt;MusicMy albums&lt;/title&gt;
+</code></pre>
 
 <p>The constant <code>Zend\View\Helper\Placeholder\Container\AbstractContainer::PREPEND</code>
 can also be used as value for the second parameter <code>$setType</code>.</p>
 <h3>Overwrite existing Content</h3>
 <p>To overwrite the entire content of title helper, the second parameter <code>$setType</code>
 or the concrete method <code>set()</code> of the helper can be used:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-8><ul class="nav nav-tabs"><li class="nav-item active"><a href=#tab-group-8-0_php role=tab data-toggle=tab data-lang=php>Invoke Usage</a></li><li class="nav-item "><a href=#tab-group-8-1_php role=tab data-toggle=tab data-lang=php>Setter Usage</a></li></ul><div class=tab-content><div id=tab-group-8-0_php class="tab-pane active" role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
-$this-&gt;headTitle('Music', 'SET');
-
-echo $this-&gt;headTitle(); // &lt;title&gt;Music&lt;/title&gt;</code></pre></div><div id=tab-group-8-1_php class="tab-pane " role=tabpanel><pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')
+<p>```php fct_label="Invoke Usage"
+$this-&gt;headTitle('My albums')
+$this-&gt;headTitle('Music', 'SET');</p>
+<p>echo $this-&gt;headTitle(); // <title>Music</title></p>
+<pre><code>
+```php fct_label=&quot;Setter Usage&quot;
+$this-&gt;headTitle('My albums')
 $this-&gt;headTitle()-&gt;set('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;Music&lt;/title&gt;</code></pre></div></div></div>
+echo $this-&gt;headTitle(); // &lt;title&gt;Music&lt;/title&gt;
+</code></pre>
 
 <p>The constant <code>Zend\View\Helper\Placeholder\Container\AbstractContainer::SET</code>
 can also be used as value for the second parameter <code>$setType</code>.</p>
 <h3>Set a default Order to add Content</h3>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle()-&gt;setDefaultAttachOrder('PREPEND');
+<pre><code class="language-php">$this-&gt;headTitle()-&gt;setDefaultAttachOrder('PREPEND');
 $this-&gt;headTitle('My albums');
 $this-&gt;headTitle('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;MusicMy albums&lt;/title&gt;</code></pre>
+echo $this-&gt;headTitle(); // &lt;title&gt;MusicMy albums&lt;/title&gt;
+</code></pre>
+
 <h4>Get Current Value</h4>
 <p>To get the current value of this option, use the <code>getDefaultAttachOrder()</code>
 method.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle()-&gt;setDefaultAttachOrder('PREPEND');
+<pre><code class="language-php">$this-&gt;headTitle()-&gt;setDefaultAttachOrder('PREPEND');
 
-echo $this-&gt;headTitle()-&gt;getDefaultAttachOrder(); // PREPEND</code></pre>
+echo $this-&gt;headTitle()-&gt;getDefaultAttachOrder(); // PREPEND
+</code></pre>
+
 <h4>Default Value</h4>
 <p>The default value is
 <code>Zend\View\Helper\Placeholder\Container\AbstractContainer::APPEND</code> which
 corresponds to the value <code>APPEND</code>.</p>
 <h2 id="using-separator">Using Separator</h2>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle()-&gt;setSeparator(' | ');
+<pre><code class="language-php">$this-&gt;headTitle()-&gt;setSeparator(' | ');
 $this-&gt;headTitle('My albums');
 $this-&gt;headTitle('Music');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;My albums | Music&lt;/title&gt;</code></pre>
+echo $this-&gt;headTitle(); // &lt;title&gt;My albums | Music&lt;/title&gt;
+</code></pre>
+
 <h3>Get Current Value</h3>
 <p>To get the current value of this option, use the <code>getSeparator()</code>
 method.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle()-&gt;setSeparator(' | ');
+<pre><code class="language-php">$this-&gt;headTitle()-&gt;setSeparator(' | ');
 
-echo $this-&gt;headTitle()-&gt;getSeparator(); //  |</code></pre>
+echo $this-&gt;headTitle()-&gt;getSeparator(); //  |
+</code></pre>
+
 <h3>Default Value</h3>
 <p>The default value is an empty <code>string</code> that means no extra content is added
 between the titles on rendering.</p>
 <h2 id="add-prefix-and-postfix">Add Prefix and Postfix</h2>
 <p>The content of the helper can be formatted with a prefix and a postfix.</p>
-<pre class=codehilite><code class=language-php>$this-&gt;headTitle('My albums')-&gt;setPrefix('Music: ')-&gt;setPostfix('𝄞');
+<pre><code class="language-php">$this-&gt;headTitle('My albums')-&gt;setPrefix('Music: ')-&gt;setPostfix('𝄞');
 
-echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;</code></pre>
+echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;
+</code></pre>
+
 <p>More descriptions and another example of usage can be found at the
 <a href="../placeholder/#aggregate-content"><code>Placeholder</code> helper</a>.</p>
 <h2 id="render-without-tags">Render without Tags</h2>
 <p>In case the title is needed without the <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code> tags the
 <code>renderTitle()</code> method can be used.</p>
-<pre class=codehilite><code class=language-php>echo $this-&gt;headTitle('My albums')-&gt;renderTitle(); // My albums</code></pre>
+<pre><code class="language-php">echo $this-&gt;headTitle('My albums')-&gt;renderTitle(); // My albums
+</code></pre>
 
 
 
@@ -896,7 +931,7 @@ echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;<
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -904,10 +939,10 @@ echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;<
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -915,27 +950,28 @@ echo $this-&gt;headTitle(); // &lt;title&gt;Music: My albums 𝄞&lt;/title&gt;<
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

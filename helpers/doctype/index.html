@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/doctype/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/doctype/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>Doctype - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -471,51 +471,67 @@ instance, <code>CDATA</code> escaping in <code>&lt;script&gt;</code> and <code>&
 <p>You may specify the doctype at any time. However, helpers that depend on the
 doctype for their output will recognize it only after you have set it, so the
 easiest approach is to specify it in your bootstrap:</p>
-<pre class=codehilite><code class=language-php>use Zend\View\Helper\Doctype;
+<pre><code class="language-php">use Zend\View\Helper\Doctype;
 
 $doctypeHelper = new Doctype();
-$doctypeHelper-&gt;doctype('XHTML1_STRICT');</code></pre>
+$doctypeHelper-&gt;doctype('XHTML1_STRICT');
+</code></pre>
+
 <p>And then print it out on top of your layout script:</p>
-<pre class=codehilite><code class=language-php>&lt;?php echo $this-&gt;doctype() ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?php echo $this-&gt;doctype() ?&gt;
+</code></pre>
+
 <p>Within an application based off the <a href="https://github.com/zendframework/ZendSkeletonApplication">skeleton application</a>,
 you can specify the doctype via configuration:</p>
-<pre class=codehilite><code class=language-php>// module/Application/config/module.config.php:
+<pre><code class="language-php">// module/Application/config/module.config.php:
 return [
     /* ... */
     'view_manager' =&gt; [
         'doctype' =&gt; 'html5',
         /* ... */
     ],
-];</code></pre>
+];
+</code></pre>
+
 <h2 id="retrieving-the-doctype">Retrieving the Doctype</h2>
 <p>If you need to know the doctype, you can do so by calling <code>getDoctype()</code> on the
 helper, which is returned by invoking the helper from the view.</p>
-<pre class=codehilite><code class=language-php>$doctype = $this-&gt;doctype()-&gt;getDoctype();</code></pre>
+<pre><code class="language-php">$doctype = $this-&gt;doctype()-&gt;getDoctype();
+</code></pre>
+
 <p>Typically, you'll want to know if the doctype is XHTML or not; for this, the
 <code>isXhtml()</code> method will suffice:</p>
-<pre class=codehilite><code class=language-php>if ($this-&gt;doctype()-&gt;isXhtml()) {
+<pre><code class="language-php">if ($this-&gt;doctype()-&gt;isXhtml()) {
     // do something differently
-}</code></pre>
+}
+</code></pre>
+
 <p>You can also check if the doctype represents an HTML5 document.</p>
-<pre class=codehilite><code class=language-php>if ($this-&gt;doctype()-&gt;isHtml5()) {
+<pre><code class="language-php">if ($this-&gt;doctype()-&gt;isHtml5()) {
     // do something differently
-}</code></pre>
+}
+</code></pre>
+
 <h2 id="choosing-a-doctype-to-use-with-the-open-graph-protocol">Choosing a Doctype to Use with the Open Graph Protocol</h2>
 <p>To implement the <a href="http://opengraphprotocol.org/">Open Graph Protocol</a>, you may
 specify the <code>XHTML1_RDFA</code> doctype. This doctype allows a developer to use the
 <a href="http://www.w3.org/TR/xhtml-rdfa-primer/">Resource Description Framework</a> within
 an XHTML document.</p>
-<pre class=codehilite><code class=language-php>use Zend\View\Helper\Doctype;
+<pre><code class="language-php">use Zend\View\Helper\Doctype;
 
 $doctypeHelper = new Doctype();
-$doctypeHelper-&gt;doctype('XHTML1_RDFA');</code></pre>
+$doctypeHelper-&gt;doctype('XHTML1_RDFA');
+</code></pre>
+
 <p>The RDFa doctype allows XHTML to validate when the 'property' meta tag attribute
 is used per the Open Graph Protocol spec. Example within a view script:</p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;doctype('XHTML1_RDFA'); ?&gt;
+<pre><code class="language-php">&lt;?= $this-&gt;doctype('XHTML1_RDFA'); ?&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
       xmlns:og=&quot;http://opengraphprotocol.org/schema/&quot;&gt;
 &lt;head&gt;
-   &lt;meta property=&quot;og:type&quot; content=&quot;musician&quot; /&gt;</code></pre>
+   &lt;meta property=&quot;og:type&quot; content=&quot;musician&quot; /&gt;
+</code></pre>
+
 <p>In the previous example, we set the property to <code>og:type</code>. The <code>og</code> references
 the Open Graph namespace we specified in the html tag. The content identifies
 the page as being about a musician. See the <a href="http://opengraphprotocol.org/">Open Graph Protocol
@@ -523,13 +539,15 @@ documentation</a> for supported properties. The
 <a href="../head-meta/">HeadMeta helper</a> may be used to programmatically set these Open
 Graph Protocol meta tags.</p>
 <p>Here is how you check if the doctype is set to <code>XHTML1_RDFA</code>:</p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;doctype() ?&gt;
+<pre><code class="language-php">&lt;?= $this-&gt;doctype() ?&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
     &lt;?php if ($view-&gt;doctype()-&gt;isRdfa()): ?&gt;
       xmlns:og=&quot;http://opengraphprotocol.org/schema/&quot;
       xmlns:fb=&quot;http://www.facebook.com/2008/fbml&quot;
     &lt;?php endif; ?&gt;
-&gt;</code></pre>
+&gt;
+</code></pre>
+
 <h2 id="zend-mvc-view-manager">Zend MVC View Manager</h2>
 <p>If you're running a ZendMvc application, you should specify doctype via the
 <a href="https://docs.zendframework.com/zend-mvc/services/#viewmanager">ViewManager</a> service.</p>
@@ -864,7 +882,7 @@ Graph Protocol meta tags.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -872,10 +890,10 @@ Graph Protocol meta tags.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -883,27 +901,28 @@ Graph Protocol meta tags.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

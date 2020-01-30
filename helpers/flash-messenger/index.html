@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/flash-messenger/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/flash-messenger/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>FlashMessenger - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -453,61 +453,75 @@
 <h2 id="basic-usage">Basic Usage</h2>
 <p>When only using the default <code>namespace</code> for the <code>FlashMessenger</code>, you can do the
 following:</p>
-<pre class=codehilite><code class=language-php>// Usable in any of your .phtml files
-echo $this-&gt;flashMessenger()-&gt;render();</code></pre>
+<pre><code class="language-php">// Usable in any of your .phtml files
+echo $this-&gt;flashMessenger()-&gt;render();
+</code></pre>
+
 <p>The first argument of the <code>render()</code> function is the <code>namespace</code>. If no
 <code>namespace</code> is defined, the default
 <code>Zend\Mvc\Controller\Plugin\FlashMessenger::NAMESPACE_DEFAULT</code> will be used,
 which translates to <code>default</code>.</p>
-<pre class=codehilite><code class=language-php>// Usable in any of your .phtml files
+<pre><code class="language-php">// Usable in any of your .phtml files
 echo $this-&gt;flashMessenger()-&gt;render('error');
 
 // Alternatively use one of the pre-defined namespaces
 // (aka: use Zend\Mvc\Controller\Plugin\FlashMessenger;)
-echo $this-&gt;flashMessenger()-&gt;render(FlashMessenger::NAMESPACE_SUCCESS);</code></pre>
+echo $this-&gt;flashMessenger()-&gt;render(FlashMessenger::NAMESPACE_SUCCESS);
+</code></pre>
+
 <h2 id="css-layout">CSS Layout</h2>
 <p>The <code>FlashMessenger</code> default rendering adds a CSS class to the generated HTML,
 that matches the defined <code>namespace</code> that should be rendered. While it may work
 well for the default cases, every so often you may want to add specific CSS
 classes to the HTML output. This can be done while making use of the second
 parameter of the <code>render()</code> function.</p>
-<pre class=codehilite><code class=language-php>// Usable in any of your .phtml files
-echo $this-&gt;flashMessenger()-&gt;render('error', ['alert', 'alert-danger']);</code></pre>
+<pre><code class="language-php">// Usable in any of your .phtml files
+echo $this-&gt;flashMessenger()-&gt;render('error', ['alert', 'alert-danger']);
+</code></pre>
+
 <p>The output of this example, using the default HTML rendering settings, would
 look like this:</p>
-<pre class=codehilite><code class=language-html>&lt;ul class=&quot;alert alert-danger&quot;&gt;
+<pre><code class="language-html">&lt;ul class=&quot;alert alert-danger&quot;&gt;
     &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
     &lt;li&gt;You, the developer, are AWESOME!&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+&lt;/ul&gt;
+</code></pre>
+
 <h2 id="html-layout">HTML Layout</h2>
 <p>Aside from modifying the rendered CSS classes of the <code>FlashMessenger</code>, you are
 furthermore able to modify the generated HTML as a whole to create even more
 distinct visuals for your flash messages. The default output format is defined
 within the source code of the <code>FlashMessenger</code> view helper itself.</p>
-<pre class=codehilite><code class=language-php>// Zend/View/Helper/FlashMessenger.php#L41-L43
+<pre><code class="language-php">// Zend/View/Helper/FlashMessenger.php#L41-L43
 protected $messageCloseString     = '&lt;/li&gt;&lt;/ul&gt;';
 protected $messageOpenFormat      = '&lt;ul%s&gt;&lt;li&gt;';
-protected $messageSeparatorString = '&lt;/li&gt;&lt;li&gt;';</code></pre>
+protected $messageSeparatorString = '&lt;/li&gt;&lt;li&gt;';
+</code></pre>
+
 <p>These defaults exactly match what we're trying to do. The placeholder <code>%s</code> will
 be filled with the CSS classes output.</p>
 <p>To change this, all we need to do is call the respective setter methods of these
 variables and give them new strings; for example:</p>
-<pre class=codehilite><code class=language-php>// In any of your .phtml files:
+<pre><code class="language-php">// In any of your .phtml files:
 echo $this-&gt;flashMessenger()
     -&gt;setMessageOpenFormat('&lt;div%s&gt;&lt;p&gt;')
     -&gt;setMessageSeparatorString('&lt;/p&gt;&lt;p&gt;')
     -&gt;setMessageCloseString('&lt;/p&gt;&lt;/div&gt;')
-    -&gt;render('success');</code></pre>
+    -&gt;render('success');
+</code></pre>
+
 <p>The above code sample then would then generate the following output:</p>
-<pre class=codehilite><code class=language-html>&lt;div class=&quot;success&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;success&quot;&gt;
     &lt;p&gt;Some FlashMessenger Content&lt;/p&gt;
     &lt;p&gt;You, who's reading the docs, are AWESOME!&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+
 <h2 id="sample-modification-for-twitter-bootstrap-3">Sample Modification for Twitter Bootstrap 3</h2>
 <p>Taking all the above knowledge into account, we can create a nice, highly usable
 and user-friendly rendering strategy using the
 <a href="http://getbootstrap.com/">Bootstrap front-end framework</a> version 3 layouts:</p>
-<pre class=codehilite><code class=language-php>// In any of your .phtml files:
+<pre><code class="language-php">// In any of your .phtml files:
 $flash = $this-&gt;flashMessenger();
 $flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
     &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;
@@ -520,32 +534,37 @@ $flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
 echo $flash-&gt;render('error',   ['alert', 'alert-dismissible', 'alert-danger']);
 echo $flash-&gt;render('info',    ['alert', 'alert-dismissible', 'alert-info']);
 echo $flash-&gt;render('default', ['alert', 'alert-dismissible', 'alert-warning']);
-echo $flash-&gt;render('success', ['alert', 'alert-dismissible', 'alert-success']);</code></pre>
+echo $flash-&gt;render('success', ['alert', 'alert-dismissible', 'alert-success']);
+</code></pre>
+
 <p>The output of the above example would create dismissable <code>FlashMessages</code> with
 the following HTML markup. The example only covers one type of <code>FlashMessenger</code>
 output; if you would have several <code>FlashMessages</code> available in each of the
 rendered <code>namespaces</code>, then you would receive the same output multiple times
 only having different CSS classes applied.</p>
-<pre class=codehilite><code class=language-html>&lt;div class=&quot;alert alert-dismissable alert-success&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;alert alert-dismissable alert-success&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;×&lt;/button&gt;
     &lt;ul&gt;
         &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
         &lt;li&gt;You, who's reading the docs, are AWESOME!&lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+
 <h2 id="alternative-configuration-of-the-viewhelper-layout">Alternative Configuration of the ViewHelper Layout</h2>
 <p><code>Zend\View\Helper\Service\FlashMessengerFactory</code> checks the application
 configuration, making it possible to set up the <code>FlashMessenger</code> strings through
 your <code>module.config.php</code>, too. The next example will set up the output to be
 identical with the above Twitter Bootstrap 3 Example</p>
-<pre class=codehilite><code class=language-php>'view_helper_config' =&gt; [
+<pre><code class="language-php">'view_helper_config' =&gt; [
     'flashmessenger' =&gt; [
         'message_open_format'      =&gt; '&lt;div%s&gt;&lt;button type=&quot;button&quot; class=&quot;close&quot;
 data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;&lt;ul&gt;&lt;li&gt;',
         'message_close_string'     =&gt; '&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;',
         'message_separator_string' =&gt; '&lt;/li&gt;&lt;li&gt;',
     ],
-],</code></pre>
+],
+</code></pre>
 
 
 
@@ -877,7 +896,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -885,10 +904,10 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -896,27 +915,28 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

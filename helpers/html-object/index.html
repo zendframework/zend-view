@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/helpers/html-object/">
+    <link rel="canonical" href="https://docs.zendframework.com/helpers/html-object/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     <title>HtmlObject - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -450,13 +450,17 @@ effort.</p>
 documentation will only contain examples of two of these helpers.</p>
 <h2 id="flash-helper">Flash helper</h2>
 <p>Embedding Flash in your page using the helper only requires the resource URI.</p>
-<pre class=codehilite><code class=language-php>&lt;?= $this-&gt;htmlFlash('/path/to/flash.swf'); ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?= $this-&gt;htmlFlash('/path/to/flash.swf'); ?&gt;
+</code></pre>
+
 <p>This outputs the following HTML:</p>
-<pre class=codehilite><code class=language-html>&lt;object data=&quot;/path/to/flash.swf&quot;
+<pre><code class="language-html">&lt;object data=&quot;/path/to/flash.swf&quot;
         type=&quot;application/x-shockwave-flash&quot;
         classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;
         codebase=&quot;http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab&quot;&gt;
-&lt;/object&gt;</code></pre>
+&lt;/object&gt;
+</code></pre>
+
 <p>Additionally, you can specify attributes, parameters, and content that can be
 rendered along with the <code>&lt;object&gt;</code>. This will be demonstrated using the
 <code>htmlObject()</code> helper.</p>
@@ -470,7 +474,7 @@ object element. It only accepts an array with key-value pairs. <code>classid</co
 a key-value array and uses them to create <code>&lt;param&gt;</code> elements. You will see an
 example of this shortly. Lastly, there is the option of providing additional
 content to the object. The following example utilizes all arguments.</p>
-<pre class=codehilite><code class=language-php>echo $this-&gt;htmlObject(
+<pre><code class="language-php">echo $this-&gt;htmlObject(
     '/path/to/file.ext',
     'mime/type',
     [
@@ -482,14 +486,17 @@ content to the object. The following example utilizes all arguments.</p>
         'param2' =&gt; 'pval2',
     ],
     'some content'
-);</code></pre>
+);
+</code></pre>
+
 <p>This would output:</p>
-<pre class=codehilite><code class=language-html>&lt;object data=&quot;/path/to/file.ext&quot; type=&quot;mime/type&quot;
+<pre><code class="language-html">&lt;object data=&quot;/path/to/file.ext&quot; type=&quot;mime/type&quot;
     attr1=&quot;aval1&quot; attr2=&quot;aval2&quot;&gt;
     &lt;param name=&quot;param1&quot; value=&quot;pval1&quot; /&gt;
     &lt;param name=&quot;param2&quot; value=&quot;pval2&quot; /&gt;
     some content
-&lt;/object&gt;</code></pre>
+&lt;/object&gt;
+</code></pre>
 
 
 
@@ -821,7 +828,7 @@ content to the object. The following example utilizes all arguments.</p>
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -829,10 +836,10 @@ content to the object. The following example utilizes all arguments.</p>
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -840,27 +847,28 @@ content to the object. The following example utilizes all arguments.</p>
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '../..',
             siteName = 'zend-view';
     </script>
-    <script src="../../js/scripts-8d7ae56abf.js"></script>
-        <script src="../../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

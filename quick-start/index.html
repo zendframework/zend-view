@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flexible view layer supporting and providing multiple view layers, helpers, and more.">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-view/quick-start/">
+    <link rel="canonical" href="https://docs.zendframework.com/quick-start/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>Quick Start - zend-view - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-5cfabd53ee.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body id="page-top">
 
@@ -365,9 +365,9 @@
     <div class="laminas-announcement">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
-            </div>
+            <div class="col-xs-12"><strong>
+                This package has moved. Visit its replacement, <a href="https://docs.laminas.dev/laminas-view/">laminas/laminas-view.</a>
+            </strong></div>
         </div>
     </div>
 </div>
@@ -483,7 +483,7 @@ site-specific module, such as the "Application" module from the framework's
 <a href="https://github.com/zendframework/ZendSkeletonApplication">ZendSkeletonApplication</a>,
 or to one of your autoloaded configurations within the <code>config/autoload/</code>
 directory.</p>
-<pre class=codehilite><code class=language-php>return [
+<pre><code class="language-php">return [
     'view_manager' =&gt; [
         // The TemplateMapResolver allows you to directly map template names
         // to specific templates. The following map would provide locations
@@ -552,12 +552,14 @@ directory.</p>
        'display_not_found_reason' =&gt; true,
        'not_found_template'       =&gt; 'error/404',
     ],
-];</code></pre>
+];
+</code></pre>
+
 <h2 id="controllers-and-view-models">Controllers and View Models</h2>
 <p><code>Zend\View\View</code> consumes <code>ViewModel</code>s, passing them to the selected renderer.
 Where do you create these, though?</p>
 <p>The most explicit way is to create them in your controllers and return them.</p>
-<pre class=codehilite><code class=language-php>namespace Foo\Controller;
+<pre><code class="language-php">namespace Foo\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -572,7 +574,9 @@ class BazBatController extends AbstractActionController
         $view-&gt;setTemplate('foo/baz-bat/do-something-crazy');
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>This sets a "message" variable in the View Model, and sets the template name
 "foo/baz-bat/do-something-crazy". The View Model is then returned.</p>
 <p>In most cases, you'll likely have a template name based on the module namespace,
@@ -597,7 +601,7 @@ to lowercase, dash-separated words.</p>
 <code>foo/baz-bat/do-something-crazy</code>. As you can see, the words "Controller" and
 "Action" are omitted.</p>
 <p>In practice, that means our previous example could be re-written as follows:</p>
-<pre class=codehilite><code class=language-php>namespace Foo\Controller;
+<pre><code class="language-php">namespace Foo\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -609,7 +613,9 @@ class BazBatController extends AbstractActionController
             'message' =&gt; 'Hello world',
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The above method will likely work for the majority of use cases. When you need
 to specify a different template, explicitly create and return a View Model and
 specify the template manually, as in the first example.</p>
@@ -620,7 +626,7 @@ included within the main View you return.</p>
 <p>As an example, you may want the View from an action to be one primary section
 that includes both an "article" and a couple of sidebars; one of the sidebars
 may include content from multiple Views as well:</p>
-<pre class=codehilite><code class=language-php>namespace Content\Controller;
+<pre><code class="language-php">namespace Content\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -656,7 +662,9 @@ class ArticleController extends AbstractActionController
 
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The above will create and return a View Model specifying the template
 <code>content/article/view</code>. When the View is rendered, it will render three child
 Views, the <code>$articleView</code>, <code>$primarySidebarView</code>, and <code>$secondarySidebarView</code>;
@@ -669,40 +677,50 @@ additional View Model, <code>$sidebarBlockView</code>, which will be captured to
 with comments detailing where each nested view model is injected.</p>
 <p>Here are the templates, rendered based on a 12-column grid.</p>
 <p>The <code>content/article/view</code> template:</p>
-<pre class=codehilite><code class=language-php>&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
+<pre><code class="language-php">&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
 &lt;div class=&quot;row content&quot;&gt;
     &lt;?= $this-&gt;article ?&gt;
 
     &lt;?= $this-&gt;sidebar_primary ?&gt;
 
     &lt;?= $this-&gt;sidebar_secondary ?&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+
 <p>The <code>content/article</code> template:</p>
-<pre class=codehilite><code class=language-php>    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
+<pre><code class="language-php">    &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
          template --&gt;
     &lt;article class=&quot;span8&quot;&gt;
         &lt;?= $this-&gt;escapeHtml('article') ?&gt;
-    &lt;/article&gt;</code></pre>
+    &lt;/article&gt;
+</code></pre>
+
 <p>The <code>content/main-sidebar</code> template:</p>
-<pre class=codehilite><code class=language-php>    &lt;!-- This is from the $primarySidebarView View Model, and the
+<pre><code class="language-php">    &lt;!-- This is from the $primarySidebarView View Model, and the
          &quot;content/main-sidebar&quot; template --&gt;
     &lt;div class=&quot;span2 sidebar&quot;&gt;
         sidebar content...
-    &lt;/div&gt;</code></pre>
+    &lt;/div&gt;
+</code></pre>
+
 <p>The <code>content/secondary-sidebar</code> template:</p>
-<pre class=codehilite><code class=language-php>    &lt;!-- This is from the $secondarySidebarView View Model, and the
+<pre><code class="language-php">    &lt;!-- This is from the $secondarySidebarView View Model, and the
          &quot;content/secondary-sidebar&quot; template --&gt;
     &lt;div class=&quot;span2 sidebar pull-right&quot;&gt;
         &lt;?= $this-&gt;block ?&gt;
-    &lt;/div&gt;</code></pre>
+    &lt;/div&gt;
+</code></pre>
+
 <p>The <code>content/block</code> template:</p>
-<pre class=codehilite><code class=language-php>        &lt;!-- This is from the $sidebarBlockView View Model, and the
+<pre><code class="language-php">        &lt;!-- This is from the $sidebarBlockView View Model, and the
             &quot;content/block&quot; template --&gt;
         &lt;div class=&quot;block&quot;&gt;
             block content...
-        &lt;/div&gt;</code></pre>
+        &lt;/div&gt;
+</code></pre>
+
 <p>And here is the aggregate, generated content:</p>
-<pre class=codehilite><code class=language-html>&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
+<pre><code class="language-html">&lt;!-- This is from the $view View Model, and the &quot;content/article/view&quot; template --&gt;
 &lt;div class=&quot;row content&quot;&gt;
     &lt;!-- This is from the $articleView View Model, and the &quot;content/article&quot;
          template --&gt;
@@ -725,7 +743,9 @@ with comments detailing where each nested view model is injected.</p>
             block content...
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
+
 <p>You can achieve very complex markup using nested Views, while simultaneously
 keeping the details of rendering isolated from the Request/Response lifecycle of
 the controller.</p>
@@ -748,18 +768,20 @@ will take a View Model returned from a controller and inject it as a child of
 the root (layout) View Model. By default, View Models will capture to the
 "content" variable of the root View Model. This means you can do the following
 in your layout view script:</p>
-<pre class=codehilite><code class=language-php>&lt;html&gt;
+<pre><code class="language-php">&lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;&lt;?= $this-&gt;headTitle() ?&gt;&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;?= $this-&gt;content; ?&gt;
     &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
+
 <p>If you want to specify a different View variable for which to capture,
 explicitly create a view model in your controller, and set its "capture to"
 value:</p>
-<pre class=codehilite><code class=language-php>namespace Foo\Controller;
+<pre><code class="language-php">namespace Foo\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -777,7 +799,9 @@ class BazBatController extends AbstractActionController
 
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>There will be times you don't want to render a layout. For example, you might be
 answering an API call which expects JSON or an XML payload, or you might be
 answering an XHR request that expects a partial HTML payload. To do this,
@@ -785,7 +809,7 @@ explicitly create and return a view model from your controller, and mark it as
 "terminal", which will hint to the MVC listener that normally injects the
 returned View Model into the layout View Model, to instead replace the layout
 view model.</p>
-<pre class=codehilite><code class=language-php>namespace Foo\Controller;
+<pre><code class="language-php">namespace Foo\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -803,14 +827,16 @@ class BazBatController extends AbstractActionController
 
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p><a href="#nesting-view-models">When discussing nesting View Models</a>, we detailed a
 nested View Model which contained an article and sidebars. Sometimes, you may
 want to provide additional View Models to the layout, instead of nesting in the
 returned layout. This may be done by using the <code>layout()</code> controller plugin,
 which returns the root View Model. You can then call the same <code>addChild()</code>
 method on it as we did in that previous example.</p>
-<pre class=codehilite><code class=language-php>namespace Content\Controller;
+<pre><code class="language-php">namespace Content\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -832,10 +858,12 @@ class ArticleController extends AbstractActionController
         $view-&gt;setTemplate('content/article');
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>You could also use this technique to select a different layout, by calling the
 <code>setTemplate()</code> method of the layout View Model:</p>
-<pre class=codehilite><code class=language-php>//In a controller
+<pre><code class="language-php">//In a controller
 namespace Content\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -856,14 +884,16 @@ class ArticleController extends AbstractActionController
         $view-&gt;setTemplate('content/article');
         return $view;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Sometimes, you may want to access the layout from within your actual view
 scripts when using the <code>PhpRenderer</code>. Reasons might include wanting to change
 the layout template, or wanting to either access or inject layout view variables.
 Similar to the <code>layout()</code> controller plugin, you can use the <code>layout()</code> View Helper.
 If you provide a string argument to it, you will change the template; if you
 provide no arguments, the root layout View Model is returned.</p>
-<pre class=codehilite><code class=language-php>//In a view script
+<pre><code class="language-php">//In a view script
 
 // Change the layout:
 $this-&gt;layout('alternate/layout'); // OR
@@ -880,14 +910,16 @@ if (isset($layout-&gt;disqusApiKey)) {
 }
 
 // Set a layout variable
-$this-&gt;layout()-&gt;footer = $this-&gt;render('article/footer');</code></pre>
+$this-&gt;layout()-&gt;footer = $this-&gt;render('article/footer');
+</code></pre>
+
 <p>Commonly, you may want to alter the layout based on the current <strong>module</strong>. This
 requires (a) detecting if the controller matched in routing belongs to this
 module, and then (b) changing the template of the View Model.</p>
 <p>The place to do these actions is in a listener. It should listen either to the
 <code>route</code> event at low (negative) priority, or on the <code>dispatch</code> event, at any
 priority. Typically, you will register this during the bootstrap event.</p>
-<pre class=codehilite><code class=language-php>namespace Content;
+<pre><code class="language-php">namespace Content;
 
 use Zend\Mvc\MvcEvent;
 
@@ -921,7 +953,9 @@ class Module
         $viewModel = $e-&gt;getViewModel();
         $viewModel-&gt;setTemplate('content/layout');
     }
-}</code></pre>
+}
+</code></pre>
+
 <h2 id="creating-and-registering-alternate-rendering-and-response-strategies">Creating and Registering Alternate Rendering and Response Strategies</h2>
 <p><code>Zend\View\View</code> does very little. Its workflow is essentially to martial a
 <code>ViewEvent</code>, and then trigger two events, <code>renderer</code> and <code>response</code>. You can
@@ -951,7 +985,7 @@ to register the other Strategies yourself if you want to use them. Additionally,
 it means that you will likely want to register these at higher priority to
 ensure they match before the <code>PhpRendererStrategy</code>. As an example, let's
 register the <code>JsonStrategy</code>:</p>
-<pre class=codehilite><code class=language-php>namespace Application;
+<pre><code class="language-php">namespace Application;
 
 use Zend\Mvc\MvcEvent;
 
@@ -983,12 +1017,14 @@ class Module
         // Attach strategy, which is a listener aggregate, at high priority
         $jsonStrategy-&gt;attach($view-&gt;getEventManager(), 100);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The above will register the <code>JsonStrategy</code> with the "render" event, such that it
 executes prior to the <code>PhpRendererStrategy</code>, and thus ensure that a JSON payload
 is created when the controller returns a <code>JsonModel</code>.</p>
 <p>You could also use the module configuration to add the strategies:</p>
-<pre class=codehilite><code class=language-php>namespace Application;
+<pre><code class="language-php">namespace Application;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
@@ -1011,12 +1047,14 @@ class Module implements ConfigProviderInterface
             ],
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>What if you want this to happen only in specific modules, or specific
 controllers? One way is similar to the last example in the
 <a href="#dealing-with-layouts">previous section on layouts</a>, where we detailed changing
 the layout for a specific module:</p>
-<pre class=codehilite><code class=language-php>namespace Application;
+<pre><code class="language-php">namespace Application;
 
 use Zend\Mvc\MvcEvent;
 
@@ -1059,11 +1097,13 @@ class Module
         // Attach strategy, which is a listener aggregate, at high priority
         $view-&gt;getEventManager()-&gt;attach($jsonStrategy, 100);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>While the above examples detail using the <code>JsonStrategy</code>, the same could be done
 for the <code>FeedStrategy</code>.</p>
 <p>If you successfully registered the Strategy you need to use the appropriate <code>ViewModel</code>:</p>
-<pre class=codehilite><code class=language-php>namespace Application;
+<pre><code class="language-php">namespace Application;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -1104,7 +1144,9 @@ class MyController extends AbstractActionController
         $viewModel-&gt;setVariable('items', $items);
         return $viewModel;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Or you could switch the <code>ViewModel</code> dynamically based on the "Accept" HTTP Header with the
 <a href="https://docs.zendframework.com/zend-mvc/plugins/#acceptableviewmodelselector-plugin">Zend-Mvc-Plugin AcceptableViewModelSelector</a>.</p>
 
@@ -1438,7 +1480,7 @@ class MyController extends AbstractActionController
             
             <div class="col-md-9">
                 <h4 class="footer__headline">Copyright</h4>
-                <p>&copy; 2006-2019 by <a href="https://www.zend.com/">Zend</a>, a <a href="https://www.roguewave.com/">Rogue Wave Company</a>.</p>
+                <p>&copy; 2006-2020 by <a href="https://www.zend.com/">Zend</a> by <a href="https://www.perforce.com/">Perforce</a>.</p>
             </div>
 
             
@@ -1446,10 +1488,10 @@ class MyController extends AbstractActionController
                 <h4 class="footer__headline">Support</h4>
                 <ul class="support__list">
                     <li class="support__list-item">
-                        <a href="https://discourse.zendframework.com" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                     </li>
                     <li class="support__list-item">
-                        <a href="https://zendframework-slack.herokuapp.com" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        <a href="https://laminas.dev/chat/" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
                     </li>
                     <li class="support__list-item">
                         <a href="https://github.com/zendframework" class="support__link" title="Github"><i class="fa fa-github"></i></a>
@@ -1457,27 +1499,28 @@ class MyController extends AbstractActionController
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
-                    <li class="support__list-item">
-                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="support__list-item">
-                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
+<nav class="cookie-bar navbar navbar-fixed-bottom navbar-default hidden">
+    <div class="container">
+        <p class="navbar-text">
+            We use cookies to allow you to dismiss dialogs such as the Laminas
+            Project notification.
+        </p>
+        <button type="button" class="cookie-button btn btn-default navbar-btn">Allow Cookies</button>
+    </div>
+</nav>
+
     <script>
         var base_url = '..',
             siteName = 'zend-view';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
